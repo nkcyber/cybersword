@@ -55,6 +55,8 @@ To Do:
 - Figure out how to host CTFd and several challenges all on the same server
     - NGINX reverse proxy
     - CTFd as a git subrepo?
+- Clone structure of <https://github.com/adventofctf/2020/tree/main>
+    - Then, set up github integration to update deployed version to latest git repo
 - Create challenges:
     - [3d call to action](https://www.youtube.com/watch?v=x3m1PGEfG5c) - Barty needs your help!
     - Data commented out in webpage
