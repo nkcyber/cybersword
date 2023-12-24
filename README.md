@@ -2,6 +2,10 @@
 
 Join Barty the Cyber Knight as he tries to earn the mystical CyberSword through a series of fun online challenges! This competition is intended for students who are looking to have a hands-on experience with Python programming, hacking, and cybersecurity.
 
+## Getting Started
+
+To get started with this project, install the [CTFd CLI](https://github.com/CTFd/ctfcli) and run `ctf init` to initalze your project information.
+
 ## Important Dates
 
 We hope to use this project *at least* at the following events.
