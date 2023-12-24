@@ -28,6 +28,7 @@ To Do:
     - NGINX reverse proxy
     - CTFd as a git subrepo?
 - Create challenges:
+    - [3d call to action](https://www.youtube.com/watch?v=x3m1PGEfG5c) - Barty needs your help!
     - Data commented out in webpage
     - developer tools
     - using code submissions for flags
@@ -39,3 +40,15 @@ To Do:
         - `with` connections for networks
         - establish a network connection to a service with pwntools, send it input, and then do something fun with the result
         - takeaway: know that you can use python to automate connection processing
+- Story:
+    - We are writing an [excuse plot](https://tvtropes.org/pmwiki/pmwiki.php/Main/ExcusePlot)
+        - [So you want to write an excuse plot (advice)](https://tvtropes.org/pmwiki/pmwiki.php/SoYouWantTo/WriteAnExcusePlot)
+    - Where did barty come from?
+    - **Key point:** Because we did the "CyberShield" compeition in the past. We're doing the CyberSword competition now.
+        - What's the lore for the CyberSword
+            - It's a sign of cybersecurity proficiency.
+    - Why do we have to complete challenges to earn the cyber sword?
+    - Things that the story should have:
+        - I like the idea of a mideval knight not knowing anything about cybersecurity.
+            - Therefore, the user has to support him in his efforts.
+        - I like the idea of a mideval knight just wandering around northern kentucky.
