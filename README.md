@@ -37,6 +37,14 @@ Look through these for examples on how to configure challenges deployed with Doc
 - <https://github.com/les-amateurs/AmateursCTF-Public>
 - <https://github.com/ESAIP-CTF/public-esaip-ctf-2023>
 
+We can also use [the built in templates](https://docs.ctfd.io/docs/management/ctfcli/templates/).
+
+## Service Deployment
+
+Note that [automatic challenge deployment](https://docs.ctfd.io/tutorials/challenges/deploying-challenges/#automatic-challenge-deployment-service) is not available in the free version, which we're using.
+
+As such, we have to take a more involved approach to challenge service deployment.
+
 -------
 
 To Do:
