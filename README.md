@@ -21,6 +21,22 @@ Procter and Gamble Global Headquarters ([13 min drive](<https://maps.app.goo.gl/
 ## About
 This project uses the [CTFd CLI](https://github.com/CTFd/ctfcli) for challenge management.
 
+## Resources
+
+### Examples of other CTFs using CTFd CLI
+
+Look through these for examples on how to configure challenges deployed with Docker:
+
+- <https://github.com/BreizhCTF/breizhctf-2023>
+- <https://github.com/echoCTF/echoCTF.RED>
+- <https://github.com/DragonSecSI/DCTF-2022>
+- <https://github.com/HeroCTF/HeroCTF_v4?>
+- <https://github.com/issessions/ISSessionsCTF2022>
+- <https://github.com/adventofctf/2020>
+- <https://github.com/CTF-Inter-IUT/InterIUT-2020>
+- <https://github.com/les-amateurs/AmateursCTF-Public>
+- <https://github.com/ESAIP-CTF/public-esaip-ctf-2023>
+
 -------
 
 To Do:
@@ -52,3 +68,5 @@ To Do:
         - I like the idea of a mideval knight not knowing anything about cybersecurity.
             - Therefore, the user has to support him in his efforts.
         - I like the idea of a mideval knight just wandering around northern kentucky.
+
+
