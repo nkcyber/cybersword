@@ -1,0 +1,12 @@
+# this is the top-level docker-compose.yml that 
+# orchestrates the deployment of all services.
+version: "3.8"
+include:
+  - path:
+    - ./services/CTFd/docker-compose.yml
+    - ./services/docker-compose.override.yml
+services:
+  web-example:
+    build: ./services/example
+    ports:
+      - "8001:5000"

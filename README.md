@@ -63,6 +63,7 @@ As such, we have to take a more involved approach to challenge service deploymen
 To Do:
 - Figure out how to host CTFd and several challenges all on the same server
     - NGINX reverse proxy
+        - https://gcore.com/learning/reverse-proxy-with-docker-compose/
     - CTFd as a git subrepo?
 - Clone structure of <https://github.com/adventofctf/2020/tree/main>
     - Then, set up github integration to update deployed version to latest git repo
