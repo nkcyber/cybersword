@@ -3,8 +3,8 @@
 version: "3.8"
 include:
   - path:
-    - ./services/CTFd/docker-compose.yml
-    - ./services/docker-compose.override.yml
+    - ./services/CTFd/CTFd/docker-compose.yml
+    - ./services/CTFd/docker-compose.override.yml
 services:
   web-example:
     build: ./services/example
