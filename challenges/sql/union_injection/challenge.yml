@@ -1,22 +1,28 @@
 # This file represents the base specification of your challenge. It is used by
 # other tools to install and deploy your challenge.
 
-name: "SQL Injection 1"
+name: "SQL Injection 2"
 author: "Zack Sargent"
 category: SQL # should match the 'track' in challenges
 # TODO: make this in theme
 description: |
-  Your machine has been equiped with the office's powerful document viewer.
+    Let's continue using the document viewer.
 
-  You can view your documents by going to <a href="/document-viewer" target="_blank">`/document-viewer`</a>
+    Open the Document Viewer at: <a href="/document-viewer" target="_blank">`/document-viewer`</a>
 
-  You have been given the access code `General`.
+    When you run the query:
+    ```sql
+    SELECT * FROM documents WHERE securityCode = 'Whatever';
+    ```
+    you are using `*` to query all of the columns from the `documents` table.
 
-  See how the SQL Query changes based on the text you enter.
+    On the same database, there is a table called `notes` that has the same columns as documents.
 
-  There is a document called "Flag #1" with a security code that we don't know.
+    Can you craft a SQL injection that returns all of the rows from the `notes` table?
 
-  Can you craft a SQL injection so that the `WHERE` clause is always true, and all of the documents are returned?
+    There are at least two ways to attack this.
+
+    Good luck.
 
 value: 100
 type: standard
@@ -33,7 +39,7 @@ protocol: http
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - nkcyber{doctors_cant_give_sql_injections}
+    - nkcyber{no_server_is_safe}
 
 # Topics are used to help tell what techniques/information a challenge involves
 # They are generally only visible to admins
@@ -52,16 +58,8 @@ tags:
 # Can be removed if unused
 # Accepts dictionaries or strings
 hints:
-    - content: |
-          ```
-          Facts about SQL:
-          - `1` is always true
-          - `0` is always false
-          - `X AND Y` needs X and Y to be true
-          - `X OR Y` needs X or Y to be true
-          - `--` comments the rest of a line
-          ```
-      cost: 10
+  - content: Either `UNION SELECT` or `;` will be your friend.
+    cost: 2
 
 # Requirements are used to make a challenge require another challenge to be
 # solved before being available.
@@ -69,6 +67,7 @@ hints:
 # Accepts challenge names as strings or challenge IDs as integers
 requirements:
     - "Welcome"
+    - "SQL Injection 1"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.

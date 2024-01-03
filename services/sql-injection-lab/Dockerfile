@@ -19,8 +19,9 @@ FROM python:3.9-slim AS seed-data
 WORKDIR /script
 COPY ./services/sql-injection-lab/create_seed_data.py \
     ./services/sql-injection-lab/requirements.txt \
-    . 
+    .
 COPY ./challenges/sql/basic_injection/challenge.yml ./basic_injection.yml
+COPY ./challenges/sql/union_injection/challenge.yml ./union_injection.yml
 RUN pip install -r requirements.txt \
     && python3 create_seed_data.py
 

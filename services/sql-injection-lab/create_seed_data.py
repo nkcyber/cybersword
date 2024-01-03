@@ -11,7 +11,7 @@ def get_flag_from(filename: str) -> str:
 
 def get_seed_data() -> str:
 	flag_1 = get_flag_from("basic_injection.yml")
-	flag_2 = "TODO: union challenge"
+	flag_2 = get_flag_from("union_injection.yml")
 
 	return f'''DROP TABLE IF EXISTS notes;
 CREATE TABLE IF NOT EXISTS notes (
