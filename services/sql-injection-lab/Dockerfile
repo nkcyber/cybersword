@@ -10,15 +10,24 @@ RUN apk add --no-cache \
     # Required for Alpine
     musl-dev
 WORKDIR /app
-COPY sql-injection-lab /app
+COPY ./services/sql-injection-lab/sql-injection-lab .
 RUN go mod download
 RUN CGO_ENABLED=1 GOOS=linux go build -C /app -o /entrypoint
-COPY seed_data.sql /seed_data.sql
+
+# build the seed data to include the challenge's flags
+FROM python:3.9-slim AS seed-data
+WORKDIR /script
+COPY ./services/sql-injection-lab/create_seed_data.py \
+    ./services/sql-injection-lab/requirements.txt \
+    . 
+COPY ./challenges/sql/basic_injection/challenge.yml ./basic_injection.yml
+RUN pip install -r requirements.txt \
+    && python3 create_seed_data.py
 
 # Deploy as non-root user
 FROM golang:alpine3.19 AS release-stage
 WORKDIR /app
-COPY seed_data.sql .
+COPY --from=seed-data /script/seed_data.sql .
 COPY --from=build-stage /entrypoint .
 # create and set non-root USER
 RUN addgroup -g 1001 appuser && \

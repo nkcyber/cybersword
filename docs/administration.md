@@ -20,4 +20,28 @@ From there, `services` contains all of the services that the challenges depend o
 
 `challenges` simply contains the information that needs to be synced with CTFd.
 
+## Initalize Challenge in CTFd
 
+TODO: clean this up
+
+```
+$ docker compose up -d
+$ ctf init
+Please enter CTFd instance URL: http://localhost
+Please enter CTFd Admin Access Token: ctfd_TOKEN
+Do you want to continue with http://localhost and ctfd_TOKEN [Y/n]: y
+Already in a git repo. Skipping git init.
+The following paths are ignored by one of your .gitignore files:
+.ctf
+$ ctf challenge install challenges/sql/basic_injection
+```
+
+Note that changing a flag in a challenge generally warrants rebuilding the application, to ensure that the services register the new flag.
+
+To rebuild the application, do:
+
+```bash
+docker compose down
+docker compose build
+docker compose up -d
+```

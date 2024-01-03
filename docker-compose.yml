@@ -7,4 +7,7 @@ include:
     - ./services/CTFd/docker-compose.override.yml
 services:
   sql-injection-lab:
-    build: ./services/sql-injection-lab
+    build: 
+      context: . # build relative to current dir
+      dockerfile: ./services/sql-injection-lab/Dockerfile
+
