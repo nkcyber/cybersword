@@ -6,6 +6,8 @@ Join Barty the Cyber Knight as he tries to earn the mystical CyberSword through 
 
 To get started with this project, install the [CTFd CLI](https://github.com/CTFd/ctfcli) and run `ctf init` to initalze your project information.
 
+See [`administration.md`](./docs/administration.md) for more information.
+
 ## Important Dates
 
 We hope to use this project *at least* at the following events.
