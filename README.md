@@ -4,6 +4,13 @@ Join Barty the Cyber Knight as he tries to earn the mystical CyberSword through 
 
 ## Getting Started
 
+> [!IMPORTANT]
+> This repo uses [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+> Remember to clone with `--recursive`:
+> ```bash
+> git clone git@github.com:nkcyber/cybersword.git --recursive
+> ```
+
 To get started with this project, install the [CTFd CLI](https://github.com/CTFd/ctfcli) and run `ctf init` to initalze your project information.
 
 See [`administration.md`](./docs/administration.md) for more information.
