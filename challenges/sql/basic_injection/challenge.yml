@@ -1,0 +1,83 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+name: "SQL Injection 1"
+author: "Zack Sargent"
+category: SQL # should match the 'track' in challenges
+# TODO: make this in theme
+description: |
+  Your machine has been equiped with the office's powerful document viewer.
+
+  You can view your documents by either:
+  1. Clicking "Document Viewer" on the desktop
+  2. Opening a browser and going to <a href="/document-viewer" target="_blank">`/document-viewer`</a>
+
+  You have been given the access code `General`.
+
+  See how the SQL Query changes based on the text you enter.
+
+  There is a document called "Flag #1" with a security code that we don't know.
+
+  Can you craft a SQL injection so that the `WHERE` clause is always true, and all of the documents are returned?
+
+value: 100
+type: standard
+
+# Specify a protocol that should be used to connect to the running image
+# For example if the image is a website you can specify http or https
+# Otherwise you can specify tcp
+protocol: http
+
+# Optional settings
+
+# Flags specify answers that your challenge use. You should generally provide at least one.
+# Can be removed if unused
+# Accepts strings or dictionaries of CTFd API data
+flags:
+    # A static case sensitive flag
+    - nkcyber{doctors_cant_give_sql_injections}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are generally only visible to admins
+# Accepts strings
+topics:
+    - sql injection
+
+# Tags are used to provide additional public tagging to a challenge
+# Can be removed if unused
+# Accepts strings
+tags:
+    - sql injection
+
+# Hints are used to give players a way to buy or have suggestions. They are not
+# required but can be nice.
+# Can be removed if unused
+# Accepts dictionaries or strings
+hints:
+    - content: |
+          ```
+          Facts about SQL:
+          - `1` is always true
+          - `0` is always false
+          - `X AND Y` needs X and Y to be true
+          - `X OR Y` needs X or Y to be true
+          - `--` comments the rest of a line
+          ```
+      cost: 10
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+requirements:
+    - "Warmup"
+    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+state: visible
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"
