@@ -6,7 +6,5 @@ include:
     - ./services/CTFd/CTFd/docker-compose.yml
     - ./services/CTFd/docker-compose.override.yml
 services:
-  example:
-    build: ./services/example
-    ports:
-      - "8001:5000"
+  sql-injection-lab:
+    build: ./services/sql-injection-lab

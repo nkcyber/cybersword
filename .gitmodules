@@ -1,3 +1,6 @@
 [submodule "services/CTFd"]
 	path = services/CTFd/CTFd
 	url = https://github.com/CTFd/CTFd.git
+[submodule "services/sql-injection-lab/sql-injection-lab"]
+	path = services/sql-injection-lab/sql-injection-lab
+	url = git@github.com:nkcyber/sql-injection-lab.git
