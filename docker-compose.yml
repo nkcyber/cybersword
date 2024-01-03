@@ -6,7 +6,7 @@ include:
     - ./services/CTFd/CTFd/docker-compose.yml
     - ./services/CTFd/docker-compose.override.yml
 services:
-  web-example:
+  example:
     build: ./services/example
     ports:
       - "8001:5000"
