@@ -63,19 +63,24 @@
 <body>
     <div id="site-navigation" class="ui small inverted menu">
         <div id="site-header" class="header item">
-            <a href="/">
-                <img id="site-icon" src="./images/judge0_icon.png">
-                <h2>Judge0 IDE</h2>
-            </a>
+            <h2>Cyber IDE</h2>
         </div>
         <div class="left menu">
             <div class="ui dropdown item site-links on-hover">
                 File <i class="dropdown icon"></i>
                 <div class="menu">
-                    <a class="item" target="_blank" href="/"><i class="file code icon"></i> New File</a>
-                    <div class="item" onclick="downloadSource()"><i class="download icon"></i> Download</div>
-                    <div id="insert-template-btn" class="item"><i class="file code outline icon"></i> Insert template
-                        for current language</div>
+                    <a class="item" target="_blank" href="/">
+                        <i class="file code icon"></i>
+                        New File
+                    </a>
+                    <div class="item" onclick="downloadSource()">
+                        <i class="download icon"></i>
+                        Download
+                    </div>
+                    <div id="insert-template-btn" class="item">
+                        <i class="file code outline icon"></i>
+                        Reset
+                    </div>
                 </div>
             </div>
             <div class="item borderless">
@@ -108,12 +113,6 @@
                 Close (ESC)
             </div>
         </div>
-    </div>
-
-    <div id="site-footer">
-        <div id="editor-status-line"></div>
-        <span>© 2016-2023 <a href="https://judge0.com">Judge0</a>
-            <span id="status-line"></span>
     </div>
 </body>
 

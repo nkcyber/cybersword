@@ -458,7 +458,6 @@ $(document).ready(function () {
         });
 
         layout.on("initialised", function () {
-            $(".monaco-editor")[0].appendChild($("#editor-status-line")[0]);
             loadRandomLanguage();
             $("#site-navigation").css("border-bottom", "1px solid black");
             sourceEditor.focus();
