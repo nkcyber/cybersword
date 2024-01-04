@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="description" content="Free and open-source online code editor that allows you to write and execute code from a rich set of languages.">
-    <meta name="keywords" content="online editor, online code editor, online ide, online compiler, online interpreter, run code online, learn programming online,
+    <meta name="description"
+        content="Free and open-source online code editor that allows you to write and execute code from a rich set of languages.">
+    <meta name="keywords"
+        content="online editor, online code editor, online ide, online compiler, online interpreter, run code online, learn programming online,
             online debugger, programming in browser, online code runner, online code execution, debug online, debug C code online, debug C++ code online,
             programming online, snippet, snippets, code snippet, code snippets, pastebin, execute code, programming in browser, run c online, run C++ online,
             run java online, run python online, run ruby online, run c# online, run rust online, run pascal online, run basic online">
@@ -14,14 +16,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta property="og:title" content="Judge0 IDE - Free and open-source online code editor">
-    <meta property="og:description" content="Free and open-source online code editor that allows you to write and execute code from a rich set of languages.">
+    <meta property="og:description"
+        content="Free and open-source online code editor that allows you to write and execute code from a rich set of languages.">
     <meta property="og:image" content="https://raw.githubusercontent.com/judge0/ide/master/.github/wallpaper.png">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/goldenlayout.min.js" integrity="sha256-NhJAZDfGgv4PiB+GVlSrPdh3uc75XXYSM4su8hgTchI=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/css/goldenlayout-base.css" integrity="sha256-oIDR18yKFZtfjCJfDsJYpTBv1S9QmxYopeqw2dO96xM=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/css/goldenlayout-dark-theme.css" integrity="sha256-ygw8PvSDJJUGLf6Q9KIQsYR3mOmiQNlDaxMLDOx9xL0=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/goldenlayout.min.js"
+        integrity="sha256-NhJAZDfGgv4PiB+GVlSrPdh3uc75XXYSM4su8hgTchI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/css/goldenlayout-base.css"
+        integrity="sha256-oIDR18yKFZtfjCJfDsJYpTBv1S9QmxYopeqw2dO96xM=" crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/css/goldenlayout-dark-theme.css"
+        integrity="sha256-ygw8PvSDJJUGLf6Q9KIQsYR3mOmiQNlDaxMLDOx9xL0=" crossorigin="anonymous" />
 
     <script>
         var require = {
@@ -34,8 +42,10 @@
     <script src="./vendor/monaco-editor-0.44.0/min/vs/editor/editor.main.nls.js"></script>
     <script src="./vendor/monaco-editor-0.44.0/min/vs/editor/editor.main.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+        integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+        integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
 
@@ -70,71 +80,8 @@
             </div>
             <div class="item borderless">
                 <select id="select-language" class="ui dropdown">
-                    <option value="45" mode="UNKNOWN">Assembly (NASM 2.14.02)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="46" mode="shell">Bash (5.0.0)</option>
-                    <option value="47" mode="UNKNOWN">Basic (FBC 1.07.1)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="1011" mode="UNKNOWN">Bosque (latest)</option>  <!-- Unknown mode. Help needed. -->
-                    <option value="75" mode="c">C (Clang 7.0.1)</option>
-                    <option value="1013" mode="c">C (Clang 9.0.1)</option>
-                    <option value="1001" mode="c">C (Clang 10.0.1)</option>
-                    <option value="48" mode="c">C (GCC 7.4.0)</option>
-                    <option value="49" mode="c">C (GCC 8.3.0)</option>
-                    <option value="50" mode="c">C (GCC 9.2.0)</option>
-                    <option value="51" mode="csharp">C# (Mono 6.6.0.161)</option>
-                    <option value="1022" mode="csharp">C# (Mono 6.10.0.104)</option>
-                    <option value="1021" mode="csharp">C# (.NET Core SDK 3.1.302)</option>
-                    <option value="1023" mode="csharp">C# Test (.NET Core SDK 3.1.302, NUnit 3.12.0)</option>
-                    <option value="76" mode="cpp">C++ (Clang 7.0.1)</option>
-                    <option value="1014" mode="cpp">C++ (Clang 9.0.1)</option>
-                    <option value="1002" mode="cpp">C++ (Clang 10.0.1)</option>
-                    <option value="52" mode="cpp">C++ (GCC 7.4.0)</option>
-                    <option value="53" mode="cpp">C++ (GCC 8.3.0)</option>
-                    <option value="54" mode="cpp">C++ (GCC 9.2.0)</option>
-                    <option value="1015" mode="cpp">C++ Test (Clang 10.0.1, Google Test 1.8.1)</option>
-                    <option value="1012" mode="cpp">C++ Test (GCC 8.4.0, Google Test 1.8.1)</option>
-                    <option value="1003" mode="c">C3 (latest)</option> <!-- Replacement mode. Help needed. -->
-                    <option value="86" mode="clojure">Clojure (1.10.1)</option>
-                    <option value="77" mode="UNKNOWN">COBOL (GnuCOBOL 2.2)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="55" mode="UNKNOWN">Common Lisp (SBCL 2.0.0)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="56" mode="UNKNOWN">D (DMD 2.089.1)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="57" mode="UNKNOWN">Elixir (1.9.4)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="58" mode="UNKNOWN">Erlang (OTP 22.2)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="44" mode="plaintext">Executable</option>
-                    <option value="87" mode="fsharp">F# (.NET Core SDK 3.1.202)</option>
-                    <option value="1024" mode="fsharp">F# (.NET Core SDK 3.1.302)</option>
-                    <option value="59" mode="UNKNOWN">Fortran (GFortran 9.2.0)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="60" mode="go">Go (1.13.5)</option>
-                    <option value="88" mode="UNKNOWN">Groovy (3.0.3)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="61" mode="UNKNOWN">Haskell (GHC 8.8.1)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="62" mode="java">Java (OpenJDK 13.0.1)</option>
-                    <option value="1004" mode="java">Java (OpenJDK 14.0.1)</option>
-                    <option value="1005" mode="java">Java Test (OpenJDK 14.0.1, JUnit Platform Console Standalone 1.6.2)</option>
-                    <option value="63" mode="javascript">JavaScript (Node.js 12.14.0)</option>
-                    <option value="78" mode="kotlin">Kotlin (1.3.70)</option>
-                    <option value="64" mode="lua">Lua (5.3.5)</option>
-                    <option value="1006" mode="c">MPI (OpenRTE 3.1.3) with C (GCC 8.3.0)</option>
-                    <option value="1007" mode="cpp">MPI (OpenRTE 3.1.3) with C++ (GCC 8.3.0)</option>
-                    <option value="1008" mode="python">MPI (OpenRTE 3.1.3) with Python (3.7.3)</option>
-                    <option value="1009" mode="python">Nim (stable)</option> <!-- Replacement mode. Help needed. -->
-                    <option value="79" mode="objective-c">Objective-C (Clang 7.0.1)</option>
-                    <option value="65" mode="UNKNOWN">OCaml (4.09.0)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="66" mode="UNKNOWN">Octave (5.1.0)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="67" mode="pascal">Pascal (FPC 3.0.4)</option>
-                    <option value="85" mode="perl">Perl (5.28.1)</option>
-                    <option value="68" mode="php">PHP (7.4.1)</option>
-                    <option value="43" mode="plaintext">Plain Text</option>
-                    <option value="69" mode="UNKNOWN">Prolog (GNU Prolog 1.4.5)</option> <!-- Unknown mode. Help needed. -->
-                    <option value="70" mode="python">Python (2.7.17)</option>
                     <option value="71" mode="python">Python (3.8.1)</option>
-                    <option value="1010" mode="python">Python for ML (3.7.3)</option>
-                    <option value="80" mode="r">R (4.0.0)</option>
-                    <option value="72" mode="ruby">Ruby (2.7.0)</option>
-                    <option value="73" mode="rust">Rust (1.40.0)</option>
-                    <option value="81" mode="UNKNOWN">Scala (2.13.2)</option> <!-- Unknown mode. Help needed. -->
                     <option value="82" mode="sql">SQL (SQLite 3.27.2)</option>
-                    <option value="83" mode="swift">Swift (5.2.3)</option>
-                    <option value="74" mode="typescript">TypeScript (3.7.4)</option>
-                    <option value="84" mode="vb">Visual Basic.Net (vbnc 0.0.0.5943)</option> <!-- (vbnc 0.0.0.5943) -->
                 </select>
             </div>
             <div class="item fitted borderless wide screen only">
@@ -148,7 +95,8 @@
                 </div>
             </div>
             <div class="item no-left-padding borderless">
-                <button id="run-btn" class="ui primary labeled icon button"><i class="play icon"></i><span id="run-btn-label">Run (⌘ + ↵)</span></button>
+                <button id="run-btn" class="ui primary labeled icon button"><i class="play icon"></i><span
+                        id="run-btn-label">Run (⌘ + ↵)</span></button>
             </div>
             <div id="navigation-message" class="item borderless">
                 <span class="navigation-message-text"></span>
@@ -159,7 +107,8 @@
                 More
                 <i class="dropdown icon"></i>
                 <div class="menu">
-                    <a id="about" class="link item" target="_blank" href="https://judge0.com/ce"><i class="server icon"></i> Online Code Execution API</a>
+                    <a id="about" class="link item" target="_blank" href="https://judge0.com/ce"><i
+                            class="server icon"></i> Online Code Execution API</a>
                     <div class="divider"></div>
                     <a class="item" target="_blank" href="https://github.com/judge0/ide"><i class="github icon"></i>
                         View source
@@ -170,11 +119,10 @@
                     <a class="item" target="_blank" href="https://subscribe.judge0.com"><i class="envelope icon"></i>
                         Subscribe
                         to Judge0 newsletter</a>
-                    <a class="item" target="_blank" href="https://discord.gg/GRc3v6n"><i
-                            class="discord icon"></i> Join a Discord server</a>
+                    <a class="item" target="_blank" href="https://discord.gg/GRc3v6n"><i class="discord icon"></i> Join
+                        a Discord server</a>
                     <div class="divider"></div>
-                    <a class="item" target="_blank" href="mailto:contact@judge0.com"><i
-                            class="paper plane icon"></i>
+                    <a class="item" target="_blank" href="mailto:contact@judge0.com"><i class="paper plane icon"></i>
                         Contact the author</a>
                     <a class="item" target="_blank" href="https://hermanz.dosilovic.com"><i class="user icon"></i> About
                         the
@@ -219,7 +167,7 @@
     <div id="site-footer">
         <div id="editor-status-line"></div>
         <span>© 2016-2023 <a href="https://judge0.com">Judge0</a>
-        <span id="status-line"></span>
+            <span id="status-line"></span>
     </div>
 </body>
 
