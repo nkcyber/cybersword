@@ -50,3 +50,20 @@ everything is configured to run on http port 80 right now. (https needs to be ad
 
 you might need to allow port 80 on your firewall if things are not deploying correctly.
 
+## Troubleshooting
+
+If you get an error with judge0 that "chown: cannot access '/box': No such file or directory", you may need to follow this advice:
+    - <https://github.com/judge0/judge0/issues/325#issuecomment-1429381789>
+
+Note, it used to be:
+```
+GRUB_CMDLINE_LINUX="rhgb quiet"
+```
+
+And I changed it to
+```
+GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=0"
+```
+
+
+
