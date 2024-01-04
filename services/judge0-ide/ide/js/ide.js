@@ -4,7 +4,7 @@ const AUTH_HEADERS = API_KEY ? {
     "X-RapidAPI-Key": API_KEY
 } : {};
 
-const defaultUrl = window.location.hostname === "localhost" ? "http://localhost:2358" : `${window.location.origin}/judge0`;
+const defaultUrl = window.location.hostname === "localhost" ? "http://localhost:3000" : `${window.location.origin}/judge0`;
 var extraApiUrl = "";
 
 var apiUrl = defaultUrl;
@@ -196,7 +196,7 @@ function run() {
         stdin: stdinValue,
         compiler_options: "",
         command_line_arguments: "",
-        redirect_stderr_to_stdout: true
+        redirect_stderr_to_stdout: true,
     };
 
     var sendRequest = function (data) {
@@ -220,6 +220,7 @@ function run() {
         });
     }
 
+    // TODO: update this to new structure
     var fetchAdditionalFiles = false;
     if (parseInt(languageId) === 82) {
         if (sqliteAdditionalFiles === "") {
@@ -257,7 +258,8 @@ function fetchSubmission(submission_token, iteration) {
     }
 
     $.ajax({
-        url: apiUrl + "/submissions/" + submission_token + "?base64_encoded=true",
+        url: apiUrl + "/submissions/" + submission_token + "?base64_encoded=true&challenge_id=0",
+        // TODO parse challenge id from url fragment
         type: "GET",
         async: true,
         accept: "application/json",
