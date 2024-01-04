@@ -2,11 +2,18 @@ challenges:
   - challenge_id: 0
     language_id: 71 # Python, according to Judge0's id system
     prompt: |
-      # This is an example prompt
-      print('Hello World')
-    answer: "Hello World\n"
-    flag_path: "basic_injection.yml"
-    template: ""
+      # Welcome to the Cyber IDE!
+      # You are currently running Python 3.
+
+      # A journey of a thousand miles begins with a single step.
+
+      # Remove the '#' from the next line to run it,
+      # and start your coding adventure.
+      
+      # print('hello, world')
+    answer: "hello, world\n"
+    flag_path: "python/hello_world/challenge.yml"
+    # template: ""
     # template: |
     #   # this is an example template
     #   print("before user code")

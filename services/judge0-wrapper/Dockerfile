@@ -1,7 +1,6 @@
 FROM node:21.5.0-slim
 WORKDIR /app
-COPY ./services/judge0-wrapper .
-COPY ./challenges/sql/basic_injection/challenge.yml ./basic_injection.yml
+COPY ./services/judge0-wrapper ./challenges/python .
 RUN yarn install --frozen-lockfile && yarn global add pm2
 EXPOSE 8016
 # the judge0 server is called `server` in its docker-compose.yml

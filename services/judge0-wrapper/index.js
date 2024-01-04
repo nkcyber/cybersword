@@ -31,7 +31,7 @@ function getFlag(filepath) {
 /**
  * Reads the challenges from challenges.yml and parses their flags 
  * from the associated challenges in CTFd.
- * @returns {{challenge_id: Number, language_id: Number, prompt: String, answer: String, flag: String, template: String}[]}
+ * @returns {{challenge_id: Number, language_id: Number, prompt: String, answer: String, flag: String, template: String?}[]}
  */
 function getChallenges() {
     let challenges = yaml.load(fs.readFileSync('challenges.yml', 'utf8')).challenges;
@@ -96,7 +96,7 @@ function formatSourceCodeWithTemplate(req, res, next) {
         if (!challenge) {
             throw new Error(`Could not find challenge id '${id}'`);
         }
-        if (challenge.template.length) {
+        if (challenge.template?.length) {
             // if the challenge has a template, replace "USER_CODE" with the user's code
             const sourceCode = decode(req.body.source_code);
             req.body.source_code = encode(challenge.template.replace("USER_CODE", sourceCode));
@@ -139,7 +139,7 @@ app.get('/challenge_info/:id', cors(), (req, res) => {
 });
 
 // Proxy endpoint
-app.use('/submissions', express.json(), formatSourceCodeWithTemplate,
+app.use('/submissions', express.json({ limit: '50mb' }), formatSourceCodeWithTemplate,
     createProxyMiddleware({
         target: JUDGE0_URL,
         changeOrigin: false,
