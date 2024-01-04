@@ -170,7 +170,7 @@ app.use('/submissions', express.json({ limit: '50mb' }), formatSourceCodeWithTem
                     }
                     const challenge = CHALLENGES.find(challenge => challenge.challenge_id === id);
                     const userOutput = decode(response.stdout);
-                    if (userOutput === challenge.answer) {
+                    if (userOutput.trim() === challenge.answer.trim()) {
                         return challenge.flag;
                     }
                     return "";
