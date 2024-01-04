@@ -83,7 +83,11 @@ app.get('/challenge_info/:id', cors(), (req, res) => {
         res.status(404).send({ prompt: "", answer: "" });
         return;
     }
-    res.send({ prompt: challenge.prompt, answer: challenge.answer });
+    res.send({
+        prompt: challenge.prompt,
+        answer: challenge.answer,
+        language_id: challenge.language_id
+    });
 });
 
 // Proxy endpoint

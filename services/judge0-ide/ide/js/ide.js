@@ -333,6 +333,8 @@ function setChallengeInfo() {
         success: function (data, _textStatus, _jqXHR) {
             sourceEditor.setValue(data.prompt);
             answerEditor.setValue(data.answer.trim());
+            currentLanguageId = data.language_id;
+            $selectLanguage.dropdown("set selected", currentLanguageId);
         },
         error: handleRunError
     });
