@@ -14,7 +14,8 @@
 const yaml = require('js-yaml');
 const fs = require('fs');
 const express = require('express');
-const morgan = require("morgan");
+const morgan = require('morgan');
+const cors = require('cors');
 const { createProxyMiddleware, responseInterceptor } = require('http-proxy-middleware');
 
 /**
@@ -74,7 +75,7 @@ const JUDGE0_URL = "http://localhost:2358";
 app.use(morgan('dev'));
 
 // get prompts and expected outputs
-app.get('/challenge_info/:id', (req, res) => {
+app.get('/challenge_info/:id', cors(), (req, res) => {
     const id = parseInt(req.params.id);
     const challenge = CHALLENGES.find(challenge => challenge.challenge_id === id);
     if (!challenge) {

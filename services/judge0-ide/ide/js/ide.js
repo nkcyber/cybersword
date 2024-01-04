@@ -22,6 +22,7 @@ var layout;
 var sourceEditor;
 var stdinEditor;
 var stdoutEditor;
+var answerEditor;
 
 var isEditorDirty = false;
 var currentLanguageId;
@@ -75,6 +76,15 @@ var layoutConfig = {
                 componentName: "stdout",
                 id: "stdout",
                 title: "Output",
+                isClosable: false,
+                componentState: {
+                    readOnly: true
+                }
+            }, {
+                type: "component",
+                componentName: "answer",
+                id: "answer",
+                title: "Expected Output",
                 isClosable: false,
                 componentState: {
                     readOnly: true
@@ -283,21 +293,52 @@ function changeEditorLanguage() {
     apiUrl = resolveApiUrl($selectLanguage.val());
 }
 
+
+const noChallengePromptFound = "# It looks like you haven't selected a challenge yet.\n# Try clicking the link in the challenge description, and opening it in a new tab.";
+/**
+ * interacts with our custom Judge0 wrapper service,
+ * and sets the associated prompt for the challenge
+ * specified by the page fragment.
+ */
+function setChallengeInfo() {
+    let challengeId = URIHash.get('challenge');
+    if (!challengeId) {
+        sourceEditor.setValue(noChallengePromptFound)
+        return;
+    }
+    challengeId = parseInt(challengeId);
+    if (isNaN(challengeId)) {
+        sourceEditor.setValue(noChallengePromptFound)
+        return;
+    }
+
+    $.ajax({
+        url: apiUrl + `/challenge_info/${challengeId}`,
+        type: "GET",
+        async: true,
+        headers: AUTH_HEADERS,
+        success: function (data, _textStatus, _jqXHR) {
+            sourceEditor.setValue(data.prompt);
+            answerEditor.setValue(data.answer.trim());
+        },
+        error: handleRunError
+    });
+}
+
 function insertTemplate() {
     currentLanguageId = parseInt($selectLanguage.val());
-    sourceEditor.setValue(sources[currentLanguageId]);
+    setChallengeInfo();
     stdinEditor.setValue(inputs[currentLanguageId] || "");
     changeEditorLanguage();
 }
 
 // TODO: load language based on challenge fragment id
-function loadRandomLanguage() {
+function loadLanguage() {
     var values = [];
     for (var i = 0; i < $selectLanguage[0].options.length; ++i) {
         values.push($selectLanguage[0].options[i].value);
     }
-    // $selectLanguage.dropdown("set selected", values[Math.floor(Math.random() * $selectLanguage[0].length)]);
-    $selectLanguage.dropdown("set selected", values[19]);
+    $selectLanguage.dropdown("set selected", values[0]);
     apiUrl = resolveApiUrl($selectLanguage.val())
     insertTemplate();
 }
@@ -316,6 +357,7 @@ function editorsUpdateFontSize(fontSize) {
     sourceEditor.updateOptions({ fontSize: fontSize });
     stdinEditor.updateOptions({ fontSize: fontSize });
     stdoutEditor.updateOptions({ fontSize: fontSize });
+    answerEditor.updateOptions({ fontSize: fontSize });
 }
 
 function updateScreenElements() {
@@ -425,6 +467,19 @@ $(document).ready(function () {
             sourceEditor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter, run);
         });
 
+        layout.registerComponent("answer", function (container, state) {
+            answerEditor = monaco.editor.create(container.getElement()[0], {
+                automaticLayout: true,
+                theme: "vs-dark",
+                scrollBeyondLastLine: false,
+                readOnly: state.readOnly,
+                language: "plaintext",
+                minimap: {
+                    enabled: false
+                }
+            });
+        });
+
         layout.registerComponent("stdin", function (container, state) {
             stdinEditor = monaco.editor.create(container.getElement()[0], {
                 automaticLayout: true,
@@ -458,8 +513,9 @@ $(document).ready(function () {
             });
         });
 
+
         layout.on("initialised", function () {
-            loadRandomLanguage();
+            loadLanguage();
             $("#site-navigation").css("border-bottom", "1px solid black");
             sourceEditor.focus();
             editorsUpdateFontSize(fontSize);

@@ -16,3 +16,5 @@ We also add a `/challenge_info/{:id}` endpoint, which takes a challenge number a
 
 TODO: Deploy with pm2
 
+Run locally with `yarn start`
+
