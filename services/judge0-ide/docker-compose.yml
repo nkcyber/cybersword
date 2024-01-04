@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+    judge0-ide:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        ports:
+            - "8015:8015"

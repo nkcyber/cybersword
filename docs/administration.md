@@ -64,6 +64,10 @@ And I changed it to
 ```
 GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=0"
 ```
+and ran on Fedora:
+```
+sudo grub2-mkconfig -o "$(readlink -e /etc/grub2.conf)"
+```
 
 
 
