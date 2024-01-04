@@ -4,8 +4,7 @@ const AUTH_HEADERS = API_KEY ? {
     "X-RapidAPI-Key": API_KEY
 } : {};
 
-const development = true; // TODO: remember to change this to `false` when deploying
-const defaultUrl = development ? "http://localhost:2358" : `${window.location.origin}/judge0`;
+const defaultUrl = window.location.hostname === "localhost" ? "http://localhost:2358" : `${window.location.origin}/judge0`;
 var extraApiUrl = "";
 
 var apiUrl = defaultUrl;

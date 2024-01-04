@@ -12,6 +12,7 @@
             programming online, snippet, snippets, code snippet, code snippets, pastebin, execute code, programming in browser, run c online, run C++ online,
             run java online, run python online, run ruby online, run c# online, run rust online, run pascal online, run basic online">
     <meta name="author" content="Herman Zvonimir Došilović">
+    <meta name="author" content="Zack Sargent">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -34,13 +35,14 @@
     <script>
         var require = {
             paths: {
-                "vs": "./vendor/monaco-editor-0.44.0/min/vs"
+                "vs": "/ide/vendor/monaco-editor-0.44.0/min/vs"
             }
         };
     </script>
-    <script src="./vendor/monaco-editor-0.44.0/min/vs/loader.js"></script>
-    <script src="./vendor/monaco-editor-0.44.0/min/vs/editor/editor.main.nls.js"></script>
-    <script src="./vendor/monaco-editor-0.44.0/min/vs/editor/editor.main.js"></script>
+    <!-- EDITOR MUST BE MOUNTED AT /ide/index.html -->
+    <script src="/ide/vendor/monaco-editor-0.44.0/min/vs/loader.js"></script>
+    <script src="/ide/vendor/monaco-editor-0.44.0/min/vs/editor/editor.main.nls.js"></script>
+    <script src="/ide/vendor/monaco-editor-0.44.0/min/vs/editor/editor.main.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
         integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
@@ -49,11 +51,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
 
-    <script type="text/javascript" src="third_party/download.js"></script>
+    <script type="text/javascript" src="/ide/third_party/download.js"></script>
 
-    <script type="text/javascript" src="js/ide.js"></script>
+    <script type="text/javascript" src="/ide/js/ide.js"></script>
 
-    <link type="text/css" rel="stylesheet" href="css/ide.css">
+    <link type="text/css" rel="stylesheet" href="/ide/css/ide.css">
 
     <title>CyberSword IDE</title>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
