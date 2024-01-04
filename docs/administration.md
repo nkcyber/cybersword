@@ -7,6 +7,8 @@ TODO
 - `docker compose up -d`
 - run script to install selected challenges
 
+This project requires Docker Compose >= 2.21
+
 ## Project Structure
 
 Note that there are a lot of advanced features like running docker containers and code submissions that are locked behind a paywall for CTFd.
