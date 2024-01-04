@@ -28,7 +28,6 @@ var isEditorDirty = false;
 var currentLanguageId;
 
 var $selectLanguage;
-var $compilerOptions;
 var $insertTemplateBtn;
 var $runBtn;
 var $navigationMessage;
@@ -187,7 +186,6 @@ function run() {
     var sourceValue = encode(sourceEditor.getValue());
     var stdinValue = encode(stdinEditor.getValue());
     var languageId = resolveLanguageId($selectLanguage.val());
-    var compilerOptions = $compilerOptions.val();
 
     if (parseInt(languageId) === 44) {
         sourceValue = sourceEditor.getValue();
@@ -197,7 +195,7 @@ function run() {
         source_code: sourceValue,
         language_id: languageId,
         stdin: stdinValue,
-        compiler_options: compilerOptions,
+        compiler_options: "",
         command_line_arguments: "",
         redirect_stderr_to_stdout: true
     };
@@ -288,10 +286,10 @@ function insertTemplate() {
     currentLanguageId = parseInt($selectLanguage.val());
     sourceEditor.setValue(sources[currentLanguageId]);
     stdinEditor.setValue(inputs[currentLanguageId] || "");
-    $compilerOptions.val(compilerOptions[currentLanguageId] || "");
     changeEditorLanguage();
 }
 
+// TODO: load language based on challenge fragment id
 function loadRandomLanguage() {
     var values = [];
     for (var i = 0; i < $selectLanguage[0].options.length; ++i) {
@@ -334,8 +332,6 @@ $(window).resize(function () {
 $(document).ready(function () {
     updateScreenElements();
 
-    console.log("Hey, Judge0 IDE is open-sourced: https://github.com/judge0/ide. Have fun!");
-
     $selectLanguage = $("#select-language");
     $selectLanguage.change(function (_e) {
         if (!isEditorDirty) {
@@ -344,8 +340,6 @@ $(document).ready(function () {
             changeEditorLanguage();
         }
     });
-
-    $compilerOptions = $("#compiler-options");
 
     $insertTemplateBtn = $("#insert-template-btn");
     $insertTemplateBtn.click(function (_e) {
@@ -568,8 +562,3 @@ var inputs = {
     54: competitiveProgrammingInput
 }
 
-var competitiveProgrammingCompilerOptions = "-O3 --std=c++17 -Wall -Wextra -Wold-style-cast -Wuseless-cast -Wnull-dereference -Werror -Wfatal-errors -pedantic -pedantic-errors";
-
-var compilerOptions = {
-    54: competitiveProgrammingCompilerOptions
-}
