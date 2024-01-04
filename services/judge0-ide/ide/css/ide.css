@@ -130,6 +130,10 @@ body {
     color: #db2828;
 }
 
+#flag-modal .header {
+    color: green;
+}
+
 #run-btn {
     background-color: var(--judge0-theme);
 }

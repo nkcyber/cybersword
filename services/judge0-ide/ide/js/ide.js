@@ -15,7 +15,7 @@ const MAX_PROBE_REQUESTS = 50;
 
 var blinkStatusLine = ((localStorageGetItem("blink") || "true") === "true");
 
-var fontSize = 14;
+var fontSize = 17;
 
 var layout;
 
@@ -137,7 +137,20 @@ function handleRunError(jqXHR, textStatus, errorThrown) {
     $runBtn.removeClass("loading");
 }
 
+/**
+ * show a modal to the user with the flag
+ * @param {string} flag 
+ */
+function handleFlag(flag) {
+    $("#flag-modal #title").html("Congrats! You got the flag!");
+    $("#flag-modal .content").html(`<pre>${flag}</pre><p>You can close this tab after copying your flag.</p>`);
+    $("#flag-modal").modal("show");
+}
+
 function handleResult(data) {
+    if (data.flag !== "") {
+        handleFlag(data.flag);
+    }
     const tat = Math.round(performance.now() - timeStart);
     console.log(`It took ${tat}ms to get submission result.`);
 
@@ -443,6 +456,20 @@ $(document).ready(function () {
     $(".message .close").on("click", function () {
         $(this).closest(".message").transition("fade");
     });
+
+    // $("#copy-and-close").on("click", function () {
+    //     // TODO: Consider navigator browser API
+    //     // https://stackoverflow.com/a/30905277
+    //     function copyToClipboard(element) {
+    //         var $temp = $("<input>");
+    //         $("body").append($temp);
+    //         $temp.val($(element).text()).select();
+    //         document.execCommand("copy");
+    //         $temp.remove();
+    //     }
+    //     const flag = $("flag-content").text();
+    //     copyToClipboard(flag);
+    // });
 
     require(["vs/editor/editor.main"], function (_ignorable) {
         layout = new GoldenLayout(layoutConfig, $("#site-content"));
