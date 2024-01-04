@@ -39,6 +39,8 @@ var timeEnd;
 
 var messagesData;
 
+var challengeId;
+
 var layoutConfig = {
     settings: {
         showPopoutIcon: false,
@@ -225,7 +227,7 @@ function run() {
     var sendRequest = function (data) {
         timeStart = performance.now();
         $.ajax({
-            url: apiUrl + `/submissions?base64_encoded=true&wait=${wait}`,
+            url: apiUrl + `/submissions?base64_encoded=true&wait=${wait}&challenge_id=${challengeId}`,
             type: "POST",
             async: true,
             contentType: "application/json",
@@ -281,8 +283,7 @@ function fetchSubmission(submission_token, iteration) {
     }
 
     $.ajax({
-        url: apiUrl + "/submissions/" + submission_token + "?base64_encoded=true&challenge_id=0",
-        // TODO parse challenge id from url fragment
+        url: apiUrl + "/submissions/" + submission_token + "?base64_encoded=true&challenge_id=" + challengeId,
         type: "GET",
         async: true,
         accept: "application/json",
@@ -314,7 +315,7 @@ const noChallengePromptFound = "# It looks like you haven't selected a challenge
  * specified by the page fragment.
  */
 function setChallengeInfo() {
-    let challengeId = URIHash.get('challenge');
+    challengeId = URIHash.get('challenge');
     if (!challengeId) {
         sourceEditor.setValue(noChallengePromptFound)
         return;
