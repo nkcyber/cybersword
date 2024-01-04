@@ -16,7 +16,7 @@ const fs = require('fs');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
-const { createProxyMiddleware, responseInterceptor } = require('http-proxy-middleware');
+const { createProxyMiddleware, responseInterceptor, fixRequestBody } = require('http-proxy-middleware');
 
 /**
  * extracts a flag from a challenge.yml file
@@ -31,7 +31,7 @@ function getFlag(filepath) {
 /**
  * Reads the challenges from challenges.yml and parses their flags 
  * from the associated challenges in CTFd.
- * @returns {{challenge_id: Number, language_id: Number, prompt: String, answer: String, flag: String}[]}
+ * @returns {{challenge_id: Number, language_id: Number, prompt: String, answer: String, flag: String, template: String}[]}
  */
 function getChallenges() {
     let challenges = yaml.load(fs.readFileSync('challenges.yml', 'utf8')).challenges;
@@ -48,9 +48,9 @@ function getChallenges() {
 /**
  * This decode method is taken from the Judge0 IDE.
  * It matches the response from the Judge0 backend.
- * It is used to decode stdout.
+ * It is used to decode source code and stdout.
  * @param {string} bytes 
- * @returns string
+ * @returns {string}
  */
 function decode(bytes) {
     var escaped = escape(atob(bytes || ""));
@@ -60,6 +60,54 @@ function decode(bytes) {
         return unescape(escaped);
     }
 }
+
+/**
+ * This encode method is taken from the Judge0 IDE.
+ * It matches the response from the Judge0 backend.
+ * It is used to encode source code.
+ * @param {string} str 
+ * @returns {string}
+ */
+function encode(str) {
+    return btoa(unescape(encodeURIComponent(str || "")));
+}
+
+/**
+ * Intercepts a request and adds the user's code to the challenge's template, if the
+ * template exists. This means that user's can't just print('the answer') because
+ * they don't control they entire program.
+ * @param {Request<ParamsDictionary, any, any, qs.ParsedQs, Record<string, any>>} req 
+ * @param {Response<any, Record<string, any>, number>} res 
+ * @param {*NextFunction} next 
+ * @returns 
+ */
+function formatSourceCodeWithTemplate(req, res, next) {
+    // intercept body and format with template, if applicable
+    if (req.method !== "POST" || !req.body) {
+        next(); // only intercept POST requests with data
+        return;
+    }
+    try {
+        const id = parseInt(req.query.challenge_id);
+        if (isNaN(id)) {
+            throw new TypeError(`could not parse id '${req.query.challenge_id}'`);
+        }
+        const challenge = CHALLENGES.find(challenge => challenge.challenge_id === id);
+        if (!challenge) {
+            throw new Error(`Could not find challenge id '${id}'`);
+        }
+        if (challenge.template.length) {
+            // if the challenge has a template, replace "USER_CODE" with the user's code
+            const sourceCode = decode(req.body.source_code);
+            req.body.source_code = encode(challenge.template.replace("USER_CODE", sourceCode));
+        }
+        next();
+    } catch (error) {
+        console.error(error)
+        next();
+    }
+}
+
 
 const CHALLENGES = getChallenges();
 
@@ -91,54 +139,56 @@ app.get('/challenge_info/:id', cors(), (req, res) => {
 });
 
 // Proxy endpoint
-app.use('/submissions', createProxyMiddleware({
-    target: JUDGE0_URL,
-    changeOrigin: false,
-    selfHandleResponse: true, // res.end() will be called internally by responseInterceptor()
-    /**
-     * Intercept response and inject "flag" key into submissions, 
-     * so that the flag can be displayed in our custom IDE.
-     **/
-    onProxyRes: responseInterceptor(async (responseBuffer, proxyRes, req, res) => {
-        if (req.method !== "GET" || responseBuffer.length == 0) {
-            return responseBuffer; // only intercept GET requests with data
-        }
-
-        try {
-            // get the challenge_id
-            const id = parseInt(req.query.challenge_id);
-            if (isNaN(id)) {
-                throw new TypeError(`could not parse id '${req.query.challenge_id}'`);
+app.use('/submissions', express.json(), formatSourceCodeWithTemplate,
+    createProxyMiddleware({
+        target: JUDGE0_URL,
+        changeOrigin: false,
+        selfHandleResponse: true, // res.end() will be called internally by responseInterceptor()
+        onProxyReq: fixRequestBody, // fix express.json()
+        /**
+         * Intercept response and inject "flag" key into submissions, 
+         * so that the flag can be displayed in our custom IDE.
+         **/
+        onProxyRes: responseInterceptor(async (responseBuffer, proxyRes, req, res) => {
+            if (req.method !== "GET" || responseBuffer.length == 0) {
+                return responseBuffer; // only intercept GET requests with data
             }
-            // parse the response
-            let response = responseBuffer.toString("utf-8");
-            response = JSON.parse(response);
-            // figure out if the user should get the flag or not
-            const flag = (() => {
-                if (!response.stdout) {
+
+            try {
+                // get the challenge_id
+                const id = parseInt(req.query.challenge_id);
+                if (isNaN(id)) {
+                    throw new TypeError(`could not parse id '${req.query.challenge_id}'`);
+                }
+                // parse the response
+                let response = responseBuffer.toString("utf-8");
+                response = JSON.parse(response);
+                // figure out if the user should get the flag or not
+                const flag = (() => {
+                    if (!response.stdout) {
+                        return "";
+                    }
+                    const challenge = CHALLENGES.find(challenge => challenge.challenge_id === id);
+                    const userOutput = decode(response.stdout);
+                    if (userOutput === challenge.answer) {
+                        return challenge.flag;
+                    }
                     return "";
+                })();
+                // add the flag into the response
+                response = {
+                    flag: flag,
+                    ...response
                 }
-                const challenge = CHALLENGES.find(challenge => challenge.challenge_id === id);
-                const userOutput = decode(response.stdout);
-                if (userOutput === challenge.answer) {
-                    return challenge.flag;
-                }
-                return "";
-            })();
-            // add the flag into the response
-            response = {
-                flag: flag,
-                ...response
-            }
 
-            return JSON.stringify(response);
-        } catch (error) {
-            console.error(error)
-            res.status(500);
-            return "";
-        }
-    }),
-}));
+                return JSON.stringify(response);
+            } catch (error) {
+                console.error(error)
+                res.status(500);
+                return "";
+            }
+        }),
+    }));
 
 // Start the Proxy
 app.listen(PORT, HOST, () => {

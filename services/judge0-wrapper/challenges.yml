@@ -6,3 +6,10 @@ challenges:
       print('Hello World')
     answer: "Hello World\n"
     flag_path: "basic_injection.yml"
+    template: ""
+    # template: |
+    #   # this is an example template
+    #   print("before user code")
+    #   USER_CODE
+    #   print("after user code")
+
