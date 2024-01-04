@@ -1,0 +1,20 @@
+yarn run v1.22.21
+$ node index.js
+[HPM] Proxy created: /  -> http://localhost:2358
+Starting Proxy at http://localhost:3000
+{ response: '{"token":"6862a2fb-3b4e-420f-890c-753270e3aa2c"}' }
+[0mPOST /submissions?base64_encoded=true&wait=false [32m201[0m 45.301 ms - 48[0m
+{
+  response: '{"stdout":null,"time":null,"memory":null,"stderr":null,"token":"6862a2fb-3b4e-420f-890c-753270e3aa2c","compile_output":null,"message":null,"status":{"id":2,"description":"Processing"}}'
+}
+[0mGET /submissions/6862a2fb-3b4e-420f-890c-753270e3aa2c?base64_encoded=true [32m200[0m 9.731 ms - 184[0m
+{ response: '' }
+[0mGET /submissions/6862a2fb-3b4e-420f-890c-753270e3aa2c?base64_encoded=true [36m304[0m 4.963 ms - -[0m
+{ response: '' }
+[0mGET /submissions/6862a2fb-3b4e-420f-890c-753270e3aa2c?base64_encoded=true [36m304[0m 6.475 ms - -[0m
+{ response: '' }
+[0mGET /submissions/6862a2fb-3b4e-420f-890c-753270e3aa2c?base64_encoded=true [36m304[0m 5.062 ms - -[0m
+{
+  response: '{"stdout":"aGVsbG8gd29ybGQK\\n","time":"0.015","memory":3212,"stderr":null,"token":"6862a2fb-3b4e-420f-890c-753270e3aa2c","compile_output":null,"message":null,"status":{"id":3,"description":"Accepted"}}'
+}
+[0mGET /submissions/6862a2fb-3b4e-420f-890c-753270e3aa2c?base64_encoded=true [32m200[0m 9.373 ms - 201[0m

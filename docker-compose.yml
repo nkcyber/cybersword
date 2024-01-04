@@ -1,13 +1,17 @@
-# this is the top-level docker-compose.yml that 
+# this is the top-level docker-compose.yml that
 # orchestrates the deployment of all services.
 version: "3.8"
 include:
   - path:
     - ./services/CTFd/CTFd/docker-compose.yml
     - ./services/CTFd/docker-compose.override.yml
+  - path: ./services/judge0/docker-compose.yml
+    project_directory: ./services/judge0
+  - path: ./services/judge0-ide/docker-compose.yml
+    project_directory: ./services/judge0-ide
 services:
   sql-injection-lab:
-    build: 
+    build:
       context: . # build relative to current dir
       dockerfile: ./services/sql-injection-lab/Dockerfile
 

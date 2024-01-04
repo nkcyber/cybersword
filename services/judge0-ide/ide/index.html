@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="description"
+        content="Free and open-source online code editor that allows you to write and execute code from a rich set of languages.">
+    <meta name="keywords"
+        content="online editor, online code editor, online ide, online compiler, online interpreter, run code online, learn programming online,
+            online debugger, programming in browser, online code runner, online code execution, debug online, debug C code online, debug C++ code online,
+            programming online, snippet, snippets, code snippet, code snippets, pastebin, execute code, programming in browser, run c online, run C++ online,
+            run java online, run python online, run ruby online, run c# online, run rust online, run pascal online, run basic online">
+    <meta name="author" content="Herman Zvonimir Došilović">
+    <meta name="author" content="Zack Sargent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="NKCyber CyberSword">
+    <meta property="og:description"
+        content="Free and open-source online code editor that allows you to write and execute code from a rich set of languages.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/judge0/ide/master/.github/wallpaper.png">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/goldenlayout.min.js"
+        integrity="sha256-NhJAZDfGgv4PiB+GVlSrPdh3uc75XXYSM4su8hgTchI=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/css/goldenlayout-base.css"
+        integrity="sha256-oIDR18yKFZtfjCJfDsJYpTBv1S9QmxYopeqw2dO96xM=" crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/golden-layout/1.5.9/css/goldenlayout-dark-theme.css"
+        integrity="sha256-ygw8PvSDJJUGLf6Q9KIQsYR3mOmiQNlDaxMLDOx9xL0=" crossorigin="anonymous" />
+
+    <script>
+        var require = {
+            paths: {
+                "vs": "/ide/vendor/monaco-editor-0.44.0/min/vs"
+            }
+        };
+    </script>
+    <!-- EDITOR MUST BE MOUNTED AT /ide/index.html -->
+    <script src="/ide/vendor/monaco-editor-0.44.0/min/vs/loader.js"></script>
+    <script src="/ide/vendor/monaco-editor-0.44.0/min/vs/editor/editor.main.nls.js"></script>
+    <script src="/ide/vendor/monaco-editor-0.44.0/min/vs/editor/editor.main.js"></script>
+    <script src="/ide/third_party/URIHash.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+        integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+        integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+
+    <script type="text/javascript" src="/ide/third_party/download.js"></script>
+
+    <script type="text/javascript" src="/ide/js/ide.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="/ide/css/ide.css">
+
+    <title>CyberSword IDE</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="site-navigation" class="ui small inverted menu">
+        <div id="site-header" class="header item">
+            <h2>Cyber IDE</h2>
+        </div>
+        <div class="left menu">
+            <div class="ui dropdown item site-links on-hover">
+                File <i class="dropdown icon"></i>
+                <div class="menu">
+                    <a class="item" target="_blank" href="/">
+                        <i class="file code icon"></i>
+                        New File
+                    </a>
+                    <div class="item" onclick="downloadSource()">
+                        <i class="download icon"></i>
+                        Download
+                    </div>
+                    <div id="insert-template-btn" class="item">
+                        <i class="file code outline icon"></i>
+                        Reset
+                    </div>
+                </div>
+            </div>
+            <div class="item borderless">
+                <select id="select-language" class="ui dropdown">
+                    <option value="71" mode="python">Python (3.8.1)</option>
+                    <option value="82" mode="sql">SQL (SQLite 3.27.2)</option>
+                </select>
+            </div>
+            <div class="item no-left-padding borderless">
+                <button id="run-btn" class="ui primary labeled icon button"><i class="play icon"></i><span
+                        id="run-btn-label">Run (⌘ + ↵)</span></button>
+            </div>
+            <div id="navigation-message" class="item borderless">
+                <span class="navigation-message-text"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="site-content"></div>
+
+    <div id="flag-modal" class="ui modal">
+        <div class="header">
+            <i class="check icon"></i>
+            <span id="title"></span>
+        </div>
+        <div id="flag-content" class="scrolling content"></div>
+        <div class="actions">
+            <!-- <div id="copy-and-close" class="ui small labeled icon cancel button">
+                <i class="copy icon"></i>
+                Copy flag and close tab
+            </div> -->
+            <div class="ui small labeled icon cancel button">
+                <i class="remove icon"></i>
+                Close (ESC)
+            </div>
+        </div>
+    </div>
+
+    <div id="site-modal" class="ui modal">
+        <div class="header">
+            <i class="close icon"></i>
+            <span id="title"></span>
+        </div>
+        <div class="scrolling content"></div>
+        <div class="actions">
+            <div class="ui small labeled icon cancel button">
+                <i class="remove icon"></i>
+                Close (ESC)
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

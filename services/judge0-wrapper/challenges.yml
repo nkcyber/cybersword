@@ -1,0 +1,8 @@
+challenges:
+  - challenge_id: 0
+    language_id: 71 # Python, according to Judge0's id system
+    prompt: |
+      # This is an example prompt
+      print('Hello World')
+    answer: "Hello World\n"
+    flag_path: "basic_injection.yml"

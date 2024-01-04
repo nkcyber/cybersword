@@ -19,7 +19,7 @@ services:
     restart: always
     depends_on:
       - workers
-      - db
+      - judge0-db
       - redis
 
   workers:
@@ -31,10 +31,10 @@ services:
     <<: *default-logging
     restart: always
     depends_on:
-      - db
+      - judge0-db
       - redis
 
-  db:
+  judge0-db:
     image: postgres:13.0
     env_file: judge0.conf
     volumes:

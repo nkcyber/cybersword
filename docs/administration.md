@@ -48,7 +48,14 @@ docker compose up -d
 
 everything is configured to run on http port 80 right now. (https needs to be added later)
 
-you might need to allow port 80 on your firewall if things are not deploying correctly.
+You might need to allow port 80 on your firewall if things are not deploying correctly.
+
+```
+# stop firewall on Fedora 39
+sudo systemctl stop firewalld
+```
+
+
 
 ## Troubleshooting
 
@@ -63,6 +70,10 @@ GRUB_CMDLINE_LINUX="rhgb quiet"
 And I changed it to
 ```
 GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=0"
+```
+and ran on Fedora:
+```
+sudo grub2-mkconfig -o "$(readlink -e /etc/grub2.conf)"
 ```
 
 
