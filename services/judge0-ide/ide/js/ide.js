@@ -4,7 +4,7 @@ const AUTH_HEADERS = API_KEY ? {
     "X-RapidAPI-Key": API_KEY
 } : {};
 
-const defaultUrl = window.location.hostname === "localhost" ? "http://localhost:3000" : `${window.location.origin}/judge0`;
+const defaultUrl = window.location.hostname === "localhost" ? "http://localhost:8016" : `${window.location.origin}/judge0-wrapper`;
 var extraApiUrl = "";
 
 var apiUrl = defaultUrl;

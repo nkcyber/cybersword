@@ -14,4 +14,8 @@ services:
     build:
       context: . # build relative to current dir
       dockerfile: ./services/sql-injection-lab/Dockerfile
+  judge0-wrapper:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/judge0-wrapper/Dockerfile
 

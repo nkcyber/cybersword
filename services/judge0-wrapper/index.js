@@ -67,9 +67,9 @@ const CHALLENGES = getChallenges();
 const app = express();
 
 // Configuration
-const PORT = 3000;
-const HOST = "localhost";
-const JUDGE0_URL = "http://localhost:2358";
+const PORT = process.env.WRAPPER_PORT || 8016;
+const HOST = process.env.WRAPPER_HOST || "localhost";
+const JUDGE0_URL = process.env.JUDGE0_URL || "http://localhost:2358";
 
 // Logging
 app.use(morgan('dev'));
