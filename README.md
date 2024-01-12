@@ -19,6 +19,12 @@ See [`administration.md`](./docs/administration.md) for more information.
 
 We hope to use this project *at least* at the following events.
 
+### TSA
+**February 9th, 2024**
+
+Technology Student Association (TSA)
+Open to students enrolled in or who have completed technology and education courses, TSA’s membership includes more than 300,000 middle and high school students across the United States.
+
 ### TechOlympics
 **February 17-18th, 2024**
 
