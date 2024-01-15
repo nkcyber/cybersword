@@ -21,6 +21,11 @@ printf "\thttps://github.com/settings/tokens\n"
 echo ""
 git clone --recursive https://github.com/nkcyber/cybersword.git && cd "$(basename "$_" .git)"
 
+# Set up firewall
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw enable
+
 echo "Installing Docker"
 # taken from https://docs.docker.com/engine/install/ubuntu/
 

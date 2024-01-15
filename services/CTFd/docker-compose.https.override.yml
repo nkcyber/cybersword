@@ -4,8 +4,8 @@ services:
       # note that paths are relative to docker-compose.yml in the CTFd subdirectory
       - ../nginx.https.override.conf:/etc/nginx/nginx.conf
       - ../location-defaults.conf:/etc/nginx/location-defaults.conf
-      - /etc/letsencrypt/live/cybersword/fullchain.pem:/certificates/fullchain.pem:ro
-      - /etc/letsencrypt/live/cybersword/privkey.pem:/certificates/privkey.pem:ro
+      - /etc/letsencrypt/cybersword/fullchain.pem:/certificates/fullchain.pem:ro
+      - /etc/letsencrypt/cybersword/privkey.pem:/certificates/privkey.pem:ro
     ports:
       - 80:80
       - 443:443

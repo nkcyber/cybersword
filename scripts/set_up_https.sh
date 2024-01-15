@@ -25,5 +25,7 @@ then
     sudo ln -s /snap/bin/certbot /usr/bin/certbot
     sudo ufw allow http
     sudo ufw allow https
-    sudo certbot certonly --standalone -d ctfd.zack.fyi
+    sudo certbot certonly --standalone -d "$DOMAIN_NAME" --agree-tos
+    # create symlink for docker to read from regardless of domain name
+    sudo ln -s "/etc/letsencrypt/live/$DOMAIN_NAME" /etc/letsencrypt/cybersword
 fi
