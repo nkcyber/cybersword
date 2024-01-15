@@ -26,10 +26,31 @@ cd "/root/nkcyber/"
 sudo reboot
 ```
 
+## Administration
 
-TODO
-- Clone github repo
-- `docker compose up -d`
+> [!NOTE]  
+> Adding `-d` or `--detach` to any `docker compose up` command will make it run in the background, which may be useful when deploying on a server.
+
+### Run with http
+
+[`docker-compose.yml`](../docker-compose.yml) contains the configurations to deploy an http service, primarily used for development.
+
+```bash
+# in cybersword directory
+docker compose down && docker compose up --build
+```
+
+### Run with https
+
+[`docker-compose.https.yml`](../docker-compose.https.yml) contains the configurations to deploy an http**s** service, intended for production.
+
+Use [`set_up_https.sh`](../scripts/set_up_https.sh) to set up http certs on your server prior to using this command.
+
+```bash
+docker compose down && docker compose -f docker-compose.https.yml down && docker compose -f docker-compose.https.yml up --build 
+```
+
+TODO:
 - run script to install selected challenges
 
 
