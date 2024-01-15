@@ -11,6 +11,12 @@ Join Barty the Cyber Knight as he tries to earn the mystical CyberSword through 
 > git clone git@github.com:nkcyber/cybersword.git --recursive
 > ```
 
+To run the services and CTFd, run:
+
+```
+docker compose down && docker compose build && docker compose up
+```
+
 To get started with this project, install the [CTFd CLI](https://github.com/CTFd/ctfcli) and run `ctf init` to initalze your project information.
 
 See [`administration.md`](./docs/administration.md) for more information.

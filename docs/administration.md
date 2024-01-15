@@ -2,12 +2,57 @@
 
 ## Installing
 
-TODO
-- Clone github repo
-- `docker compose up -d`
+This project requires Docker Compose >= 2.21
+
+### Setup on Digital Ocean droplet
+
+To automatically clone the repo and set up Docker, copy [`set_up_cybersword.sh`](../scripts/set_up_cybersword.sh) to your droplet:
+
+```bash
+# NAVIGATE TO cybersword DIRECTORY
+YOUR_SERVER=""
+# create directory
+ssh root@$YOUR_SERVER "mkdir -p /root/nkcyber"
+# copy script to server
+scp ./scripts/set_up_cybersword.sh root@$YOUR_SERVER:/root/nkcyber
+# ssh into the server...
+ssh root@$YOUR_SERVER 
+```
+After ssh-ing into the server:
+```bash
+cd "/root/nkcyber/"
+# install project files & docker
+./set_up_cybersword.sh
+sudo reboot
+```
+
+## Administration
+
+> [!NOTE]  
+> Adding `-d` or `--detach` to any `docker compose up` command will make it run in the background, which may be useful when deploying on a server.
+
+### Run with http
+
+[`docker-compose.yml`](../docker-compose.yml) contains the configurations to deploy an http service, primarily used for development.
+
+```bash
+# in cybersword directory
+docker compose down && docker compose up --build
+```
+
+### Run with https
+
+[`docker-compose.https.yml`](../docker-compose.https.yml) contains the configurations to deploy an http**s** service, intended for production.
+
+Use [`set_up_https.sh`](../scripts/set_up_https.sh) to set up http certs on your server prior to using this command.
+
+```bash
+docker compose down && docker compose -f docker-compose.https.yml down && docker compose -f docker-compose.https.yml up --build 
+```
+
+TODO:
 - run script to install selected challenges
 
-This project requires Docker Compose >= 2.21
 
 ## Project Structure
 
