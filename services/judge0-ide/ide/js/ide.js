@@ -1,3 +1,5 @@
+import Shepherd from 'https://cdn.jsdelivr.net/npm/shepherd.js@11.2.0/dist/js/shepherd.esm.js';
+
 const API_KEY = ""; // Get yours for free at https://judge0.com/ce and https://judge0.com/extra-ce
 
 const AUTH_HEADERS = API_KEY ? {
@@ -343,6 +345,10 @@ function setChallengeInfo() {
         },
         error: handleRunError
     });
+
+    if (challengeId == 0) {
+        runTour();
+    }
 }
 
 function insertTemplate() {
@@ -558,6 +564,146 @@ $(document).ready(function () {
     });
 });
 
+function runTour() {
+    const tour = new Shepherd.Tour({
+        useModalOverlay: true,
+        defaultStepOptions: {
+            cancelIcon: {
+                enabled: true
+            },
+            scrollTo: { behavior: 'smooth', block: 'center' }
+        }
+    });
+
+    tour.addSteps([
+        {
+            title: "Welcome!",
+            text: "Welcome to the Cyber IDE! This is where you will write and submit coding challenges.",
+            buttons: [
+                {
+                    action() {
+                        return this.next();
+                    },
+                    text: 'Next'
+                }
+            ],
+        },
+        {
+            title: 'Writing your code',
+            text: 'This is where you will write your code.',
+            attachTo: {
+                element: '.lm_goldenlayout .lm_column .lm_stack:nth-child(1) .lm_tab',
+                on: 'bottom'
+            },
+            buttons: [
+                {
+                    action() {
+                        return this.back();
+                    },
+                    classes: 'shepherd-button-secondary',
+                    text: 'Back'
+                },
+                {
+                    action() {
+                        return this.next();
+                    },
+                    text: 'Next'
+                }
+            ],
+        },
+        {
+            title: 'Run your code',
+            text: 'When you click this button, your code will be submitted to the server. If it produces the correct output, you will get the flag for this challenge.',
+            attachTo: {
+                element: '#run-btn',
+                on: 'bottom'
+            },
+            buttons: [
+                {
+                    action() {
+                        return this.back();
+                    },
+                    classes: 'shepherd-button-secondary',
+                    text: 'Back'
+                },
+                {
+                    action() {
+                        return this.next();
+                    },
+                    text: 'Next'
+                }
+            ],
+        }, {
+            title: 'Code input',
+            text: 'This shows the input given to your code.',
+            attachTo: {
+                element: '.lm_goldenlayout .lm_column .lm_stack:nth-child(3) .lm_tab:nth-child(1)',
+                on: 'top'
+            },
+            buttons: [
+                {
+                    action() {
+                        return this.back();
+                    },
+                    classes: 'shepherd-button-secondary',
+                    text: 'Back'
+                },
+                {
+                    action() {
+                        return this.next();
+                    },
+                    text: 'Next'
+                }
+            ],
+        }, {
+            title: 'Code output',
+            text: 'This shows the output your program produces.',
+            attachTo: {
+                element: '.lm_goldenlayout .lm_column .lm_stack:nth-child(3) .lm_tab:nth-child(2)',
+                on: 'top'
+            },
+            buttons: [
+                {
+                    action() {
+                        return this.back();
+                    },
+                    classes: 'shepherd-button-secondary',
+                    text: 'Back'
+                },
+                {
+                    action() {
+                        return this.next();
+                    },
+                    text: 'Next'
+                }
+            ],
+        }, {
+            title: 'Expected output',
+            text: 'You want your program to produce this output.',
+            attachTo: {
+                element: '.lm_goldenlayout .lm_column .lm_stack:nth-child(3) .lm_tab:nth-child(3)',
+                on: 'top'
+            },
+            buttons: [
+                {
+                    action() {
+                        return this.back();
+                    },
+                    classes: 'shepherd-button-secondary',
+                    text: 'Back'
+                },
+                {
+                    action() {
+                        return this.next();
+                    },
+                    text: 'Next'
+                }
+            ],
+
+        }]);
+
+    tour.start();
+}
 
 var sqliteSource = "\
 -- On Judge0 IDE your SQL script is run on chinook database (https://www.sqlitetutorial.net/sqlite-sample-database).\n\

@@ -20,6 +20,9 @@ prompt: |
 
     # A journey of a thousand miles begins with a single step.
 
+    # This is a comment because it starts with '#'.
+    # Lines that don't start with '#' are code and will be executed.
+
     # Remove the '# ' from the last line to run it,
     # and start your coding adventure.
     
