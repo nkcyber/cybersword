@@ -13,6 +13,9 @@ else
     exit 1 # non-zero error code, to indicate error
 fi  
 
+echo "Ensuring server is down..."
+docker compose down
+
 echo "enter the domain name you want to set up https certs for:"
 read DOMAIN_NAME
 
