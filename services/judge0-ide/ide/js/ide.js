@@ -4,7 +4,10 @@ const AUTH_HEADERS = API_KEY ? {
     "X-RapidAPI-Key": API_KEY
 } : {};
 
-const defaultUrl = window.location.hostname === "localhost" ? "http://localhost:8016" : `${window.location.origin}/judge0-wrapper`;
+const defaultUrl = window.location.hostname === "localhost" ?
+    "http://localhost/judge0-wrapper" // assume the judge0 wrapper is running locally (with docker compose up)
+    : `${window.location.origin}/judge0-wrapper`;
+
 var extraApiUrl = "";
 
 var apiUrl = defaultUrl;
