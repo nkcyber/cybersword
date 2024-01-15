@@ -2,12 +2,32 @@
 
 ## Installing
 
+This project requires Docker Compose >= 2.21
+
+### Automatic setup on digital ocean droplet
+
+To automatically clone the repo and set up Docker, copy [`set_up_cybersword.sh`](../scripts/set_up_cybersword.sh) to your droplet:
+
+```bash
+YOUR_SERVER=""
+ssh root@$YOUR_SERVER "mkdir -p /root/nkcyber"
+scp ./scripts/set_up_cybersword.sh root@$YOUR_SERVER:/root/nkcyber
+# ssh into the server...
+ssh root@$YOUR_SERVER 
+```
+After ssh-ing into the server:
+```bash
+cd "/root/nkcyber/"
+./set_up_cybersword.sh
+sudo reboot
+```
+
+
 TODO
 - Clone github repo
 - `docker compose up -d`
 - run script to install selected challenges
 
-This project requires Docker Compose >= 2.21
 
 ## Project Structure
 
