@@ -4,13 +4,16 @@
 
 This project requires Docker Compose >= 2.21
 
-### Automatic setup on digital ocean droplet
+### Setup on Digital Ocean droplet
 
 To automatically clone the repo and set up Docker, copy [`set_up_cybersword.sh`](../scripts/set_up_cybersword.sh) to your droplet:
 
 ```bash
+# NAVIGATE TO cybersword DIRECTORY
 YOUR_SERVER=""
+# create directory
 ssh root@$YOUR_SERVER "mkdir -p /root/nkcyber"
+# copy script to server
 scp ./scripts/set_up_cybersword.sh root@$YOUR_SERVER:/root/nkcyber
 # ssh into the server...
 ssh root@$YOUR_SERVER 
@@ -18,6 +21,7 @@ ssh root@$YOUR_SERVER
 After ssh-ing into the server:
 ```bash
 cd "/root/nkcyber/"
+# install project files & docker
 ./set_up_cybersword.sh
 sudo reboot
 ```

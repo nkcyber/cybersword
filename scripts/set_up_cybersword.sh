@@ -18,9 +18,8 @@ fi
 git config --global credential.helper store # not great for security, great for convinence
 echo "If you need to use https authentication with git, create a personal access token:"
 printf "\thttps://github.com/settings/tokens\n"
-git clone https://github.com/nkcyber/advent-of-everything.git --recursive
-
-cd advent-of-everything
+echo ""
+git clone --recursive https://github.com/nkcyber/cybersword.git && cd "$(basename "$_" .git)"
 
 echo "Installing Docker"
 # taken from https://docs.docker.com/engine/install/ubuntu/
