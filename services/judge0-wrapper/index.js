@@ -17,6 +17,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const { createProxyMiddleware, responseInterceptor, fixRequestBody } = require('http-proxy-middleware');
+const AdmZip = require("adm-zip");
 
 /**
  * extracts a flag from a challenge.yml file
@@ -29,18 +30,56 @@ function getFlag(filepath) {
 }
 
 /**
+ * takes a filepath and returns the parameter to be added to 
+ * @param {string} filepath 
+ * @returns {string} base64 encoded zip file
+ */
+function getExtraFile(filepath) {
+    if (!filepath) {
+        return "";
+    }
+    const zip = new AdmZip();
+    zip.addLocalFile(filepath);
+    return zip.toBuffer().toString('base64');
+}
+
+
+/**
+ * Returns filepath contents, if filepath exists.
+ * @param {string} filepath 
+ * @returns {string} input or ""
+ */
+function getInput(filepath) {
+    if (!filepath) {
+        return "";
+    }
+    return fs.readFileSync(filepath).toString();
+}
+
+/**
  * Reads the challenges from challenges.yml and parses their flags 
  * from the associated challenges in CTFd.
- * @returns {{challenge_id: Number, language_id: Number, prompt: String, answer: String, flag: String, template: String?}[]}
+ * @returns {{
+ *  challenge_id: Number,
+ *  language_id: Number,
+ *  prompt: String, 
+ *  answer: String, 
+ *  flag: String, 
+ *  input: String, 
+ *  template: String?
+ * }[]}
  */
 function getChallenges() {
     let challenges = yaml.load(fs.readFileSync('challenges.yml', 'utf8')).challenges;
     return challenges.map(challenge => {
         const challengeWithFlag = {
             flag: getFlag(challenge.flag_path),
+            input: getInput(challenge.input_path),
+            extraFiles: getExtraFile(challenge.input_path),
             ...challenge
         };
         delete challengeWithFlag.flag_path;
+        delete challengeWithFlag.input_path;
         return challengeWithFlag;
     });
 }
@@ -81,7 +120,7 @@ function encode(str) {
  * @param {*NextFunction} next 
  * @returns 
  */
-function formatSourceCodeWithTemplate(req, res, next) {
+function addTemplateAndExtraFiles(req, res, next) {
     // intercept body and format with template, if applicable
     if (req.method !== "POST" || !req.body) {
         next(); // only intercept POST requests with data
@@ -96,10 +135,13 @@ function formatSourceCodeWithTemplate(req, res, next) {
         if (!challenge) {
             throw new Error(`Could not find challenge id '${id}'`);
         }
-        if (challenge.template?.length) {
+        if (challenge.template?.length > 0) {
             // if the challenge has a template, replace "USER_CODE" with the user's code
             const sourceCode = decode(req.body.source_code);
             req.body.source_code = encode(challenge.template.replace("USER_CODE", sourceCode));
+        }
+        if (challenge.extraFiles?.length > 0) {
+            req.body.additional_files = challenge.extraFiles;
         }
         next();
     } catch (error) {
@@ -128,18 +170,19 @@ app.get('/challenge_info/:id', cors(), (req, res) => {
     const challenge = CHALLENGES.find(challenge => challenge.challenge_id === id);
     if (!challenge) {
         console.error(`cannot find id '${id}'`)
-        res.status(404).send({ prompt: "", answer: "" });
+        res.status(404).send({ prompt: "", language_id: 0, input: "", answer: "" });
         return;
     }
     res.send({
         prompt: challenge.prompt,
         answer: challenge.answer,
-        language_id: challenge.language_id
+        language_id: challenge.language_id,
+        input: challenge.input
     });
 });
 
 // Proxy endpoint
-app.use('/submissions', express.json({ limit: '50mb' }), formatSourceCodeWithTemplate,
+app.use('/submissions', express.json({ limit: '50mb' }), addTemplateAndExtraFiles,
     createProxyMiddleware({
         target: JUDGE0_URL,
         changeOrigin: false,
