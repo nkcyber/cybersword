@@ -335,6 +335,7 @@ function setChallengeInfo() {
         async: true,
         headers: AUTH_HEADERS,
         success: function (data, _textStatus, _jqXHR) {
+            stdinEditor.setValue(data.input || "");
             sourceEditor.setValue(data.prompt);
             answerEditor.setValue(data.answer.trim());
             currentLanguageId = data.language_id;
@@ -347,7 +348,6 @@ function setChallengeInfo() {
 function insertTemplate() {
     currentLanguageId = parseInt($selectLanguage.val());
     setChallengeInfo();
-    stdinEditor.setValue(inputs[currentLanguageId] || "");
     changeEditorLanguage();
 }
 
