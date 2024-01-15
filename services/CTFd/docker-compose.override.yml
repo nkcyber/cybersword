@@ -4,5 +4,7 @@ services:
       # note that paths are relative to docker-compose.yml in the CTFd subdirectory
       - ../nginx.override.conf:/etc/nginx/nginx.conf
       - ../location-defaults.conf:/etc/nginx/location-defaults.conf
+      - ../locations.conf:/etc/nginx/locations.conf
+      - ../upstreams.conf:/etc/nginx/upstreams.conf
     ports:
       - 80:80
