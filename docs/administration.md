@@ -30,7 +30,7 @@ To automatically clone the repo and set up Docker, copy [`set_up_cybersword.sh`]
 
 ```bash
 # NAVIGATE TO cybersword DIRECTORY
-YOUR_SERVER=""
+YOUR_SERVER="" # put your server name here
 # create directory
 ssh root@$YOUR_SERVER "mkdir -p /root/nkcyber"
 # copy script to server
