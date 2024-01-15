@@ -30,6 +30,16 @@ function getFlag(filepath) {
 }
 
 /**
+ * extracts a prompt from a yaml file
+ * @param {string} filepath 
+ * @returns {string}
+ */
+function getPrompt(filepath) {
+    let config = yaml.load(fs.readFileSync(filepath, 'utf8'));
+    return config.prompt;
+}
+
+/**
  * takes a filepath and returns the parameter to be added to 
  * @param {string} filepath 
  * @returns {string} base64 encoded zip file
@@ -74,11 +84,13 @@ function getChallenges() {
     return challenges.map(challenge => {
         const challengeWithFlag = {
             flag: getFlag(challenge.flag_path),
+            prompt: getPrompt(challenge.prompt_path),
             input: getInput(challenge.input_path),
             extraFiles: getExtraFile(challenge.input_path),
             ...challenge
         };
         delete challengeWithFlag.flag_path;
+        delete challengeWithFlag.prompt_path;
         delete challengeWithFlag.input_path;
         return challengeWithFlag;
     });

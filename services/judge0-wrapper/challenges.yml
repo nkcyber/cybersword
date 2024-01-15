@@ -1,18 +1,9 @@
 challenges:
   - challenge_id: 0
     language_id: 71 # Python, according to Judge0's id system
-    prompt: |
-      # Welcome to the Cyber IDE!
-      # You are currently running Python 3.
-
-      # A journey of a thousand miles begins with a single step.
-
-      # Remove the '# ' from the last line to run it,
-      # and start your coding adventure.
-      
-      # print('hello, world')
     answer: "hello, world\n"
-    flag_path: "python/hello_world/challenge.yml"
+    flag_path: "challenges/python/hello_world/challenge.yml"
+    prompt_path: "challenges/python/hello_world/challenge.yml"
     # template: ""
     # template: |
     #   # this is an example template

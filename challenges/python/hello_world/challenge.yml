@@ -13,6 +13,17 @@ description: |
             Click Here!
         </h2>
     </a>
+# prompt is inserted into the editor
+prompt: |
+    # Welcome to the Cyber IDE!
+    # You are currently running Python 3.
+
+    # A journey of a thousand miles begins with a single step.
+
+    # Remove the '# ' from the last line to run it,
+    # and start your coding adventure.
+    
+    # print('hello, world')
 value: 10
 type: standard
 
