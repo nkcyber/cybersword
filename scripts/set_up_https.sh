@@ -19,8 +19,8 @@ docker compose down
 echo "enter the domain name you want to set up https certs for:"
 read DOMAIN_NAME
 
-read -p "set up https for '$DOMAIN_NAME'? (y/n)" -n 1 -r
-echo ""
+read -p "set up https for '$DOMAIN_NAME'? (y/n) " -n 1 -r
+echo "" # add newline after user input
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     sudo snap install core; sudo snap refresh core
@@ -28,7 +28,7 @@ then
     sudo ln -s /snap/bin/certbot /usr/bin/certbot
     sudo ufw allow http
     sudo ufw allow https
-    sudo certbot certonly --standalone -d "$DOMAIN_NAME" --agree-tos
+    sudo certbot certonly --standalone -d "$DOMAIN_NAME" --agree-tos  --no-eff-email
     # create symlink for docker to read from regardless of domain name
     sudo ln -s "/etc/letsencrypt/live/$DOMAIN_NAME" /etc/letsencrypt/cybersword
 fi
