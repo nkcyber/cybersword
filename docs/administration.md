@@ -2,8 +2,6 @@
 
 ## Installing
 
-This project requires Docker Compose >= 2.21
-
 ### Install Locally
 
 #### Clone Project
@@ -19,6 +17,8 @@ This project requires Docker Compose >= 2.21
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
+
+This project requires Docker Compose >= 2.21
 
 #### Install CTFd CLI
 
