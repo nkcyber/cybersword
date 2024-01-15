@@ -4,6 +4,26 @@
 
 This project requires Docker Compose >= 2.21
 
+### Install Locally
+
+#### Clone Project
+
+> This repo uses [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+>
+> Remember to clone with `--recursive`:
+> ```bash
+> git clone git@github.com:nkcyber/cybersword.git --recursive
+> ```
+
+#### Install Docker and Docker Compose
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+#### Install CTFd CLI
+
+- [Install CTFd CLI](https://github.com/CTFd/ctfcli?tab=readme-ov-file#installation-and-usage)
+
 ### Setup on Digital Ocean droplet
 
 To automatically clone the repo and set up Docker, copy [`set_up_cybersword.sh`](../scripts/set_up_cybersword.sh) to your droplet:
@@ -26,7 +46,7 @@ cd "/root/nkcyber/"
 sudo reboot
 ```
 
-## Administration
+## Administration / Running services
 
 > [!NOTE]  
 > Adding `-d` or `--detach` to any `docker compose up` command will make it run in the background, which may be useful when deploying on a server.
@@ -47,6 +67,7 @@ docker compose down && docker compose up --build
 Use [`set_up_https.sh`](../scripts/set_up_https.sh) to set up http certs on your server prior to using this command.
 
 ```bash
+# in cybersword directory
 docker compose down && docker compose -f docker-compose.https.yml down && docker compose -f docker-compose.https.yml up --build 
 ```
 
