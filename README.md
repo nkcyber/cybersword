@@ -94,3 +94,6 @@ To Do:
         - I like the idea of a mideval knight just wandering around northern kentucky.
 
 
+State clear goal in "bookends" for each subject:
+    - You don't have to know anything now
+    - When you're done, you'll either win or know what you don't know
