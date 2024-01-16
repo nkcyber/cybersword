@@ -32,7 +32,7 @@ prompt: |
 
     # We can use if statements to make decisions.
     # The first if statement is correct.
-    # The next two need to be fixed.
+    # The last two need to be fixed.
 
     # Can you fix the last two if statements, 
     # so they look like the first if statement?

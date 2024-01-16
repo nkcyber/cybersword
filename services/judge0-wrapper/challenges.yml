@@ -7,6 +7,7 @@ challenges:
     challenge_id: 0
     language_id: 71 # Python, according to Judge0's id system
     answer: "hello, world\n"
+
   - flag_path: "challenges/python/variables/challenge.yml"
     prompt_path: "challenges/python/variables/challenge.yml"
     template_path: "challenges/python/variables/challenge.yml"
@@ -19,6 +20,7 @@ challenges:
       c equals 2.23 and has type float
       d equals 'hello world' and has type str
       ===== MAGIC DEBUGGER OUTPUT =====
+
   - flag_path: "challenges/python/if_statements/challenge.yml"
     prompt_path: "challenges/python/if_statements/challenge.yml"
     challenge_id: 20
@@ -27,4 +29,17 @@ challenges:
       one is less than two
       three is less than four
       five is less than six
+
+  - flag_path: "challenges/python/for_loops/challenge.yml"
+    prompt_path: "challenges/python/for_loops/challenge.yml"
+    template_path: "challenges/python/for_loops/challenge.yml"
+    challenge_id: 30
+    language_id: 71 # Python, according to Judge0's id system
+    answer: |-
+      ===== MAGIC DEBUGGER OUTPUT =====
+      names equals ['Alice', 'Bob', 'Charlie'] and has type list
+      grades equals [90.5, 50, 100] and has type list
+      total_points equals 240.5 and has type float
+      combined_names equals 'AliceBobCharlie' and has type str
+      ===== MAGIC DEBUGGER OUTPUT =====
 

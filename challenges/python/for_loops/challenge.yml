@@ -2,7 +2,7 @@
 # other tools to install and deploy your challenge.
 
 # Required sections
-name: "Variables"
+name: "For Loops"
 author: "Zack Sargent"
 category: Python
 description: |
@@ -18,50 +18,41 @@ description: |
 
     | Computer Part | Function         | Language Feature                          |
     |---------------|------------------|-------------------------------------------|
-    | RAM           | Remembers things | Variables (⭐ You are here)               |
+    | RAM           | Remembers things | Variables                                 |
     | CPU           | Makes decisions  | If Statements, For Loops, Functions, etc. |
     <br>
-    <a href="/ide/#challenge=10" target="_blank">
+    <a href="/ide/#challenge=30" target="_blank">
         <h2>
             Click Here!
         </h2>
     </a>
+
 # prompt is inserted into the editor
 prompt: |
-    # We can control what our computer knows with variables.
+    # We can create variables for lists of items as well:
+    names = ['Alice', 'Bob', 'Charlie']
+    grades = [90.5, 50, 100]
 
-    # We use the equals sign ("=") to create a variable.
-
-    # Variables can have different "types".
-
-    # a has type 'int' (also known as an integer or number)
-    a = 1
-
-    # b has type 'float' (also known as a decimal number)
-    b = 1.23
-
-    # greeting and location have type 'str' (also known as a string of text)
-    greeting = 'hello '
-    location = 'world'
-
-    # Can you make a variable called 'c' that contains the value of a + b?
-
-    # Can you make a variable called 'd' that contains the value of greeting + location?
-
-
-    # 💡 Notice how the same operation (+) is treated
-    # differently on variables of different types.
+    total_points = 0
+    for grade in grades:
+        total_points = total_points + grade
+    
+    combined_names = ""
+    # Can you write a for loop to combine the names 
+    # in the same way we totalled the points?
+    
 # user code is inserted into template to replace USER_CODE
 template: |
     USER_CODE
     print("===== MAGIC DEBUGGER OUTPUT =====")
-    for variable_name in ('a', 'b', 'c', 'd'):
+    for variable_name in ('names', 'grades', 'total_points', 'combined_names'):
         try:
             i = eval(variable_name)
             print(f"{variable_name} equals {repr(i)} and has type {type(i).__name__}")
         except NameError:
             print(f"variable '{variable_name}' is not defined.")
     print("===== MAGIC DEBUGGER OUTPUT =====")
+
 value: 10
 type: standard
 
@@ -70,7 +61,7 @@ type: standard
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - cybersword{this_flag_may_vary}
+    - cybersword{lists_are_like_arrays}
 
 # Topics are used to help tell what techniques/information a challenge involves
 # They are generally only visible to admins
@@ -93,6 +84,8 @@ hints:
 requirements:
     - "Welcome"
     - "Hello, World!"
+    - "Variables"
+    - "If Statements"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.
