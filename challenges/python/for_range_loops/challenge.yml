@@ -2,11 +2,11 @@
 # other tools to install and deploy your challenge.
 
 # Required sections
-name: "Functions"
+name: "For Range Loops"
 author: "Zack Sargent"
 category: Python
 description: |
-    Can you use functions to reuse code?
+    Can you use for loops to iterate through ranges?
 
     <style>
     table, th, td {
@@ -21,7 +21,7 @@ description: |
     | RAM           | Remembers things | Variables                                 |
     | CPU           | Makes decisions  | If Statements, For Loops, Functions, etc. |
     <br>
-    <a href="/ide/#challenge=40" target="_blank">
+    <a href="/ide/#challenge=35" target="_blank">
         <h2>
             Click Here!
         </h2>
@@ -29,37 +29,14 @@ description: |
 
 # prompt is inserted into the editor
 prompt: |
-    # We can break programs into functions to make
-    # code easier to understand and reuse.
-
-    # allows us to combine anything
-    def combine(a, b):
-        return a + b
-
-    # allows us to add 2 to anything
-    def times_2(a):
-        # multiplies a by 2
-        ...
-
-# user code is inserted into template to replace USER_CODE
-template: |
-    USER_CODE
-    print("===== MAGIC DEBUGGER OUTPUT =====")
-    def test(str):
-        try:
-            res = eval(str)
-            print(f"{str} returns {repr(res)} with type {type(res).__name__}")
-        except NameError as err:
-            print(f"Error when testing {str}:")
-            print("\t", err)
-
-    test('combine("Alice", "Bob")')
-    test('combine(90.5, 50)')
-    test('times_2("Alice")')
-    test('times_2(90.5)')
-    print("===== MAGIC DEBUGGER OUTPUT =====")
-
-value: 15
+    # We can use for loops to repeat the same task several times.
+    
+    # currently, this loop prints "cat" 5 times.
+    # can you modify it to print the value of i?
+    for i in range(5):
+        print("cat")
+    
+value: 10
 type: standard
 
 # Flags specify answers that your challenge use. You should generally provide at least one.
@@ -67,7 +44,7 @@ type: standard
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - cybersword{functionally_impressive}
+    - cybersword{a_range_of_answers}
 
 # Topics are used to help tell what techniques/information a challenge involves
 # They are generally only visible to admins
@@ -91,7 +68,6 @@ requirements:
     - "Variables"
     - "If Statements"
     - "For Loops"
-    - "For Range Loops"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.

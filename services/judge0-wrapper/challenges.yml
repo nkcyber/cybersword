@@ -43,6 +43,17 @@ challenges:
       combined_names equals 'AliceBobCharlie' and has type str
       ===== MAGIC DEBUGGER OUTPUT =====
 
+  - flag_path: "challenges/python/for_range_loops/challenge.yml"
+    prompt_path: "challenges/python/for_range_loops/challenge.yml"
+    challenge_id: 35
+    language_id: 71 # Python, according to Judge0's id system
+    answer: |-
+        0
+        1
+        2
+        3
+        4
+
   - flag_path: "challenges/python/functions/challenge.yml"
     prompt_path: "challenges/python/functions/challenge.yml"
     template_path: "challenges/python/functions/challenge.yml"
@@ -55,3 +66,10 @@ challenges:
       times_2("Alice") returns 'AliceAlice' with type str
       times_2(90.5) returns 181.0 with type float
       ===== MAGIC DEBUGGER OUTPUT =====
+
+  - flag_path: "challenges/python/fizzbuzz/challenge.yml"
+    prompt_path: "challenges/python/fizzbuzz/challenge.yml"
+    template_path: "challenges/python/fizzbuzz/challenge.yml"
+    challenge_id: 50
+    language_id: 71 # Python, according to Judge0's id system
+    answer_path: "challenges/python/fizzbuzz/answer.yml"

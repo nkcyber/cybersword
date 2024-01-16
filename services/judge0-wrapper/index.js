@@ -40,6 +40,20 @@ function getPrompt(filepath) {
 }
 
 /**
+ * gets the answer from a path. if a challenge has a defined answer,
+ * any contents at the path will not matter.
+ * @param {string} filepath 
+ * @returns {string} answer or ""
+ */
+function getAnswer(filepath) {
+    if (!filepath) {
+        return "";
+    }
+    let config = yaml.load(fs.readFileSync(filepath, 'utf8'));
+    return config.answer;
+}
+
+/**
  * takes a filepath and returns the parameter to be added to 
  * @param {string} filepath 
  * @returns {string} base64 encoded zip file
@@ -104,12 +118,14 @@ function getChallenges() {
             input: getInput(challenge.input_path),
             extraFiles: getExtraFile(challenge.input_path),
             template: getTemplate(challenge.template_path),
+            answer: getAnswer(challenge.answer_path),
             ...challenge
         };
         delete challengeWithFlag.flag_path;
         delete challengeWithFlag.prompt_path;
         delete challengeWithFlag.input_path;
         delete challengeWithFlag.template_path;
+        delete challengeWithFlag.answer_path;
         return challengeWithFlag;
     });
 }

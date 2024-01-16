@@ -2,26 +2,13 @@
 # other tools to install and deploy your challenge.
 
 # Required sections
-name: "Functions"
+name: "FizzBuzz"
 author: "Zack Sargent"
 category: Python
 description: |
-    Can you use functions to reuse code?
+    Complete the classic challenge: "FizzBuzz"!
 
-    <style>
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-        padding: 3px;
-    }
-    </style>
-
-    | Computer Part | Function         | Language Feature                          |
-    |---------------|------------------|-------------------------------------------|
-    | RAM           | Remembers things | Variables                                 |
-    | CPU           | Makes decisions  | If Statements, For Loops, Functions, etc. |
-    <br>
-    <a href="/ide/#challenge=40" target="_blank">
+    <a href="/ide/#challenge=50" target="_blank">
         <h2>
             Click Here!
         </h2>
@@ -29,37 +16,36 @@ description: |
 
 # prompt is inserted into the editor
 prompt: |
-    # We can break programs into functions to make
-    # code easier to understand and reuse.
+    # Now, let's put together what you've learned about
+    # loops, if statements, and functions.
 
-    # allows us to combine anything
-    def combine(a, b):
-        return a + b
+    # Write a function, fizzbuzz, that prints the integers from 1 to 100 (inclusive).
+    # (note that `range` is exclusive)
 
-    # allows us to add 2 to anything
-    def times_2(a):
-        # multiplies a by 2
-        ...
+    # But:
+    # - for multiples of three, print Fizz instead of the number;
+    # - for multiples of five, print Buzz instead of the number;
+    # - for multiples of both three and five, print FizzBuzz instead of the number.
+
+    # Note:
+    # To determine if a is a multiple of b, use:
+    #     a % b == 0
+    #
+    # The "%" stands for "modulo".
+    #     https://en.wikipedia.org/wiki/Modular_arithmetic
+
+    # The fizzbuzz function will be called automatically.
+    def fizzbuzz(): 
+        ... # write your for loop and if statements here
 
 # user code is inserted into template to replace USER_CODE
 template: |
     USER_CODE
-    print("===== MAGIC DEBUGGER OUTPUT =====")
-    def test(str):
-        try:
-            res = eval(str)
-            print(f"{str} returns {repr(res)} with type {type(res).__name__}")
-        except NameError as err:
-            print(f"Error when testing {str}:")
-            print("\t", err)
+    print("===== FIZZBUZZ OUTPUT =====")
+    fizzbuzz()
+    print("===== FIZZBUZZ OUTPUT =====")
 
-    test('combine("Alice", "Bob")')
-    test('combine(90.5, 50)')
-    test('times_2("Alice")')
-    test('times_2(90.5)')
-    print("===== MAGIC DEBUGGER OUTPUT =====")
-
-value: 15
+value: 50
 type: standard
 
 # Flags specify answers that your challenge use. You should generally provide at least one.
@@ -67,7 +53,7 @@ type: standard
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - cybersword{functionally_impressive}
+    - cybersword{foo_bar_fizz_buzz}
 
 # Topics are used to help tell what techniques/information a challenge involves
 # They are generally only visible to admins
@@ -92,6 +78,7 @@ requirements:
     - "If Statements"
     - "For Loops"
     - "For Range Loops"
+    - "Functions"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.
