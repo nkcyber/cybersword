@@ -6,6 +6,7 @@
 
 #### Clone Project
 
+> [!IMPORTANT]
 > This repo uses [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 >
 > Remember to clone with `--recursive`:
