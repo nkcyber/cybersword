@@ -43,3 +43,15 @@ challenges:
       combined_names equals 'AliceBobCharlie' and has type str
       ===== MAGIC DEBUGGER OUTPUT =====
 
+  - flag_path: "challenges/python/functions/challenge.yml"
+    prompt_path: "challenges/python/functions/challenge.yml"
+    template_path: "challenges/python/functions/challenge.yml"
+    challenge_id: 40
+    language_id: 71 # Python, according to Judge0's id system
+    answer: |-
+      ===== MAGIC DEBUGGER OUTPUT =====
+      combine("Alice", "Bob") returns 'AliceBob' with type str
+      combine(90.5, 50) returns 140.5 with type float
+      times_2("Alice") returns 'AliceAlice' with type str
+      times_2(90.5) returns 181.0 with type float
+      ===== MAGIC DEBUGGER OUTPUT =====

@@ -2,11 +2,11 @@
 # other tools to install and deploy your challenge.
 
 # Required sections
-name: "For Loops"
+name: "Functions"
 author: "Zack Sargent"
 category: Python
 description: |
-    Can you use for loops to iterate through lists?
+    Can you use functions to reuse code?
 
     <style>
     table, th, td {
@@ -21,7 +21,7 @@ description: |
     | RAM           | Remembers things | Variables                                 |
     | CPU           | Makes decisions  | If Statements, For Loops, Functions, etc. |
     <br>
-    <a href="/ide/#challenge=30" target="_blank">
+    <a href="/ide/#challenge=40" target="_blank">
         <h2>
             Click Here!
         </h2>
@@ -29,31 +29,37 @@ description: |
 
 # prompt is inserted into the editor
 prompt: |
-    # We can create variables for lists of items as well:
-    names = ['Alice', 'Bob', 'Charlie']
-    grades = [90.5, 50, 100]
+    # We can break programs into functions to make
+    # code easier to understand and reuse.
 
-    total_points = 0
-    for grade in grades:
-        total_points = total_points + grade
-    
-    combined_names = ""
-    # Can you write a for loop to combine the names 
-    # in the same way we totalled the points?
-    
+    # allows us to combine anything
+    def combine(a, b):
+        return a + b
+
+    # allows us to add 2 to anything
+    def times_2(a):
+        # multiplies a by 2
+        ...
+
 # user code is inserted into template to replace USER_CODE
 template: |
     USER_CODE
     print("===== MAGIC DEBUGGER OUTPUT =====")
-    for variable_name in ('names', 'grades', 'total_points', 'combined_names'):
+    def test(str):
         try:
-            i = eval(variable_name)
-            print(f"{variable_name} equals {repr(i)} and has type {type(i).__name__}")
-        except NameError:
-            print(f"variable '{variable_name}' is not defined.")
+            res = eval(str)
+            print(f"{str} returns {repr(res)} with type {type(res).__name__}")
+        except NameError as err:
+            print(f"Error when testing {str}:")
+            print("\t", err)
+
+    test('combine("Alice", "Bob")')
+    test('combine(90.5, 50)')
+    test('times_2("Alice")')
+    test('times_2(90.5)')
     print("===== MAGIC DEBUGGER OUTPUT =====")
 
-value: 10
+value: 15
 type: standard
 
 # Flags specify answers that your challenge use. You should generally provide at least one.
@@ -61,7 +67,7 @@ type: standard
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - cybersword{lists_are_like_arrays}
+    - cybersword{functionally_impressive}
 
 # Topics are used to help tell what techniques/information a challenge involves
 # They are generally only visible to admins
@@ -84,6 +90,7 @@ requirements:
     - "Hello, World!"
     - "Variables"
     - "If Statements"
+    - "For Loops"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.
