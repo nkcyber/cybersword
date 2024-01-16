@@ -1,21 +1,30 @@
+# yes, there's duplication among the paths.
+# this is to enable decoupling challenge information
+# from the main yaml configuration, if so desired.
 challenges:
-  - challenge_id: 0
+  - flag_path: "challenges/python/hello_world/challenge.yml"
+    prompt_path: "challenges/python/hello_world/challenge.yml"
+    challenge_id: 0
     language_id: 71 # Python, according to Judge0's id system
     answer: "hello, world\n"
-    flag_path: "challenges/python/hello_world/challenge.yml"
-    prompt_path: "challenges/python/hello_world/challenge.yml"
-  - challenge_id: 10
+  - flag_path: "challenges/python/variables/challenge.yml"
+    prompt_path: "challenges/python/variables/challenge.yml"
+    template_path: "challenges/python/variables/challenge.yml"
+    challenge_id: 10
+    language_id: 71 # Python, according to Judge0's id system
+    answer: |-
+      ===== MAGIC DEBUGGER OUTPUT =====
+      a equals 1 and has type int
+      b equals 1.23 and has type float
+      c equals 2.23 and has type float
+      d equals 'hello world' and has type str
+      ===== MAGIC DEBUGGER OUTPUT =====
+  - flag_path: "challenges/python/if_statements/challenge.yml"
+    prompt_path: "challenges/python/if_statements/challenge.yml"
+    challenge_id: 20
     language_id: 71 # Python, according to Judge0's id system
     answer: |-
       one is less than two
       three is less than four
       five is less than six
-    flag_path: "challenges/python/if_statements/challenge.yml"
-    prompt_path: "challenges/python/if_statements/challenge.yml"
-    # template: ""
-    # template: |
-    #   # this is an example template
-    #   print("before user code")
-    #   USER_CODE
-    #   print("after user code")
 

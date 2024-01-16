@@ -2,11 +2,11 @@
 # other tools to install and deploy your challenge.
 
 # Required sections
-name: "If Statements"
+name: "Variables"
 author: "Zack Sargent"
 category: Python
 description: |
-    Indentation Matters!
+    Can you use variables to control what the computer remembers?
 
     <style>
     table, th, td {
@@ -18,36 +18,50 @@ description: |
 
     | Computer Part | Function         | Language Feature                          |
     |---------------|------------------|-------------------------------------------|
-    | RAM           | Remembers things | Variables                                 |
+    | RAM           | Remembers things | Variables (⭐ You are here)               |
     | CPU           | Makes decisions  | If Statements, For Loops, Functions, etc. |
     <br>
-    <a href="/ide/#challenge=20" target="_blank">
+    <a href="/ide/#challenge=10" target="_blank">
         <h2>
             Click Here!
         </h2>
     </a>
 # prompt is inserted into the editor
 prompt: |
-    # In Python, whitespace matters.
+    # We can control what our computer knows with variables.
 
-    # We can use if statements to make decisions.
-    # The first if statement is correct.
-    # The next two need to be fixed.
+    # We use the equals sign ("=") to create a variable.
 
-    # Can you fix the last two if statements, 
-    # so they look like the first if statement?
+    # Variables can have different "types".
 
-    # This correctly prints "one is less than two"
-    if 1 < 2:
-        print("one is less than two")
-    
-    # This if statement isn't indented, so our program won't run.
-    if 3 < 4:
-    print("three is less than four")
+    # a has type 'int' (also known as an integer or number)
+    a = 1
 
-    # This if statement isn't true, so nothing is printed.
-    if 5 > 6:
-        print("five is less than six")
+    # b has type 'float' (also known as a decimal number)
+    b = 1.23
+
+    # greeting and location have type 'str' (also known as a string of text)
+    greeting = 'hello '
+    location = 'world'
+
+    # Can you make a variable called 'c' that contains the value `a + b`?
+
+    # Can you make a variable called 'd' that contains the value `greeting + location`?
+
+
+    # 💡 Notice how the same operation (+) is treated
+    # differently on variables of different types.
+# user code is inserted into template
+template: |
+    USER_CODE
+    print("===== MAGIC DEBUGGER OUTPUT =====")
+    for variable_name in ('a', 'b', 'c', 'd'):
+        try:
+            i = eval(variable_name)
+            print(f"{variable_name} equals {repr(i)} and has type {type(i).__name__}")
+        except NameError:
+            print(f"variable '{variable_name}' is not defined.")
+    print("===== MAGIC DEBUGGER OUTPUT =====")
 value: 10
 type: standard
 
@@ -56,7 +70,7 @@ type: standard
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - cybersword{if_flag_then_win}
+    - cybersword{this_flag_may_vary}
 
 # Topics are used to help tell what techniques/information a challenge involves
 # They are generally only visible to admins
@@ -79,7 +93,6 @@ hints:
 requirements:
     - "Welcome"
     - "Hello, World!"
-    - "Variables"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.
