@@ -30,6 +30,12 @@ challenges:
       three is less than four
       five is less than six
 
+  - flag_path: "challenges/python/if_else_statements/challenge.yml"
+    prompt_path: "challenges/python/if_else_statements/challenge.yml"
+    challenge_id: 25
+    language_id: 71 # Python, according to Judge0's id system
+    answer: "elif is checked when the previous if statement is false"
+
   - flag_path: "challenges/python/for_loops/challenge.yml"
     prompt_path: "challenges/python/for_loops/challenge.yml"
     template_path: "challenges/python/for_loops/challenge.yml"

@@ -2,50 +2,47 @@
 # other tools to install and deploy your challenge.
 
 # Required sections
-name: "FizzBuzz"
+name: "If Else Statements"
 author: "Zack Sargent"
 category: Python
 description: |
-    Complete the classic challenge: "FizzBuzz"!
+    Learn to code! Or else...
 
-    <a href="/ide/#challenge=50" target="_blank">
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 3px;
+    }
+    </style>
+
+    | Computer Part | Function         | Language Feature                          |
+    |---------------|------------------|-------------------------------------------|
+    | RAM           | Remembers things | Variables                                 |
+    | CPU           | Makes decisions  | If Statements, For Loops, Functions, etc. |
+    <br>
+    <a href="/ide/#challenge=25" target="_blank">
         <h2>
             Click Here!
         </h2>
     </a>
-
 # prompt is inserted into the editor
 prompt: |
-    # Now, let's put together what you've learned about
-    # loops, if statements, and functions.
+    # Now, you've seen how to make decisions with if statements.
 
-    # Write a function, fizzbuzz, that prints the integers from 1 to 100 (inclusive).
-    # (note that `range` is exclusive)
+    # We can also use `elif` and `else`:
+    # - `elif` is an if statement that is only checked 
+    #   when the previous if statement is false.
+    # - `else` runs when all of the previous if statements are false.
 
-    # But:
-    # - for multiples of three, print Fizz instead of the number;
-    # - for multiples of five, print Buzz instead of the number;
-    # - for multiples of both three and five, print FizzBuzz instead of the number.
+    if 1 > 2:
+        print("one is greater than two")
+    elif False: # change this to True
+        print("elif is checked when the previous if statement is false")
+    else:
+        print("no cases were true")
 
-    # Note:
-    # To determine if a is a multiple of b, use:
-    #     a % b == 0
-    #
-    # The "%" stands for "modulo".
-    #     https://en.wikipedia.org/wiki/Modular_arithmetic
-
-    # The fizzbuzz function will be called automatically.
-    def fizzbuzz(): 
-        ... # write your for loop and if statements here
-
-# user code is inserted into template to replace USER_CODE
-template: |
-    USER_CODE
-    print("===== FIZZBUZZ OUTPUT =====")
-    fizzbuzz()
-    print("===== FIZZBUZZ OUTPUT =====")
-
-value: 50
+value: 10
 type: standard
 
 # Flags specify answers that your challenge use. You should generally provide at least one.
@@ -53,7 +50,7 @@ type: standard
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - cybersword{foo_bar_fizz_buzz}
+    - cybersword{java_has_else_if}
 
 # Topics are used to help tell what techniques/information a challenge involves
 # They are generally only visible to admins
@@ -65,7 +62,9 @@ topics:
 # required but can be nice.
 # Can be removed if unused
 # Accepts dictionaries or strings
-# hints:
+hints:
+    - "Press tab to indent code."
+    - "You can also use Ctrl + `]` to indent and Ctrl + `[` to un-indent."
 
 # Requirements are used to make a challenge require another challenge to be
 # solved before being available.
@@ -76,10 +75,6 @@ requirements:
     - "Hello, World!"
     - "Variables"
     - "If Statements"
-    - "If Else Statements"
-    - "For Loops"
-    - "For Range Loops"
-    - "Functions"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.

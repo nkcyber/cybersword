@@ -67,6 +67,7 @@ requirements:
     - "Hello, World!"
     - "Variables"
     - "If Statements"
+    - "If Else Statements"
     - "For Loops"
 
 # The state of the challenge.
