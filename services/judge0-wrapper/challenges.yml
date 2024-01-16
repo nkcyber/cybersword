@@ -4,6 +4,14 @@ challenges:
     answer: "hello, world\n"
     flag_path: "challenges/python/hello_world/challenge.yml"
     prompt_path: "challenges/python/hello_world/challenge.yml"
+  - challenge_id: 10
+    language_id: 71 # Python, according to Judge0's id system
+    answer: |-
+      one is less than two
+      three is less than four
+      five is less than six
+    flag_path: "challenges/python/if_statements/challenge.yml"
+    prompt_path: "challenges/python/if_statements/challenge.yml"
     # template: ""
     # template: |
     #   # this is an example template
