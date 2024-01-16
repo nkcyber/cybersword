@@ -34,7 +34,7 @@ challenges:
     prompt_path: "challenges/python/if_else_statements/challenge.yml"
     challenge_id: 25
     language_id: 71 # Python, according to Judge0's id system
-    answer: "elif is checked when the previous if statement is false"
+    answer: "elif is checked when the previous if statement is False"
 
   - flag_path: "challenges/python/for_loops/challenge.yml"
     prompt_path: "challenges/python/for_loops/challenge.yml"

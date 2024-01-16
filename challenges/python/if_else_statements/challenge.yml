@@ -33,12 +33,12 @@ prompt: |
     # We can also use `elif` and `else`:
     # - `elif` is an if statement that is only checked 
     #   when the previous if statement is false.
-    # - `else` runs when all of the previous if statements are false.
+    # - `else` runs when all of the previous if statements are False.
 
     if 1 > 2:
         print("one is greater than two")
     elif False: # change this to True
-        print("elif is checked when the previous if statement is false")
+        print("elif is checked when the previous if statement is False")
     else:
         print("no cases were true")
 
