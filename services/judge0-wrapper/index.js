@@ -67,6 +67,22 @@ function getInput(filepath) {
 }
 
 /**
+ * Returns template from yaml file, if filepath is not ""
+ * @param {string} filepath 
+ * @returns {string} - challenge template or ""
+ */
+function getTemplate(filepath) {
+    if (!filepath) {
+        return "";
+    }
+    let config = yaml.load(fs.readFileSync(filepath, 'utf8'));
+    if (!config.template.includes("USER_CODE")) {
+        console.warn(`WARNING: template '${filepath}' does not contain spot for USER_CODE`);
+    }
+    return config.template;
+}
+
+/**
  * Reads the challenges from challenges.yml and parses their flags 
  * from the associated challenges in CTFd.
  * @returns {{
@@ -87,11 +103,13 @@ function getChallenges() {
             prompt: getPrompt(challenge.prompt_path),
             input: getInput(challenge.input_path),
             extraFiles: getExtraFile(challenge.input_path),
+            template: getTemplate(challenge.template_path),
             ...challenge
         };
         delete challengeWithFlag.flag_path;
         delete challengeWithFlag.prompt_path;
         delete challengeWithFlag.input_path;
+        delete challengeWithFlag.template_path;
         return challengeWithFlag;
     });
 }
