@@ -1,6 +1,12 @@
 # NKCyber Cybersword
 
-Join Barty the Cyber Knight as he tries to earn the mystical CyberSword through a series of fun online challenges! This competition is intended for students who are looking to have a hands-on experience with Python programming, hacking, and cybersecurity.
+Themed Description:
+
+> Join Barty the Cyber Knight as he tries to earn the mystical CyberSword through a series of fun online challenges! This competition is intended for students who are looking to have a hands-on experience with Python programming, hacking, and cybersecurity. Students will need a laptop or desktop machine with an updated browser and an internet connection.
+
+Neutral Description:
+
+> CyberSword is a friendly, online cybersecurity competition for high schoolers. Students will complete series of fun challenges and gain hands-on experience with Python programming, SQL, and cybersecurity. Students will need a laptop or desktop machine with an updated browser and an internet connection.
 
 ## Getting Started
 
