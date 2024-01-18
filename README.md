@@ -6,7 +6,7 @@ Themed Description:
 
 Neutral Description:
 
-> CyberSword is a friendly, online cybersecurity competition for high schoolers. Students will complete series of fun challenges and gain hands-on experience with Python programming, SQL, and cybersecurity. Students will need a laptop or desktop machine with an updated browser and an internet connection.
+> CyberSword is a friendly, online cybersecurity competition for high schoolers. Students will complete a series of fun challenges and gain hands-on experience with Python programming, SQL, and cybersecurity. Students will need a laptop or desktop machine with an updated browser and an internet connection.
 
 ## Getting Started
 
