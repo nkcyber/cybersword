@@ -1,0 +1,70 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# Required sections
+name: "SELECT"
+author: "Zack Sargent"
+category: SQL
+description: |
+    TODO - figure this out
+
+# prompt is inserted into the editor
+prompt: |
+    -- This is a test
+
+    # This is SQL
+
+
+    # 💡 Notice how the same operation (+) is treated
+    # differently on variables of different types.
+# user code is inserted into template to replace USER_CODE
+# template: |
+    # USER_CODE
+    # print("===== MAGIC DEBUGGER OUTPUT =====")
+    # for variable_name in ('a', 'b', 'c', 'd'):
+        # try:
+            # i = eval(variable_name)
+            # print(f"{variable_name} equals {repr(i)} and has type {type(i).__name__}")
+        # except NameError:
+            # print(f"variable '{variable_name}' is not defined.")
+    # print("===== MAGIC DEBUGGER OUTPUT =====")
+value: 10
+type: standard
+
+# Flags specify answers that your challenge use. You should generally provide at least one.
+# Can be removed if unused
+# Accepts strings or dictionaries of CTFd API data
+flags:
+    # A static case sensitive flag
+    - cybersword{select_one_and_all}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are generally only visible to admins
+# Accepts strings
+topics:
+    - SQL
+
+# Hints are used to give players a way to buy or have suggestions. They are not
+# required but can be nice.
+# Can be removed if unused
+# Accepts dictionaries or strings
+hints:
+    - "Press tab to indent code."
+    - "You can also use Ctrl + `]` to indent and Ctrl + `[` to un-indent."
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+requirements:
+    - "Welcome"
+    - "Hello, World!" # Hello, World! is id=0, so it has the nice introduction.
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+state: visible
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

@@ -79,3 +79,10 @@ challenges:
     challenge_id: 50
     language_id: 71 # Python, according to Judge0's id system
     answer_path: "challenges/python/fizzbuzz/answer.yml"
+
+  - flag_path: "challenges/sql/select/challenge.yml"
+    prompt_path: "challenges/sql/select/challenge.yml" 
+    input_path: "challenges/sql/select/db.sqlite"
+    challenge_id: 100
+    language_id: 82 # Python, according to Judge0's id system
+    answer_path: "challenges/python/fizzbuzz/answer.yml"

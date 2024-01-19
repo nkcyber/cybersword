@@ -13,3 +13,6 @@ It has been modified to:
 When starting this server for development, do so in this directory.
 
 The editor must be mounted at `/ide/index.html`
+
+If you're running this with `docker compose`, and you modify `challenges.yml`, you must reload everything for your changes to take effect. This is because challenges.yml is run once at program start, and the results are cached for subsequent uses. More intelligent caching would resolve this, but `docker compose down && docker compose up --build` should do the trick.
+
