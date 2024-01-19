@@ -85,13 +85,17 @@ To Do:
     - developer tools
     - using code submissions for flags
         - Judge0 versus CTFd code submissions?
+    - Teach web exploits:
+        - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
+        - Automatically Incrementing IDs in URL allowing to resource discovery
+    - Teach SQL:
+        - Basic syntax
+        - Raise points of SQL injections
     - Teach Python:
         - variables
         - if statements
         - for loops
-        - `with` connections for networks
-        - establish a network connection to a service with pwntools, send it input, and then do something fun with the result
-        - takeaway: know that you can use python to automate connection processing
+        - stack memory matching parenthesis (maybe with dbpq)
 - Story:
     - We are writing an [excuse plot](https://tvtropes.org/pmwiki/pmwiki.php/Main/ExcusePlot)
         - [So you want to write an excuse plot (advice)](https://tvtropes.org/pmwiki/pmwiki.php/SoYouWantTo/WriteAnExcusePlot)
