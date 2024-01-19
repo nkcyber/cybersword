@@ -5,6 +5,8 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+        volumes:
+            - ./ide:/app/files:ro
         restart: always
         ports:
             - "8015:8015"
