@@ -250,32 +250,7 @@ function run() {
         });
     }
 
-    // TODO: update this to new structure
-    var fetchAdditionalFiles = false;
-    if (parseInt(languageId) === 82) {
-        if (sqliteAdditionalFiles === "") {
-            fetchAdditionalFiles = true;
-            $.ajax({
-                url: `./data/additional_files_zip_base64.txt`,
-                type: "GET",
-                async: true,
-                contentType: "text/plain",
-                success: function (responseData, _textStatus, _jqXHR) {
-                    sqliteAdditionalFiles = responseData;
-                    data["additional_files"] = sqliteAdditionalFiles;
-                    sendRequest(data);
-                },
-                error: handleRunError
-            });
-        }
-        else {
-            data["additional_files"] = sqliteAdditionalFiles;
-        }
-    }
-
-    if (!fetchAdditionalFiles) {
-        sendRequest(data);
-    }
+    sendRequest(data);
 }
 
 function fetchSubmission(submission_token, iteration) {
@@ -357,7 +332,6 @@ function insertTemplate() {
     changeEditorLanguage();
 }
 
-// TODO: load language based on challenge fragment id
 function loadLanguage() {
     var values = [];
     for (var i = 0; i < $selectLanguage[0].options.length; ++i) {
@@ -705,6 +679,7 @@ function runTour() {
     tour.start();
 }
 
+// TODO: remove
 var sqliteSource = "\
 -- On Judge0 IDE your SQL script is run on chinook database (https://www.sqlitetutorial.net/sqlite-sample-database).\n\
 -- For more information about how to use SQL with Judge0 please\n\
@@ -717,7 +692,6 @@ GROUP BY Name\n\
 ORDER BY num_albums DESC\n\
 LIMIT 4;\n\
 ";
-var sqliteAdditionalFiles = "";
 
 const pythonSource = "\
 print('hello world')\
