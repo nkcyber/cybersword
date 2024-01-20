@@ -69,6 +69,9 @@ hints:
 # Accepts challenge names as strings or challenge IDs as integers
 requirements:
     - "Welcome"
+    - "SELECT"
+    - "SELECT 2"
+    - "SELECT WHERE"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.

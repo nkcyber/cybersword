@@ -68,6 +68,9 @@ hints:
 requirements:
     - "Welcome"
     - "SQL Injection 1"
+    - "SELECT"
+    - "SELECT 2"
+    - "SELECT WHERE"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.

@@ -2,13 +2,13 @@
 # other tools to install and deploy your challenge.
 
 # Required sections
-name: "SELECT"
+name: "SELECT WHERE"
 author: "Zack Sargent"
 category: SQL
 description: |
-    Let's get started with SQL!
+    Let's learn more about SQL!
 
-    <a href="/ide/#challenge=100" target="_blank">
+    <a href="/ide/#challenge=120" target="_blank">
         <h2>
             Click Here!
         </h2>
@@ -16,30 +16,26 @@ description: |
 
 # prompt is inserted into the editor
 prompt: |
-    -- Welcome to the Cyber IDE!
-    -- You are currently running SQL on a SQLite 3 database.
+    -- Nice job!
     --
-    -- SQL is a language all about working with data.
+    -- We know how to select all of the rows in a database with
+    --      SELECT * FROM ____;
     --
-    --     Tip: You may hear SQL pronounced "es-cue-el" or "see-kwel".
-    --          Both are valid.
-    --
-    -- In comparison:
-    --     Python is a general-purpose programming language.
-    --     SQL is specifically for working with data.
-    --
-    -- In this competition, you will complete a few challenges about SQL,
-    -- and then apply what you learned by hacking a website's database.
+    -- The query at the bottom gets all of the flashcards.
+    -- However, if you want to select which rows are returned,
+    -- you can use a WHERE clause:
+    --      SELECT * FROM ____ WHERE columnName = ____;
 
-    -- Your first task: query all of the authors by uncommenting the last line:
+    -- Can you make this query only select flashcards by "Bob" (a.k.a "authorId = 2")?
 
-    -- SELECT authorId, name FROM authors;
+    SELECT * FROM flashcards;
 
 # checked by Judge0 Wrapper:
 answer: |
-  1|Alice
-  2|Bob
-  3|Charlie
+  What is the most abundant gas in the Earth's atmosphere?|Nitrogen|2
+  What is the process by which plants make their own food?|Photosynthesis|2
+  What is the name of the force that opposes motion?|Friction|2
+  What is the name of the process by which a gas turns into a liquid?|Condensation|2
 
 value: 10
 type: standard
@@ -49,21 +45,13 @@ type: standard
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - cybersword{select_one_and_all}
+    - cybersword{case_does_matter_in_flags}
 
 # Topics are used to help tell what techniques/information a challenge involves
 # They are generally only visible to admins
 # Accepts strings
 topics:
     - SQL
-
-# Hints are used to give players a way to buy or have suggestions. They are not
-# required but can be nice.
-# Can be removed if unused
-# Accepts dictionaries or strings
-hints:
-    - "Press tab to indent code."
-    - "You can also use Ctrl + `]` to indent and Ctrl + `[` to un-indent."
 
 # Requirements are used to make a challenge require another challenge to be
 # solved before being available.
@@ -72,6 +60,8 @@ hints:
 requirements:
     - "Welcome"
     - "Hello, World!" # Hello, World! is id=0, so it has the nice introduction.
+    - "SELECT"
+    - "SELECT 2"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.
