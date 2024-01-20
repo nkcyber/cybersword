@@ -19,13 +19,15 @@ prompt: |
     # Now, let's put together what you've learned about
     # loops, if statements, and functions.
 
-    # Write a function, fizzbuzz, that prints the integers from 1 to 100 (inclusive).
-    # (note that `range` is exclusive)
+    # Write a function, fizzbuzz, that prints the integers from 0 to 100 (inclusive).
+    # (note that `range` does not include the number you give it)
 
     # But:
     # - for multiples of three, print Fizz instead of the number;
     # - for multiples of five, print Buzz instead of the number;
     # - for multiples of both three and five, print FizzBuzz instead of the number.
+    #
+    # Take a look at the "Expected Output" tab to see this in action.
 
     # Note:
     # To determine if a is a multiple of b, use:
@@ -35,7 +37,7 @@ prompt: |
     #     https://en.wikipedia.org/wiki/Modular_arithmetic
 
     # The fizzbuzz function will be called automatically.
-    def fizzbuzz(): 
+    def fizzbuzz():
         ... # write your for loop and if statements here
 
 # user code is inserted into template to replace USER_CODE

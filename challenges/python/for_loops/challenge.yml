@@ -30,16 +30,18 @@ description: |
 # prompt is inserted into the editor
 prompt: |
     # We can create variables for lists of items as well:
-    names = ['Alice', 'Bob', 'Charlie']
     grades = [90.5, 50, 100]
-
     total_points = 0
+    # This for loop goes through all of our grades,
+    # and combines them into "total_points".
     for grade in grades:
         total_points = total_points + grade
-    
-    combined_names = ""
+
     # Can you write a for loop to combine the names 
-    # in the same way we totalled the points?
+    # into "combined_names" the same way we combined the points?
+    names = ['alice', 'bob', 'charlie']
+    combined_names = ""
+    for name in # finish this...
     
 # user code is inserted into template to replace USER_CODE
 template: |
@@ -73,7 +75,13 @@ topics:
 # required but can be nice.
 # Can be removed if unused
 # Accepts dictionaries or strings
-# hints:
+hints:
+    - content: |
+        ```py
+        for name in names:
+            # your code here
+        ```
+      cost: 2
 
 # Requirements are used to make a challenge require another challenge to be
 # solved before being available.

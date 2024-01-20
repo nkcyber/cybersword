@@ -32,13 +32,12 @@ prompt: |
     # We can break programs into functions to make
     # code easier to understand and reuse.
 
-    # allows us to combine anything
+    # combines 'a' and 'b' using '+'
     def combine(a, b):
         return a + b
 
-    # allows us to add 2 to anything
+    # multiplies 'a' by 2 using '*'
     def times_2(a):
-        # multiplies a by 2
         ...
 
 # user code is inserted into template to replace USER_CODE
