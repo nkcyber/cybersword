@@ -1,0 +1,100 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# Required sections
+name: "Balanced"
+author: "Zack Sargent"
+category: Python
+description: |
+    Use Python lists to solve this problem.
+
+    <a href="/ide/#challenge=60" target="_blank">
+        <h2>
+            Click Here!
+        </h2>
+    </a>
+
+# prompt is inserted into the editor
+prompt: |
+    # Reversing '<' makes '>'.
+    # Reversing 'q' makes 'p'.
+    #
+    # is_balanced is a funciton that takes a string of the characters '<>qp', and returns whether the string is balanced.
+    #
+    # Every opening '<' must be matched with a closing '>'.
+    # Every opening 'q' must be matched with a closing 'p'.
+    #
+    # Examples:
+    #     - is_balanced("") -> True
+    #     - is_balanced("<>") -> True
+    #     - is_balanced("qp") -> True
+    #     - is_balanced("q<>p") -> True
+    #     - is_balanced("<qpqp>qp") -> True
+    #     - is_balanced("<qp") -> False
+    #     - is_balanced("><") -> False
+    #     - is_balanced("q>") -> False
+
+    def is_balanced(chars: str) -> bool:
+        ...
+
+# user code is inserted into template to replace USER_CODE
+template: |
+    USER_CODE
+    print("===== TEST CASES =====")
+    import json
+    test_cases = '{"q<qp><>pqp": true, "<>qqp<>qpp": true, "<>qqp<qp>p": true, "q<>p<qp<>>": true, "<<>>q<>qpp": true, "qqpp<><qp>": true, "<qqpp>q<>p": true, "<<qqpp>qp>": true, "<><<>>qqpp": true, "q<>pq<qp>p": true, "qp<<>>qpqp": true, "q<qp<><>>p": true, "qpqp<><><>": true, "<><qpqqpp>": true, "qp<><>qqpp": true, "qqppqp<><>": true, "qpq<q<>p>p": true, "<><qqppqp>": true, "<>qqpp<qp>": true, "<qp>qp<><>": true, "<><<qp>>qp": true, "<<qp>>qpqp": true, "<>q<>qp<>p": true, "<<>><qpqp>": true, "qqqpp<><>p": true, "qq<>ppqp<>": true, "<<qp<>>>qp": true, "q<>pq<<>>p": true, "q>qpp<q>p<": false, "p>q><qp><<": false, "qq<p<pq>>p": false, ">><qq<>p<p": false, "qpqp>q<<>p": false, ">qpp<><<>q": false, "<<>>ppqpqq": false, ">qp<><>pq<": false, "qqp>p<><qp": false, "p<q<<q>p>>": false, "q>pp<>qp<q": false, "q>pq><<<p>": false, "<>pqqqpp><": false, "q<><>>ppq<": false, "qp<>qpp>q<": false, ">>q<<q<pp>": false, "pp>q>q<<pq": false, ">pqq<<<>>p": false, "<p><>qpqpq": false, "<><pq<>>qp": false, "qp><pq>qp<": false, "<>qq><<p>p": false, "<pqp<p>>qq": false, "pq<<q><>p>": false, "p>q<qp<>pq": false, "qp><<>p>q<": false, "pp><qqq<p>": false, "p>p<>><<qq": false, "<ppq<>qp>q": false, "<>pq><p>q<": false}'
+    test_cases = json.loads(test_cases)
+    for given, out in test_cases.items():
+      try:
+        res = is_balanced(given)
+        correct = res == out
+        should_return = f" (should return {out})"
+        print(f'is_balanced("{given}") returned {res}{should_return if not correct else ""}')
+      except e:
+        print("Exception:", e)
+    print("===== TEST CASES =====")
+
+value: 50
+type: standard
+
+# Flags specify answers that your challenge use. You should generally provide at least one.
+# Can be removed if unused
+# Accepts strings or dictionaries of CTFd API data
+flags:
+    # A static case sensitive flag
+    - cybersword{dbqpdbqpdbqpdbqp}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are generally only visible to admins
+# Accepts strings
+topics:
+    - python
+
+# Hints are used to give players a way to buy or have suggestions. They are not
+# required but can be nice.
+# Can be removed if unused
+# Accepts dictionaries or strings
+# hints:
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+requirements:
+    - "Welcome"
+    - "Hello, World!"
+    - "Variables"
+    - "If Statements"
+    - "If Else Statements"
+    - "For Loops"
+    - "For Range Loops"
+    - "Functions"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+state: visible
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"
