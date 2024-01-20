@@ -3,7 +3,7 @@ auth_required: false
 draft: false
 hidden: false
 route: index
-title: NKCyber Square Practice CTF
+title: NKCyber CyberSword
 ---
 
 <div class="row">
