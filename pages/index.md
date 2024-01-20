@@ -8,10 +8,8 @@ title: NKCyber Square Practice CTF
 
 <div class="row">
     <div class="col-md-6 offset-md-3">
-        <img class="w-100 mx-auto d-block" style="max-width: 50%;padding: 50px;padding-top: 14vh;"
-            src="/files/698a2200546c2918499e1f99fb3b5446/nkcyber.png" />
         <h3 class="text-center">
-            NKCyber Square Practice CTF
+            NKCyber CyberSword
         </h3>
         <div style="text-align: center;">
             <small>
