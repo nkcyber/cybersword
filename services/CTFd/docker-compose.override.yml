@@ -6,5 +6,5 @@ services:
       - ../location-defaults.conf:/etc/nginx/location-defaults.conf
       - ../locations.conf:/etc/nginx/locations.conf
       - ../upstreams.conf:/etc/nginx/upstreams.conf
-    ports:
-      - 80:80
+    # ports:
+      # - 80:80

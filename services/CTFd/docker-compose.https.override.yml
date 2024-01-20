@@ -9,5 +9,5 @@ services:
       - /etc/letsencrypt/cybersword/fullchain.pem:/certificates/fullchain.pem:ro
       - /etc/letsencrypt/cybersword/privkey.pem:/certificates/privkey.pem:ro
     ports:
-      - 80:80
+      # - 80:80
       - 443:443
