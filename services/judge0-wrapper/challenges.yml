@@ -54,11 +54,11 @@ challenges:
     challenge_id: 35
     language_id: 71 # Python, according to Judge0's id system
     answer: |-
-        0
-        1
-        2
-        3
-        4
+      0
+      1
+      2
+      3
+      4
 
   - flag_path: "challenges/python/functions/challenge.yml"
     prompt_path: "challenges/python/functions/challenge.yml"
@@ -81,8 +81,25 @@ challenges:
     answer_path: "challenges/python/fizzbuzz/answer.yml"
 
   - flag_path: "challenges/sql/select/challenge.yml"
-    prompt_path: "challenges/sql/select/challenge.yml" 
-    input_path: "challenges/sql/select/db.sqlite"
+    prompt_path: "challenges/sql/select/challenge.yml"
+    answer_path: "challenges/sql/select/challenge.yml"
+    extra_file_path: "challenges/sql/QUESTION_DATABASE/db.sqlite"
+    input_path: "challenges/sql/QUESTION_DATABASE/seed_db.sql"
     challenge_id: 100
     language_id: 82 # SQL, according to Judge0's id system
-    answer_path: "challenges/python/fizzbuzz/answer.yml"
+
+  - flag_path: "challenges/sql/select_2/challenge.yml"
+    prompt_path: "challenges/sql/select_2/challenge.yml"
+    answer_path: "challenges/sql/select_2/challenge.yml"
+    extra_file_path: "challenges/sql/QUESTION_DATABASE/db.sqlite"
+    input_path: "challenges/sql/QUESTION_DATABASE/seed_db.sql"
+    challenge_id: 110
+    language_id: 82 # SQL, according to Judge0's id system
+
+  - flag_path: "challenges/sql/select_where/challenge.yml"
+    prompt_path: "challenges/sql/select_where/challenge.yml"
+    answer_path: "challenges/sql/select_where/challenge.yml"
+    extra_file_path: "challenges/sql/QUESTION_DATABASE/db.sqlite"
+    input_path: "challenges/sql/QUESTION_DATABASE/seed_db.sql"
+    challenge_id: 120
+    language_id: 82 # SQL, according to Judge0's id system

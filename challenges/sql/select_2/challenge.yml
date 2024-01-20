@@ -1,0 +1,84 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# Required sections
+name: "SELECT 2"
+author: "Zack Sargent"
+category: SQL
+description: |
+    Let's learn more about SQL!
+
+    <a href="/ide/#challenge=110" target="_blank">
+        <h2>
+            Click Here!
+        </h2>
+    </a>
+
+# prompt is inserted into the editor
+prompt: |
+    -- Nice job!
+    --
+    -- You just used: "SELECT authorId, name FROM authors;"
+    --
+    -- +----------------+--------------------------------------------------------+
+    -- | Text           | Description                                            |
+    -- +----------------+--------------------------------------------------------+
+    -- | SELECT         | A SQL statement used to query data                     |
+    -- +----------------+--------------------------------------------------------+
+    -- | authorId, name | column names to select                                 |
+    -- +----------------+--------------------------------------------------------+
+    -- | FROM           | SQL clause that tells select which table to operate on |
+    -- +----------------+--------------------------------------------------------+
+    -- | authors        | the table to query                                     |
+    -- +----------------+--------------------------------------------------------+
+    -- | ;              | The semicolon separates commands.                      |
+    -- +----------------+--------------------------------------------------------+
+    --
+    -- To save time, you don't need to write out all of the column names.
+    -- You can just use "*" to represent "all of the column names".
+    -- Also, in SQL, CaSe DoSeN't MaTtEr!! (UPPERCASE = lowercase)
+
+    -- Try querying for all of the data on the authors table while...
+    --   1. replacing the column names with "*"
+    --   2. MeSsInG WiTh ThE cAsE of your query
+
+
+# checked by Judge0 Wrapper:
+answer: |
+  1|Alice
+  2|Bob
+  3|Charlie
+
+value: 10
+type: standard
+
+# Flags specify answers that your challenge use. You should generally provide at least one.
+# Can be removed if unused
+# Accepts strings or dictionaries of CTFd API data
+flags:
+    # A static case sensitive flag
+    - cybersword{case_does_matter_in_flags}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# They are generally only visible to admins
+# Accepts strings
+topics:
+    - SQL
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+requirements:
+    - "Welcome"
+    - "Hello, World!" # Hello, World! is id=0, so it has the nice introduction.
+    - "SELECT"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+state: visible
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

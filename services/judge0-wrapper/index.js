@@ -103,6 +103,7 @@ function getTemplate(filepath) {
  *  challenge_id: Number,
  *  language_id: Number,
  *  prompt: String, 
+ *  extraFiles: String
  *  answer: String, 
  *  flag: String, 
  *  input: String, 
@@ -116,7 +117,7 @@ function getChallenges() {
             flag: getFlag(challenge.flag_path),
             prompt: getPrompt(challenge.prompt_path),
             input: getInput(challenge.input_path),
-            extraFiles: getExtraFile(challenge.input_path),
+            extraFiles: getExtraFile(challenge.extra_file_path || challenge.input_path),
             template: getTemplate(challenge.template_path),
             answer: getAnswer(challenge.answer_path),
             ...challenge
@@ -124,6 +125,7 @@ function getChallenges() {
         delete challengeWithFlag.flag_path;
         delete challengeWithFlag.prompt_path;
         delete challengeWithFlag.input_path;
+        delete challengeWithFlag.extra_file_path;
         delete challengeWithFlag.template_path;
         delete challengeWithFlag.answer_path;
         return challengeWithFlag;
@@ -164,7 +166,6 @@ function encode(str) {
  * @param {Request<ParamsDictionary, any, any, qs.ParsedQs, Record<string, any>>} req 
  * @param {Response<any, Record<string, any>, number>} res 
  * @param {*NextFunction} next 
- * @returns 
  */
 function addTemplateAndExtraFiles(req, res, next) {
     // intercept body and format with template, if applicable

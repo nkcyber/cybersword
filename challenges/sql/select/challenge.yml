@@ -6,28 +6,52 @@ name: "SELECT"
 author: "Zack Sargent"
 category: SQL
 description: |
-    TODO - figure this out
+    Let's get started with SQL!
+
+    <a href="/ide/#challenge=100" target="_blank">
+        <h2>
+            Click Here!
+        </h2>
+    </a>
 
 # prompt is inserted into the editor
 prompt: |
-    -- This is a test
+    -- Welcome to the Cyber IDE!
+    -- You are currently running SQL on a SQLite 3 database.
+    --
+    -- SQL is a language all about working with data.
+    --
+    --     Tip: You may hear SQL pronounced "es-cue-el" or "see-kwel".
+    --          Both are valid.
+    --
+    -- In comparison:
+    --     Python is a general-purpose programming language.
+    --     SQL is specifically for working with data.
+    --
+    -- In this competition, you will complete a few challenges about SQL,
+    -- and then apply what you learned by hacking a website's database.
+    --
+    -- As detailed in the "Input" section below, your current database has two tables of data:
+    --   1. "authors", which has:
+    --         "authorId"
+    --         "name"
+    --
+    --   2. "flashcards", which has:
+    --         "question"
+    --         "answer"
+    --         "authorId"
 
-    # This is SQL
 
+    -- Your first task: query all of the authors by uncommenting the last line:
 
-    # 💡 Notice how the same operation (+) is treated
-    # differently on variables of different types.
-# user code is inserted into template to replace USER_CODE
-# template: |
-    # USER_CODE
-    # print("===== MAGIC DEBUGGER OUTPUT =====")
-    # for variable_name in ('a', 'b', 'c', 'd'):
-        # try:
-            # i = eval(variable_name)
-            # print(f"{variable_name} equals {repr(i)} and has type {type(i).__name__}")
-        # except NameError:
-            # print(f"variable '{variable_name}' is not defined.")
-    # print("===== MAGIC DEBUGGER OUTPUT =====")
+    -- SELECT authorId, name FROM authors;
+
+# checked by Judge0 Wrapper:
+answer: |
+  1|Alice
+  2|Bob
+  3|Charlie
+
 value: 10
 type: standard
 

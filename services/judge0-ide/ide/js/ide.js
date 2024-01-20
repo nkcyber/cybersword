@@ -312,11 +312,7 @@ function setChallengeInfo() {
         async: true,
         headers: AUTH_HEADERS,
         success: function (data, _textStatus, _jqXHR) {
-            if (data.language_id == 82) {
-                stdinEditor.setValue("<SQLite 3 Database>");
-            } else {
-                stdinEditor.setValue(data.input || "");
-            }
+            stdinEditor.setValue(data.input || "");
             sourceEditor.setValue(data.prompt);
             answerEditor.setValue(data.answer.trim());
             currentLanguageId = data.language_id;
