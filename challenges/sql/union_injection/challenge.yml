@@ -24,7 +24,7 @@ description: |
 
     Good luck.
 
-value: 150
+value: 100
 type: standard
 
 # Specify a protocol that should be used to connect to the running image

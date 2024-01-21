@@ -37,12 +37,14 @@ prompt: |
     for grade in grades:
         total_points = total_points + grade
 
-    # Can you write a for loop to combine the names 
+    # at this point, total_points equals 240.5
+
+    # Can you write a for loop to combine the names
     # into "combined_names" the same way we combined the points?
-    names = ['alice', 'bob', 'charlie']
+    names = ['Alice', 'Bob', 'Charlie']
     combined_names = ""
     for name in # finish this...
-    
+
 # user code is inserted into template to replace USER_CODE
 template: |
     USER_CODE

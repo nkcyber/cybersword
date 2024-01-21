@@ -47,7 +47,7 @@ template: |
     fizzbuzz()
     print("===== FIZZBUZZ OUTPUT =====")
 
-value: 50
+value: 100
 type: standard
 
 # Flags specify answers that your challenge use. You should generally provide at least one.

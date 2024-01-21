@@ -8,7 +8,7 @@ category: SQL # should match the 'track' in challenges
 description: |
   Your machine has been equiped with the office's powerful document viewer.
 
-  You can view your documents by going to <a href="/document-viewer" target="_blank">`/document-viewer`</a>
+  You can view your documents by clicking this link: <a href="/document-viewer" target="_blank">`/document-viewer`</a>.
 
   You have been given the access code `General`.
 
