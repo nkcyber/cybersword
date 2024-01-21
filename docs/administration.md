@@ -37,7 +37,7 @@ ssh root@$YOUR_SERVER "mkdir -p /root/nkcyber"
 # copy script to server
 scp ./scripts/set_up_cybersword.sh root@$YOUR_SERVER:/root/nkcyber
 # ssh into the server...
-ssh root@$YOUR_SERVER 
+ssh root@$YOUR_SERVER
 ```
 After ssh-ing into the server:
 ```bash
@@ -49,7 +49,7 @@ sudo reboot
 
 ## Administration / Running services
 
-> [!NOTE]  
+> [!NOTE]
 > Adding `-d` or `--detach` to any `docker compose up` command will make it run in the background, which may be useful when deploying on a server.
 
 ### Run with http
@@ -69,12 +69,26 @@ Use [`set_up_https.sh`](../scripts/set_up_https.sh) to set up http certs on your
 
 ```bash
 # in cybersword directory
-docker compose down && docker compose -f docker-compose.https.yml down && docker compose -f docker-compose.https.yml up --build 
+docker compose down && docker compose -f docker-compose.https.yml down && docker compose -f docker-compose.https.yml up --build
 ```
 
-TODO:
-- run script to install selected challenges
+## Challenge Management
 
+This project uses the [CTFd CLI](https://github.com/CTFd/ctfcli) for challenge management.
+
+### Install all challenges on a new server
+
+```bash
+# cd into CyberSword directory
+./scripts/add_all_challenges.sh
+ctf challenge install
+ctf challenge sync
+```
+
+It's necessary to install then sync because challenges are created in alphabetical order, and they cannot depend on a challenge that doesn't exist yet.
+Rather than trying to organize everything in order of dependencies (which may change), I think it's best to just run this two phase setup.
+
+(you can also use `./scripts/install_all_challenges.sh`, or ``./scripts/sync_all_challenges.sh``).
 
 ## Project Structure
 
