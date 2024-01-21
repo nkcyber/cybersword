@@ -76,16 +76,16 @@ challenges:
   - flag_path: "challenges/python/fizzbuzz/challenge.yml"
     prompt_path: "challenges/python/fizzbuzz/challenge.yml"
     template_path: "challenges/python/fizzbuzz/challenge.yml"
+    answer_path: "challenges/python/fizzbuzz/answer.yml"
     challenge_id: 50
     language_id: 71 # Python, according to Judge0's id system
-    answer_path: "challenges/python/fizzbuzz/answer.yml"
 
   - flag_path: "challenges/python/balanced/challenge.yml"
     prompt_path: "challenges/python/balanced/challenge.yml"
     template_path: "challenges/python/balanced/challenge.yml"
+    answer_path: "challenges/python/balanced/answer.yml"
     challenge_id: 60
     language_id: 71 # Python, according to Judge0's id system
-    answer_path: "challenges/python/balanced/answer.yml"
 
   - flag_path: "challenges/sql/select/challenge.yml"
     prompt_path: "challenges/sql/select/challenge.yml"
