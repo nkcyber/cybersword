@@ -134,6 +134,19 @@ body {
     color: green;
 }
 
+#flag-modal {
+    padding: 10px;
+}
+
+#flag-container {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+#flag-content {
+    margin-right: 1rem;
+}
+
 #run-btn {
     background-color: var(--judge0-theme);
 }

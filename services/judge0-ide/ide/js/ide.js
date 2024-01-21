@@ -150,7 +150,7 @@ function handleRunError(jqXHR, textStatus, errorThrown) {
  */
 function handleFlag(flag) {
     $("#flag-modal #title").html("Congrats! You got the flag!");
-    $("#flag-modal .content").html(`<pre>${flag}</pre><p>You can close this tab after copying your flag.</p>`);
+    $("#flag-modal #flag-content").text(flag);
     $("#flag-modal").modal("show");
 }
 
@@ -442,20 +442,6 @@ $(document).ready(function () {
     $(".message .close").on("click", function () {
         $(this).closest(".message").transition("fade");
     });
-
-    // $("#copy-and-close").on("click", function () {
-    //     // TODO: Consider navigator browser API
-    //     // https://stackoverflow.com/a/30905277
-    //     function copyToClipboard(element) {
-    //         var $temp = $("<input>");
-    //         $("body").append($temp);
-    //         $temp.val($(element).text()).select();
-    //         document.execCommand("copy");
-    //         $temp.remove();
-    //     }
-    //     const flag = $("flag-content").text();
-    //     copyToClipboard(flag);
-    // });
 
     require(["vs/editor/editor.main"], function (_ignorable) {
         layout = new GoldenLayout(layoutConfig, $("#site-content"));

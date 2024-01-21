@@ -103,17 +103,39 @@
 
     <div id="site-content"></div>
 
-    <div id="flag-modal" class="ui modal">
+    <div id="flag-modal" class="ui small modal">
         <div class="header">
             <i class="check icon"></i>
             <span id="title"></span>
         </div>
-        <div id="flag-content" class="scrolling content"></div>
+        <div class="content">
+            <div id="flag-container">
+                <pre id="flag-content" class="scrolling content"></pre>
+                <button id="copy-flag-button" onclick="copyFlag()" class="ui small labeled icon button">
+                    <i class="copy icon"></i>
+                    Copy
+                </button>
+            </div>
+            <div>
+                <p>You can close this tab after copying your flag.</p>
+            </div>
+        </div>
+        <script>
+            const copyFlag = async () => {
+                try {
+                    const flagEle = document.getElementById('flag-content');
+                    const buttonEle = document.getElementById('copy-flag-button');
+                    const text = flagEle.textContent;
+                    await navigator.clipboard.writeText(text);
+                    buttonEle.innerHTML = '<i class="copy icon"></i> Copied!';
+                    console.log("copied", text)
+                } catch (err) {
+                    console.error(err);
+                    buttonEle.innerHTML = '<i class="copy icon"></i> Failed to copy! :(';
+                }
+            }
+        </script>
         <div class="actions">
-            <!-- <div id="copy-and-close" class="ui small labeled icon cancel button">
-                <i class="copy icon"></i>
-                Copy flag and close tab
-            </div> -->
             <div class="ui small labeled icon cancel button">
                 <i class="remove icon"></i>
                 Close (ESC)
