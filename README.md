@@ -72,13 +72,10 @@ As such, we have to take a more involved approach to challenge service deploymen
 
 -------
 
-To Do:
-- Figure out how to host CTFd and several challenges all on the same server
-    - NGINX reverse proxy
-        - https://gcore.com/learning/reverse-proxy-with-docker-compose/
-    - CTFd as a git subrepo?
-- Clone structure of <https://github.com/adventofctf/2020/tree/main>
-    - Then, set up github integration to update deployed version to latest git repo
+- Services:
+    - how to sync files and images in CTFd?
+        - use nkcyber logo in index page and whatnot
+    - add "copy to clipboard" for judge0 flags
 - Create challenges:
     - [3d call to action](https://www.youtube.com/watch?v=x3m1PGEfG5c) - Barty needs your help!
     - Data commented out in webpage
@@ -88,14 +85,6 @@ To Do:
     - Teach web exploits:
         - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
         - Automatically Incrementing IDs in URL allowing to resource discovery
-    - Teach SQL:
-        - Basic syntax
-        - Raise points of SQL injections
-    - Teach Python:
-        - variables
-        - if statements
-        - for loops
-        - stack memory matching parenthesis (maybe with dbpq)
 - Story:
     - We are writing an [excuse plot](https://tvtropes.org/pmwiki/pmwiki.php/Main/ExcusePlot)
         - [So you want to write an excuse plot (advice)](https://tvtropes.org/pmwiki/pmwiki.php/SoYouWantTo/WriteAnExcusePlot)

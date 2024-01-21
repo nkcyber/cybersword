@@ -83,6 +83,7 @@ This project uses the [CTFd CLI](https://github.com/CTFd/ctfcli) for challenge m
 ./scripts/add_all_challenges.sh
 ctf challenge install
 ctf challenge sync
+ctf pages push
 ```
 
 It's necessary to install then sync because challenges are created in alphabetical order, and they cannot depend on a challenge that doesn't exist yet.
