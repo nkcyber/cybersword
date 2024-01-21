@@ -39,7 +39,7 @@ protocol: http
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - nkcyber{no_server_is_safe}
+    - cybersword{no_server_is_safe}
 
 # Topics are used to help tell what techniques/information a challenge involves
 # They are generally only visible to admins

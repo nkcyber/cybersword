@@ -33,7 +33,7 @@ protocol: http
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - nkcyber{doctors_cant_give_sql_injections}
+    - cybersword{doctors_cant_give_sql_injections}
 
 # Topics are used to help tell what techniques/information a challenge involves
 # They are generally only visible to admins
