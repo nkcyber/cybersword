@@ -75,6 +75,7 @@ As such, we have to take a more involved approach to challenge service deploymen
 - Services:
     - how to sync files and images in CTFd?
         - use nkcyber logo in index page and whatnot
+    - create introduction page in CTFd explaining goals and how to submit flags.
 - Create challenges:
     - [3d call to action](https://www.youtube.com/watch?v=x3m1PGEfG5c) - Barty needs your help!
     - Data commented out in webpage
@@ -99,3 +100,11 @@ As such, we have to take a more involved approach to challenge service deploymen
 State clear goal in "bookends" for each subject:
     - You don't have to know anything now
     - When you're done, you'll either win or know what you don't know
+
+
+----
+
+## Timing information
+
+See [`docs/timing.md`](./docs/timing.md).
+
