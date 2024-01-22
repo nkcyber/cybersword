@@ -32,25 +32,21 @@ prompt: |
 
     # We use the equals sign ("=") to create a variable.
 
-    # Variables can have different "types".
+    # Python can represent many types of data.
+    # Here are three, for example.
 
-    # a has type 'int' (also known as an integer or number)
-    a = 1
+    # Variables can hold numbers:
+    a = 1       # integers
+    b = 1.23    # floating point (a.k.a. decimal numbers)
 
-    # b has type 'float' (also known as a decimal number)
-    b = 1.23
+    # Variables can hold text:
+    greeting = 'hello ' # string (a.k.a. text)
+    location = 'world'  # string (a.k.a. text)
 
-    # greeting and location have type 'str' (also known as a string of text)
-    greeting = 'hello '
-    location = 'world'
+    # Make a variable called 'c' that equals a + b
 
-    # Can you make a variable called 'c' that contains the value of a + b?
+    # Make a variable called 'd' that equals greeting + location
 
-    # Can you make a variable called 'd' that contains the value of greeting + location?
-
-
-    # 💡 Notice how the same operation (+) is treated
-    # differently on variables of different types.
 # user code is inserted into template to replace USER_CODE
 template: |
     USER_CODE
