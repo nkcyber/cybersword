@@ -23,9 +23,9 @@ prompt: |
     # This is a comment because it starts with '#'.
     # Lines that don't start with '#' are code and will be executed.
 
-    # Remove the '# ' from the last line to run it,
-    # and start your coding adventure.
-    
+	# Delete/Backspace the '# ' from the last line to uncomment it,
+	# and start your coding adventure.
+
     # print('hello, world')
 value: 10
 type: standard
