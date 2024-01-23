@@ -10,7 +10,7 @@ It has been modified to:
 - show challenge prompts, input, and expected output from the [`judge0-wrapper`](../judge0-wrapper/)
 - show the flag when returned from [`judge0-wrapper`](../judge0-wrapper/)
 
-When starting this server for development, do so in this directory.
+When starting this server for development, do so in this directory. If you are running CyberSword with `docker compose`, then all changes to ide files will be reloaded in real time. Make sure your browser has caching disabled if you want to reload these easily.
 
 The editor must be mounted at `/ide/index.html`
 
