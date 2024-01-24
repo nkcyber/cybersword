@@ -48,22 +48,6 @@ This project uses the [CTFd CLI](https://github.com/CTFd/ctfcli) for challenge m
 
 ## Resources
 
-### Examples of other CTFs using CTFd CLI
-
-Look through these for examples on how to configure challenges deployed with Docker:
-
-- <https://github.com/BreizhCTF/breizhctf-2023>
-- <https://github.com/echoCTF/echoCTF.RED>
-- <https://github.com/DragonSecSI/DCTF-2022>
-- <https://github.com/HeroCTF/HeroCTF_v4?>
-- <https://github.com/issessions/ISSessionsCTF2022>
-- <https://github.com/adventofctf/2020>
-- <https://github.com/CTF-Inter-IUT/InterIUT-2020>
-- <https://github.com/les-amateurs/AmateursCTF-Public>
-- <https://github.com/ESAIP-CTF/public-esaip-ctf-2023>
-
-We can also use [the built in templates](https://docs.ctfd.io/docs/management/ctfcli/templates/).
-
 ## Service Deployment
 
 Note that [automatic challenge deployment](https://docs.ctfd.io/tutorials/challenges/deploying-challenges/#automatic-challenge-deployment-service) is not available in the free version, which we're using.
