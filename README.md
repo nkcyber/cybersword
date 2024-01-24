@@ -56,6 +56,8 @@ As such, we have to take a more involved approach to challenge service deploymen
 
 -------
 
+<details>
+<summary>TO DO</summary>
 - Services:
     - how to sync files and images in CTFd?
         - use nkcyber logo in index page and whatnot
@@ -85,6 +87,7 @@ State clear goal in "bookends" for each subject:
     - You don't have to know anything now
     - When you're done, you'll either win or know what you don't know
 
+</details>
 
 ----
 
