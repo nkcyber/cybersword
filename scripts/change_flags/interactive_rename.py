@@ -71,7 +71,7 @@ class InputApp(App):
 	@on(Button.Pressed, "#randomize")
 	def randomize(self) -> None:
 		def get_random(n: int) -> str:
-			return ''.join(random.choices(string.ascii_uppercase + string.digits, k=n))
+			return ''.join(random.choices(string.ascii_lowercase + string.digits, k=n))
 		for flag_input in self.query("FlagInput"):
 			flag_input.value = get_random(15)
 
