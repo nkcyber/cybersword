@@ -57,7 +57,9 @@ As such, we have to take a more involved approach to challenge service deploymen
 -------
 
 <details>
+
 <summary>TO DO</summary>
+
 - Services:
     - how to sync files and images in CTFd?
         - use nkcyber logo in index page and whatnot
