@@ -1,9 +1,12 @@
 import re
 import os
+import random
+import string
 from pathlib import Path
 from typing import Callable
 from textual import on
 from textual.app import App, ComposeResult
+from textual.containers import Horizontal
 from textual.widgets import Input, Button, Static, Label, Header
 from textual.reactive import reactive
 from textual.validation import Function
@@ -49,6 +52,8 @@ class InputApp(App):
 			id="enter-prefix"
 		)
 		yield Static()
+		yield Button("Randomize all flags", id="randomize")
+		yield Static()
 		yield Static("Edit all of the flags below. Any flags that are not edited will keep their original data.")
 		for filepath in self.get_files():
 			yield Static("") # Equivalent to <br> lmao
@@ -61,6 +66,13 @@ class InputApp(App):
 			input_ele.filepath = filepath
 			yield input_ele
 		yield Button("Submit", id="submit")
+
+	@on(Button.Pressed, "#randomize")
+	def randomize(self) -> None:
+		def get_random(n: int) -> str:
+			return ''.join(random.choices(string.ascii_uppercase + string.digits, k=n))
+		for flag_input in self.query("FlagInput"):
+			flag_input.value = get_random(15)
 
 	@on(Button.Pressed, "#submit")
 	def submit(self) -> None:
