@@ -27,7 +27,7 @@ title: NKCyber CyberSword
       	</div>
         <br>
         <div class="text-center">
-          <b><a href="/socials">Follow us on Social Media!</a></b>
+          <b><a href="/about">Follow us on Social Media!</a></b>
         </div>
         <br>
         <h4 class="text-center">
