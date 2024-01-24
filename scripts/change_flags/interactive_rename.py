@@ -29,6 +29,7 @@ class InputApp(App):
 		if match:
 			return match.group(2)
 		self.notify("Flag '%s' in challenge '%s' does not match format prefix{flag}. It will be embedded in your prefix." % (flag, name),
+			severity="error",
 			timeout=30)
 		return flag
 
@@ -78,10 +79,18 @@ class InputApp(App):
 	def submit(self) -> None:
 		prefix = self.query_one("#enter-prefix").value
 		if len(prefix) < 3:
-			self.notify("You must enter a prefix >= 3 characters long!")
+			self.notify("You must enter a prefix >= 3 characters long!",
+					severity="error"
+				)
 			return # don't exit
 
 		for flag_input in self.query("FlagInput"):
+			if not all(c.isalnum() or c == '_' for c in flag_input.value):
+				self.notify(f"Error! Invalid characters in flag '{flag_input.value}'.",
+						severity="error"
+					)
+				return # don't exit
+
 			def new_flag(substr):
 				return "%s{%s}" % (prefix, substr)
 			if len(flag_input.value) > 0:
