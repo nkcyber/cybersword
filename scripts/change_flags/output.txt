@@ -1,0 +1,1 @@
+i.value='' + i.filepath='../../challenges/python/hello_world/challenge.yml', i.value='lists_are_like_arrays' + i.filepath='../../challenges/python/for_loops/challenge.yml'

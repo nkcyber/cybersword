@@ -1,4 +1,6 @@
 import re
+import os
+from pathlib import Path
 from typing import Callable
 from textual import on
 from textual.app import App, ComposeResult
@@ -27,11 +29,15 @@ class InputApp(App):
 			timeout=30)
 		return flag
 
+	def go_to_script_location(self) -> None:
+		absolute_path = os.path.abspath(__file__)
+		dir_name = os.path.dirname(absolute_path)
+		os.chdir(dir_name)
+
 	def get_files(self) -> list[str]:
-		return [
-			"../../challenges/python/hello_world/challenge.yml",
-			"../../challenges/python/for_loops/challenge.yml"
-		]
+		self.go_to_script_location()
+
+		return Path('../../challenges').rglob('*challenge.yml')
 
 	def compose(self) -> ComposeResult:
 		yield Static("What is the prefix for your flags?")
@@ -61,12 +67,7 @@ class InputApp(App):
 		prefix = self.query_one("#enter-prefix").value
 		if len(prefix) < 3:
 			self.notify("You must enter a prefix >= 3 characters long!")
-			return
-
-		with open('output.txt', 'w') as f:
-			inputs = self.query("FlagInput")
-			values = [f'{i.value=} + {i.filepath=}' for i in inputs]
-			f.write(', '.join(values) + "\n")
+			return # don't exit
 
 		for flag_input in self.query("FlagInput"):
 			def new_flag(substr):
