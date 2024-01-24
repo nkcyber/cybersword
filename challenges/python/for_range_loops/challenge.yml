@@ -32,7 +32,7 @@ prompt: |
     # We can use for loops to repeat the same task several times.
     
     # currently, this loop prints "cat" 5 times.
-    # can you modify it to print the value of i?
+    # can you modify it to print the value of the variable i?
     for i in range(5):
         print("cat")
     
