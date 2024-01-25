@@ -19,7 +19,7 @@ prompt: |
     # Reversing '<' makes '>'.
     # Reversing 'q' makes 'p'.
     #
-    # is_balanced is a funciton that takes a string of the characters '<>qp', and returns whether the string is balanced.
+    # is_balanced is a function that takes a string of the characters '<>qp', and returns whether the string is balanced.
     #
     # Every opening '<' must be matched with a closing '>'.
     # Every opening 'q' must be matched with a closing 'p'.
