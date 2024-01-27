@@ -61,7 +61,7 @@ hints:
           - `X OR Y` needs X or Y to be true
           - `--` comments the rest of a line
           ```
-      cost: 10
+      cost: 5
 
 # Requirements are used to make a challenge require another challenge to be
 # solved before being available.

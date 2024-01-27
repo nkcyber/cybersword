@@ -1,0 +1,5 @@
+# this is for use when being embedded in portainer
+services:
+  nginx:
+    ports:
+      - 8099:80
