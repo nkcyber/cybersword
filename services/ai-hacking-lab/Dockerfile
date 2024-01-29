@@ -26,6 +26,7 @@ COPY ./services/ai-hacking-lab/create_prompts.py \
     ./services/ai-hacking-lab/requirements.txt \
     .
 COPY ./challenges/web/ai-1/challenge.yml ./ai-1.yml
+COPY ./challenges/web/ai-2/challenge.yml ./ai-2.yml
 RUN pip install -r requirements.txt \
     && python3 create_prompts.py
 
