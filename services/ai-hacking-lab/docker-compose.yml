@@ -7,13 +7,25 @@ services:
       context: . # build relative to current dir
       dockerfile: ./services/ai-hacking-lab/Dockerfile
     depends_on:
-      - "airedis"
+      - "ai-redis"
+      - "ollama"
     restart: always
     ports:
-        - "8006:8006"
-  airedis:
+      - "8006:8006"
+  ai-redis:
     image: "redis:7.2"
     ports:
       - "6380:6380"
     restart: always
     command: "redis-server --port 6380"
+  ollama:
+    image: "ollama/ollama:0.1.22"
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_volume:/root/.ollama
+    command: "serve && ollama pull tinyllama" # model name must match Dockerfile
+    restart: "unless-stopped"
+
+volumes:
+  ollama_volume:

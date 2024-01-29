@@ -35,6 +35,7 @@ FROM golang:alpine3.19 AS release-stage
 WORKDIR /app
 # TODO SEED DATA
 # COPY --from=seed-data /script/seed_data.sql .
+COPY --from=build-stage /app/assets /app/assets
 COPY --from=build-stage /app/example-prompts.json .
 COPY --from=build-stage /entrypoint .
 # create and set non-root USER
@@ -45,5 +46,5 @@ RUN chown -R appuser:appuser /app && \
 USER appuser
 
 EXPOSE 8006
-ENTRYPOINT ["/app/entrypoint", "-address=0.0.0.0:8006", "-redisAddress=airedis:6380"]
+ENTRYPOINT ["/app/entrypoint", "-address=0.0.0.0:8006", "-redisAddress=ai-redis:6380", "-ollamaAddress=http://ollama:11434"]
 
