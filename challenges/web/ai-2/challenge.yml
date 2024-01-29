@@ -11,13 +11,13 @@ description: |
 
     Can you get the flag from it now?
 
-    Open the chatbot at: <a href="/chat/harder" target="_blank">`/chat/harder`</a>
+    Open the chatbot at: <a href="/chat/difficult" target="_blank">`/chat/difficult`</a>
 
     **Notes:**
     - The chatbot can only send short responses. It might get cut off during a long response.
     - AIs may lie to you. If it tells you a flag, and it doesn't work, you may need to start a new chat and try again.
 
-value: 100
+value: 50
 type: standard
 
 # Optional settings
