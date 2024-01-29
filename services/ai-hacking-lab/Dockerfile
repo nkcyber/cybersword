@@ -18,25 +18,24 @@ COPY ./services/ai-hacking-lab/ai-hacking-lab .
 RUN go mod download
 RUN GOOS=linux go build -C /app -o /entrypoint
 
-# TODO: SEED DATA
-# # build the seed data to include the challenge's flags
-# FROM python:3.9-slim AS seed-data
-# WORKDIR /script
-# COPY ./services/sql-injection-lab/create_seed_data.py \
-#     ./services/sql-injection-lab/requirements.txt \
-#     .
-# COPY ./challenges/sql/basic_injection/challenge.yml ./basic_injection.yml
-# COPY ./challenges/sql/union_injection/challenge.yml ./union_injection.yml
-# RUN pip install -r requirements.txt \
-#     && python3 create_seed_data.py
+# build the seed data to include the challenge's flags
+FROM python:3.9-slim AS seed-data
+WORKDIR /script
+# THIS MUST BE UPDATED FOR ALL CHALLENGES USING THE AI LAB
+COPY ./services/ai-hacking-lab/create_prompts.py \
+    ./services/ai-hacking-lab/requirements.txt \
+    .
+COPY ./challenges/web/ai-1/challenge.yml ./ai-1.yml
+RUN pip install -r requirements.txt \
+    && python3 create_prompts.py
 
 # deploy as non-root user
 FROM golang:alpine3.19 AS release-stage
 WORKDIR /app
 # TODO SEED DATA
-# COPY --from=seed-data /script/seed_data.sql .
 COPY --from=build-stage /app/assets /app/assets
 COPY --from=build-stage /app/example-prompts.json .
+COPY --from=seed-data /script/prompts.json .
 COPY --from=build-stage /entrypoint .
 # create and set non-root USER
 RUN addgroup -g 1001 appuser && \
@@ -46,5 +45,5 @@ RUN chown -R appuser:appuser /app && \
 USER appuser
 
 EXPOSE 8006
-ENTRYPOINT ["/app/entrypoint", "-address=0.0.0.0:8006", "-redisAddress=ai-redis:6380", "-ollamaAddress=http://ollama:11434"]
+ENTRYPOINT ["/app/entrypoint", "-address=0.0.0.0:8006", "-redisAddress=ai-redis:6380", "-ollamaAddress=http://ollama:11434", "-promptPath=./prompts.json"]
 
