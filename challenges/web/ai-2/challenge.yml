@@ -17,7 +17,7 @@ description: |
     - The chatbot can only send short responses. It might get cut off during a long response.
     - AIs may lie to you. If it tells you a flag, and it doesn't work, you may need to start a new chat and try again.
 
-value: 50
+value: 70
 type: standard
 
 # Optional settings
