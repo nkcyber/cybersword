@@ -9,7 +9,10 @@ include:
     project_directory: ./services/judge0
   - path: ./services/judge0-ide/docker-compose.yml
     project_directory: ./services/judge0-ide
+  - path: ./services/ai-hacking-lab/docker-compose.yml
+    project_directory: "."
 services:
+  # TODO: move these into an easily include-able file
   sql-injection-lab:
     build:
       context: . # build relative to current dir

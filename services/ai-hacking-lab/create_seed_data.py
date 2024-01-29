@@ -1,0 +1,49 @@
+# This creates the seed data based on the flags
+# configured in the symlinked `challenge.yml`s
+import yaml # pip install pyyaml
+
+def get_flag_from(filename: str) -> str:
+	with open(filename, "r") as f:
+		challenge_config = yaml.safe_load(f)
+		assert 'flags' in challenge_config
+		assert len(challenge_config['flags']) == 1
+		return challenge_config['flags'][0]
+
+def get_seed_data() -> str:
+	flag_1 = get_flag_from("basic_injection.yml")
+	flag_2 = get_flag_from("union_injection.yml")
+
+	return f'''DROP TABLE IF EXISTS notes;
+CREATE TABLE IF NOT EXISTS notes (
+	name TEXT,
+	securityCode TEXT,
+	content TEXT
+);
+
+-- include flag insertions first so they're returned first
+INSERT INTO documents VALUES("FLAG #1", "SuperDuperSecret", "{flag_1}");
+INSERT INTO notes VALUES("FLAG #2", "SuperSecretNote", "{flag_2}");
+INSERT INTO documents VALUES("Mac & Cheese Ingredients", "General", "Ingredient for Mac & Cheese: Mac, Cheese");
+INSERT INTO documents VALUES("Mac & Cheese Instructions", "General", "Combine Mac with Cheese");
+INSERT INTO documents VALUES("Attack Plans", "SuperDuperSecret", "We attack at dawn. Be there or be square.");
+INSERT INTO documents VALUES("Welcome!", "", "This document has an empty security code");
+
+INSERT INTO documents VALUES("Marketing Plan", "Confidential", "This document outlines the company's marketing strategy.");
+INSERT INTO documents VALUES("Research Paper", "General", "This paper presents the findings of a recent research study.");
+INSERT INTO documents VALUES("Technical Manual", "Internal", "This manual provides instructions for using a specific product or system.");
+INSERT INTO documents VALUES("Press Release", "Public", "This release announces a company news to the public.");
+
+INSERT INTO notes VALUES("Research Proposal", "Confidential", "This proposal was written by Dr. Jane Smith.");
+INSERT INTO notes VALUES("Marketing Report", "Internal", "This report was prepared by the Marketing Team.");
+INSERT INTO notes VALUES("Meeting Agenda", "General", "This agenda was created by the meeting organizer.");
+INSERT INTO notes VALUES("Project Status Update", "Internal", "This update was written by the Project Manager.");'''
+
+def write_seed_data_to_file(filename:  str):
+	with open(filename, "w") as f:
+		f.write(get_seed_data())
+
+def main():
+	write_seed_data_to_file("seed_data.sql")
+
+if __name__ == "__main__":
+	main()
