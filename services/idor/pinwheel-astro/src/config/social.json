@@ -1,10 +1,10 @@
 {
-  "facebook": "https://facebook.com/",
-  "twitter": "https://twitter.com/",
-  "instagram": "",
+  "facebook": "",
+  "twitter": "",
+  "instagram": "https://www.instagram.com/nkcyber_social/",
   "youtube": "",
-  "linkedin": "https://linkedin.com/",
-  "github": "",
+  "linkedin": "https://www.linkedin.com/company/nkcyber",
+  "github": "https://github.com/nkcyber",
   "gitlab": "",
   "medium": "",
   "codepen": "",
@@ -25,6 +25,6 @@
   "email": "",
   "phone": "",
   "address": "",
-  "skype": "https://skype.com/",
+  "skype": "",
   "website": ""
 }
