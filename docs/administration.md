@@ -161,4 +161,14 @@ sudo grub2-mkconfig -o "$(readlink -e /etc/grub2.conf)"
 ```
 
 
+## Remove broken "share" button from all challenges.
+
+If you don't want the share button to be on all the challenges, go to <http://localhost/admin/config>, under "Theme Header", and add the CSS:
+
+```css
+button[x-show="!share_url"] {
+    display: none;
+}
+``
+
 

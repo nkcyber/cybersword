@@ -4,3 +4,6 @@
 [submodule "services/sql-injection-lab/sql-injection-lab"]
 	path = services/sql-injection-lab/sql-injection-lab
 	url = https://github.com/nkcyber/sql-injection-lab.git
+[submodule "services/ai-hacking-lab/ai-hacking-lab"]
+	path = services/ai-hacking-lab/ai-hacking-lab
+	url = https://github.com/nkcyber/ai-hacking-lab.git
