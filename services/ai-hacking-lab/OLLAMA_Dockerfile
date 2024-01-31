@@ -1,0 +1,17 @@
+FROM ollama/ollama:0.1.22
+
+# Copy the custom entry point script into the container
+COPY ./services/ai-hacking-lab/ollama_entrypoint.sh /entrypoint.sh
+
+# Make the script executable
+RUN chmod +x /entrypoint.sh
+
+# Create a non-root user
+# ARG USER=ollama
+# ARG GROUP=ollama
+# RUN addgroup $GROUP && adduser -D -G $GROUP $USER
+
+# USER $USER:$GROUP
+
+ENTRYPOINT ["/entrypoint.sh"]
+
