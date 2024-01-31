@@ -81,7 +81,7 @@ hints:
     - content: |
         ```py
         for name in names:
-			combined_names = # your code here
+            combined_names = # your code here
         ```
       cost: 2
 
