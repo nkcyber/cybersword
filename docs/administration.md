@@ -175,4 +175,21 @@ button[x-show="!share_url"] {
 
 and click "Update".
 
+## Hack to get Ollama working
 
+![image](https://github.com/nkcyber/cybersword/assets/46602241/50e91aa8-bbdd-4caa-a0ad-8f029d804b41)
+
+I really dislike Ollama's two part setup that doesn't fit in docker compose.
+
+As of 2024-01-31, I was able to run:
+
+```bash
+docker compose exec ollama sh
+```
+and then inside
+```bash
+bash # to upgrade from sh to bash
+ollama pull tinyllama # to install the model
+```
+
+I'm actively looking into ways to make this just part of docker compose.
