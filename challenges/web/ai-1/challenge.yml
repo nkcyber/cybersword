@@ -31,18 +31,6 @@ flags:
     # A static case sensitive flag
     - cybersword{ai_go_beep_boop}
 
-# Topics are used to help tell what techniques/information a challenge involves
-# They are generally only visible to admins
-# Accepts strings
-topics:
-    - ai
-
-# Tags are used to provide additional public tagging to a challenge
-# Can be removed if unused
-# Accepts strings
-tags:
-    - ai
-
 # Requirements are used to make a challenge require another challenge to be
 # solved before being available.
 # Can be removed if unused
