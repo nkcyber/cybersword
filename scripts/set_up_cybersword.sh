@@ -3,7 +3,6 @@
 set -e # stop immediately on errors
 set -o pipefail # do not silently ignore errors in pipelines
 cd "${0%/*}" # cd into script's current location
-cd .. # cd into the root directory of the project
 
 ## Copy this script onto your machine for easy setup of this repo
 
