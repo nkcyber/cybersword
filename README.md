@@ -60,6 +60,10 @@ As such, we have to take a more involved approach to challenge service deploymen
 
 <summary>TO DO</summary>
 
+- Important:
+    - Fix bad user experience with AI lab
+    - Modify installation script to support cgroups configuration
+    - Write test suite to check that ai lab & code runner are set up correctly
 - Services:
     - how to sync files and images in CTFd?
         - use nkcyber logo in index page and whatnot
