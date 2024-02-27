@@ -70,12 +70,25 @@ As such, we have to take a more involved approach to challenge service deploymen
     - create introduction page in CTFd explaining goals and how to submit flags.
 - Create challenges:
     - [3d call to action](https://www.youtube.com/watch?v=x3m1PGEfG5c) - Barty needs your help!
-    - Data commented out in webpage
+	- Sensitive Data Exposure: API backend
+	- API you can manipulate (access=false)
+	- encryption method that's not an encryption method
+	- IDOR
+    - flag commented out in webpage
     - developer tools
     - Teach web exploits:
         - https://owasp.org/Top10/A01_2021-Broken_Access_Control/
         - Automatically Incrementing IDs in URL allowing to resource discovery
+    - how to teach binary decompilation in a browser?
+    - embed a flag in a JWT (easy to make!)
+    - teach people that PDFs can phone home
+    - how to teach buffer overflow in a browser?
+    - how to teach timing attack in a browser?
+        - use judge0 scripting environment
+        - prerequisite: binary search in python
+
 - Story:
+    - this has been dropped for practical reasons.
     - We are writing an [excuse plot](https://tvtropes.org/pmwiki/pmwiki.php/Main/ExcusePlot)
         - [So you want to write an excuse plot (advice)](https://tvtropes.org/pmwiki/pmwiki.php/SoYouWantTo/WriteAnExcusePlot)
     - Where did barty come from?
