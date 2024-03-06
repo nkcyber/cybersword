@@ -1,7 +1,7 @@
 # should be run in the context of the base cybersword directory
 FROM node:21.5.0-slim
 WORKDIR /app
-COPY ./services/judge0-wrapper/yarn.lock  .
+COPY ./services/judge0-wrapper/yarn.lock ./services/judge0-wrapper/package.json .
 RUN yarn install --frozen-lockfile && yarn global add pm2
 COPY ./services/judge0-wrapper  .
 COPY ./challenges ./challenges
