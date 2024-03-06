@@ -1,8 +1,0 @@
-version: '3'
-services:
-  idor-server:
-	image: nginx
-  ports:
-	- '8030:80'
-  volumes:
-	- ./pinwheel-astro/dist:/usr/share/nginx/html
