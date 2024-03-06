@@ -134,7 +134,7 @@ everything is configured to run on http port 80 right now. (https needs to be ad
 
 You might need to allow port 80 on your firewall if things are not deploying correctly.
 
-```
+```bash
 # stop firewall on Fedora 39
 sudo systemctl stop firewalld
 ```
@@ -143,23 +143,34 @@ sudo systemctl stop firewalld
 
 ## Troubleshooting
 
+### Judge0 cgroups settings
+
 If you get an error with judge0 that "chown: cannot access '/box': No such file or directory", you may need to follow this advice:
     - <https://github.com/judge0/judge0/issues/325#issuecomment-1429381789>
+      ```bash
+      sudo nano /etc/default/grub
+      # edit this line, and save:
+      GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=0"
+      sudo update-grub
+      sudo reboot
+      ```
+
+#### Fedora solution
 
 Note, it used to be:
-```
+```bash
 GRUB_CMDLINE_LINUX="rhgb quiet"
 ```
 
 And I changed it to
-```
+```bash
 GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=0"
 ```
 and ran on Fedora:
-```
+```bash
 sudo grub2-mkconfig -o "$(readlink -e /etc/grub2.conf)"
+sudo reboot
 ```
-
 
 ## Remove broken "share" button from all challenges.
 
