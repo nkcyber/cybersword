@@ -110,3 +110,11 @@ challenges:
     input_path: "challenges/sql/QUESTION_DATABASE/seed_db.sql"
     challenge_id: 120
     language_id: 82 # SQL, according to Judge0's id system
+
+  - flag_path: "challenges/sql/select_all/challenge.yml"
+    prompt_path: "challenges/sql/select_all/challenge.yml"
+    answer_path: "challenges/sql/select_all/challenge.yml"
+    extra_file_path: "challenges/sql/QUESTION_DATABASE/db.sqlite"
+    input_path: "challenges/sql/QUESTION_DATABASE/seed_db.sql"
+    challenge_id: 130
+    language_id: 82 # SQL, according to Judge0's id system

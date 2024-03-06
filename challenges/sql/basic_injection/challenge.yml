@@ -72,6 +72,7 @@ requirements:
     - "SELECT"
     - "SELECT 2"
     - "SELECT WHERE"
+    - "SELECT ALL"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.
