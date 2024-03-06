@@ -146,14 +146,15 @@ sudo systemctl stop firewalld
 ### Judge0 cgroups settings
 
 If you get an error with judge0 that "chown: cannot access '/box': No such file or directory", you may need to follow this advice:
-    - <https://github.com/judge0/judge0/issues/325#issuecomment-1429381789>
-      ```bash
-      sudo nano /etc/default/grub
-      # edit this line, and save:
-      GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=0"
-      sudo update-grub
-      sudo reboot
-      ```
+<https://github.com/judge0/judge0/issues/325#issuecomment-1429381789>
+    
+```bash
+sudo nano /etc/default/grub
+# edit this line, and save:
+GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=0"
+sudo update-grub
+sudo reboot
+```
 
 #### Fedora solution
 
