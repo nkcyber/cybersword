@@ -32,3 +32,4 @@ then
     # create symlink for docker to read from regardless of domain name
     sudo ln -s "/etc/letsencrypt/live/$DOMAIN_NAME" /etc/letsencrypt/cybersword
 fi
+

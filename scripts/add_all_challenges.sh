@@ -12,4 +12,3 @@ for i in `find . -name 'challenge.yml' 2>/dev/null | sort`; do
     ctf challenge add "$dir"
 done
 
-

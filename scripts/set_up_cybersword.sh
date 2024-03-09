@@ -50,3 +50,4 @@ sudo systemctl enable containerd.service
 sudo usermod -aG docker $USER
 
 echo "Docker has been installed. We recommend rebooting to ensure user permissions are updated."
+
