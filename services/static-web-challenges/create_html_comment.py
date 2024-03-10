@@ -16,7 +16,7 @@ def get_page(flag: str) -> str:
 
 <body>
   <div class="container">
-    <h1>There's more than meets the eye… </h1>
+    <h1>There's more than meets the eye…</h1>
   </div>
   <!--
       Here you go:
