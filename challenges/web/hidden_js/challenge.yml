@@ -1,17 +1,17 @@
 # This file represents the base specification of your challenge. It is used by
 # other tools to install and deploy your challenge.
 
-name: "Hidden HTML"
+name: "Hidden JS"
 author: "Zack Sargent"
 category: Web # should match the 'track' in challenges
 description: |
-    There is more to a webpage than meets the eye...
+    Now, let's talk about JavaScript.
 
-    Here is a basic webpage: <a href="/static/page1.html" target="_blank">`/static/page1.html`</a>
+    Here is another basic webpage: <a href="/static/page2.html" target="_blank">`/static/page2.html`</a>
 
     Can you find the flag hidden inside it?
 
-value: 10
+value: 15
 type: standard
 
 # Optional settings
@@ -21,15 +21,22 @@ type: standard
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - cybersword{ooh_a_hidden_flag}
+    - cybersword{another_hidden_file}
 
 hints:
+    - content: |
+        Remember that all flags are in the format `cybersword{...}`
+      cost: 0
     - content: |
         You will want to use the developer tools built in to your browser.
 
         - <https://en.wikipedia.org/wiki/Web_development_tools>
         - <https://www.digitalocean.com/community/tutorials/how-to-view-the-source-code-of-an-html-document>
+      cost: 0
+    - content: |
+        Specifically, you need to use the JavaScript console in your browser's developer tools.
       cost: 1
+
 
 # Requirements are used to make a challenge require another challenge to be
 # solved before being available.
@@ -37,6 +44,7 @@ hints:
 # Accepts challenge names as strings or challenge IDs as integers
 requirements:
     - "Welcome"
+    - "Hidden HTML"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.

@@ -1,7 +1,7 @@
 from get_flag import get_flag_from
 
 def get_page(flag: str) -> str:
-    return f"""
+    return f"""\
 <!DOCTYPE html>
 <html lang="en">
 
