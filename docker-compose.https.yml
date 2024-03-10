@@ -21,4 +21,8 @@ services:
     build:
       context: . # build relative to current dir
       dockerfile: ./services/judge0-wrapper/Dockerfile
+  static-web-challenges:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/static-web-challenges/Dockerfile
 
