@@ -23,6 +23,14 @@ flags:
     # A static case sensitive flag
     - cybersword{ooh_a_hidden_flag}
 
+hints:
+    - content: |
+        You will want to use the developer tools built in to your browser.
+
+        - <https://en.wikipedia.org/wiki/Web_development_tools>
+        - <https://www.digitalocean.com/community/tutorials/how-to-view-the-source-code-of-an-html-document>
+      cost: 1
+
 # Requirements are used to make a challenge require another challenge to be
 # solved before being available.
 # Can be removed if unused
