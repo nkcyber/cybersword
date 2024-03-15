@@ -1,0 +1,60 @@
+[4mWALL[24m(1)                                User Commands                                [4mWALL[24m(1)
+
+[1mNAME[0m
+       wall - write a message to all users
+
+[1mSYNOPSIS[0m
+       [1mwall [22m[[1m-n[22m] [[1m-t [4m[22mtimeout[24m] [[1m-g [4m[22mgroup[24m] [[4mmessage[24m | [4mfile[24m]
+
+[1mDESCRIPTION[0m
+       [1mwall [22mdisplays a [4mmessage[24m, or the contents of a [4mfile[24m, or otherwise its standard input,
+       on the terminals of all currently logged in users. The command will wrap lines that
+       are longer than 79 characters. Short lines are whitespace padded to have 79
+       characters. The command will always put a carriage return and new line at the end of
+       each line.
+
+       Only the superuser can write on the terminals of users who have chosen to deny
+       messages or are using a program which automatically denies messages.
+
+       Reading from a [4mfile[24m is refused when the invoker is not superuser and the program is
+       set-user-ID or set-group-ID.
+
+[1mOPTIONS[0m
+       [1m-n[22m, [1m--nobanner[0m
+           Suppress the banner.
+
+       [1m-t[22m, [1m--timeout [4m[22mtimeout[0m
+           Abandon the write attempt to the terminals after [4mtimeout[24m seconds. This [4mtimeout[0m
+           must be a positive integer. The default value is 300 seconds, which is a legacy
+           from the time when people ran terminals over modem lines.
+
+       [1m-g[22m, [1m--group [4m[22mgroup[0m
+           Limit printing message to members of group defined as a [4mgroup[24m argument. The
+           argument can be group name or GID.
+
+       [1m-h[22m, [1m--help[0m
+           Display help text and exit.
+
+       [1m-V[22m, [1m--version[0m
+           Print version and exit.
+
+[1mNOTES[0m
+       Some sessions, such as [1mwdm[22m(1x), that have in the beginning of [1mutmp[22m(5) ut_type data a
+       ':' character will not get the message from [1mwall[22m. This is done to avoid write
+       errors.
+
+[1mHISTORY[0m
+       A [1mwall [22mcommand appeared in Version 7 AT&T UNIX.
+
+[1mSEE ALSO[0m
+       [1mmesg[22m(1), [1mtalk[22m(1), [1mwrite[22m(1), [1mshutdown[22m(8)
+
+[1mREPORTING BUGS[0m
+       For bug reports, use the issue tracker at
+       [34mhttps://github.com/util-linux/util-linux/issues[0m.
+
+[1mAVAILABILITY[0m
+       The [1mwall [22mcommand is part of the util-linux package which can be downloaded from
+       [34mLinux Kernel Archive [0m<https://www.kernel.org/pub/linux/utils/util-linux/>.
+
+util-linux 2.39.3                        2023-10-23                                 [4mWALL[24m(1)

@@ -1,15 +1,21 @@
 # This file represents the base specification of your challenge. It is used by
 # other tools to install and deploy your challenge.
 
-name: "Hidden JS"
+name: "JWT"
 author: "Zack Sargent"
 category: Web # should match the 'track' in challenges
 description: |
-    Now, let's talk about JavaScript.
+    > JSON web token (JWT), pronounced "jot", is an open standard ([RFC 7519](https://datatracker.ietf.org/doc/html/rfc7519)) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. Again, JWT is a standard, meaning that all JWTs are tokens, but not all tokens are JWTs.
 
-    Here is another basic webpage: <a href="/static/page2.html" target="_blank">`/static/page2.html`</a>
+    &mdash; [Source](https://auth0.com/docs/secure/tokens/json-web-tokens)
 
-    Can you find the flag hidden inside it?
+    The flag is hidden in a JWT on this page. Can you decode it?
+
+    <a href="/static/page4.html" target="_blank">`/static/page4.html`</a>
+
+    Resources:
+      - <https://en.wikipedia.org/wiki/Base64>
+      - <https://www.google.com/search?q=jwt>
 
 value: 10
 type: standard
@@ -21,21 +27,12 @@ type: standard
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - cybersword{another_hidden_file}
+    - cybersword{jwt_are_you_doing_here}
 
 hints:
     - content: |
         Remember that all flags are in the format `cybersword{...}`
       cost: 0
-    - content: |
-        You will want to use the developer tools built in to your browser.
-
-        - <https://en.wikipedia.org/wiki/Web_development_tools>
-        - <https://www.digitalocean.com/community/tutorials/how-to-view-the-source-code-of-an-html-document>
-      cost: 0
-    - content: |
-        Specifically, you need to use the JavaScript console in your browser's developer tools.
-      cost: 1
 
 
 # Requirements are used to make a challenge require another challenge to be
@@ -45,6 +42,7 @@ hints:
 requirements:
     - "Welcome"
     - "Hidden HTML"
+    - "Hidden JS"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.

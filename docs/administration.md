@@ -139,7 +139,19 @@ You might need to allow port 80 on your firewall if things are not deploying cor
 sudo systemctl stop firewalld
 ```
 
+## Remove broken "share" button from all challenges.
 
+If you don't want the share button to be on all the challenges, go to <http://localhost/admin/config>, under the tab "Theme" and header "Theme Header", and add the HTML:
+
+```html
+<style>
+button[x-show="!share_url"] {
+    display: none;
+}
+</style>
+```
+
+and click "Update".
 
 ## Troubleshooting
 
@@ -147,7 +159,7 @@ sudo systemctl stop firewalld
 
 If you get an error with judge0 that "chown: cannot access '/box': No such file or directory", you may need to follow this advice:
 <https://github.com/judge0/judge0/issues/325#issuecomment-1429381789>
-    
+
 ```bash
 sudo nano /etc/default/grub
 # edit this line, and save:
@@ -173,21 +185,7 @@ sudo grub2-mkconfig -o "$(readlink -e /etc/grub2.conf)"
 sudo reboot
 ```
 
-## Remove broken "share" button from all challenges.
-
-If you don't want the share button to be on all the challenges, go to <http://localhost/admin/config>, under the tab "Theme" and header "Theme Header", and add the HTML:
-
-```html
-<style>
-button[x-show="!share_url"] {
-    display: none;
-}
-</style>
-```
-
-and click "Update".
-
-## Hack to get Ollama working
+### Hack to get Ollama working
 
 ![image](https://github.com/nkcyber/cybersword/assets/46602241/50e91aa8-bbdd-4caa-a0ad-8f029d804b41)
 
@@ -205,3 +203,20 @@ ollama pull tinyllama # to install the model
 ```
 
 I'm actively looking into ways to make this just part of docker compose.
+
+### CTFd doesn't start up immediately
+
+A few times during development today (2024-03-11), I've encountered an issue where CTFd fails to start up.
+
+```
+nginx-1                  | 2024/03/11 15:03:22 [emerg] 1#1: host not found in upstream "ctfd:8000" in /etc/nginx/upstreams.conf:3
+nginx-1                  | nginx: [emerg] host not found in upstream "ctfd:8000" in /etc/nginx/upstreams.conf:3
+nginx-1 exited with code 0
+```
+
+This feels like a race condition between the nginx and ctfd docker images, but I'm not sure.
+
+Either way, I was able to resolve the issue by just running `docker compose down && docker compose up --build` again.
+
+Potential solutions may include [controlling startup order](https://docs.docker.com/compose/startup-order/) in docker.
+

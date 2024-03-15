@@ -1,3 +1,4 @@
+# for ./challenges/web/hidden_js
 import base64
 from get_flag import get_flag_from
 

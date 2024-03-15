@@ -21,6 +21,7 @@ description: |
     Further reading:
       - [OWASP Reference](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References)
       - [OWASP IDOR PDF](https://owasp.org/www-chapter-ghana/assets/slides/IDOR.pdf)
+      - [Hacker Recipies](https://www.thehacker.recipes/web/inputs/idor)
 
 value: 10
 type: standard

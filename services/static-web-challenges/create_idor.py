@@ -1,3 +1,4 @@
+# for ./challenges/web/hidden_idor/
 from get_flag import get_flag_from
 
 def get_page(flag: str) -> str:
