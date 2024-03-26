@@ -32,6 +32,15 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
       - "./challenges/linux/webshell-1:/app/SETUP_FILES:ro"
+  webshell-2:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/webshell/webshell-2/Dockerfile
+    ports:
+      - "9020:9020"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
+      - "./challenges/linux/webshell-2:/app/SETUP_FILES:ro"
   # begin ai-hacking lab ================================
   # note 'include'ing this broke around commit 2db7c1e for unknown reasons
   ai-hacking-lab:
