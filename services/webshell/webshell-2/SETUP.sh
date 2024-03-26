@@ -1,6 +1,8 @@
 #!/bin/bash
 
-apt-get update && apt-get install python3-pip man-db -y
+set -e # exit early on error
+
+apt-get update && apt-get install python3-pip -y
 
 cat << EOF > /etc/motd
 Hi! You're currently running Ubuntu Linux version 22.04.
@@ -32,5 +34,4 @@ EOF
 
 pip3 install -r /root/SETUP_FILES/requirements.txt
 python3 /root/SETUP_FILES/generate_challenge.py
-
 

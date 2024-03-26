@@ -1,6 +1,9 @@
 #!/bin/bash
 
+set -e # exit early on error
+
 apt-get update && apt-get install python3-pip -y
+
 cat << EOF > /etc/motd
 Hi! You're currently running Ubuntu Linux version 22.04.
 We recommend using the mouse to select, copy, and paste text.

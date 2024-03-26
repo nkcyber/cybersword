@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e # exit early on error
+
 apt update && apt install python3-pip vim -y 
 
 cat << EOF > /etc/motd
