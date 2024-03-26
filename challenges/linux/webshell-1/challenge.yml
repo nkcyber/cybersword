@@ -3,7 +3,7 @@
 
 name: "WebShell 1"
 author: "Zack Sargent"
-category: Web # should match the 'track' in challenges
+category: Linux # should match the 'track' in challenges
 description: |
     You might be familiar with Mac and Windows computers, but most servers run Linux.
 
