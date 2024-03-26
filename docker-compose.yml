@@ -9,8 +9,6 @@ include:
     project_directory: ./services/judge0
   - path: ./services/judge0-ide/docker-compose.yml
     project_directory: ./services/judge0-ide
-  - path: ./services/ai-hacking-lab/docker-compose.yml
-    project_directory: "."
 services:
   # TODO: move these into an easily include-able file
   sql-injection-lab:
@@ -25,4 +23,36 @@ services:
     build:
       context: . # build relative to current dir
       dockerfile: ./services/static-web-challenges/Dockerfile
+  # begin ai-hacking lab ================================
+  # note 'include' broke around commit 2db7c1e for unknown reasons
+  ai-hacking-lab:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/ai-hacking-lab/Dockerfile
+    depends_on:
+      - "ai-redis"
+      - "ollama"
+    restart: always
+    ports:
+      - "8006:8006"
+  ai-redis:
+    image: "redis:7.2"
+    ports:
+      - "6380:6380"
+    restart: always
+    command: "redis-server --port 6380"
+  ollama:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/ai-hacking-lab/OLLAMA_Dockerfile
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_volume:/root/.ollama
+    restart: "unless-stopped"
+  # end ai-hacking lab ================================
+
+volumes:
+  ollama_volume:
+
 
