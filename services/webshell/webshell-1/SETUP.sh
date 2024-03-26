@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt update && apt upgrade -y && apt install tmux htop vim -y # install generally helpful packages
+apt-get update && apt-get upgrade -y && apt-get install tmux htop vim python3-pip -y # install generally helpful packages
 cat << EOF > /etc/motd
 Hi! You're currently running Ubuntu Linux version 22.04.
 Run 'help' for help. 
@@ -16,7 +16,6 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 cd "$HOME"
 EOF
 
-echo "files in SETUP_FILES:"
-ls ~/SETUP_FILES
-
+pip3 install -r /root/SETUP_FILES/requirements.txt
+python3 /root/SETUP_FILES/generate_challenge.py
 

@@ -28,9 +28,12 @@ cat <<HEREDOC > Dockerfile
 # should take ~1MB per open console.
 FROM ubuntu:22.04 
 
+# the normal $HOME equals "/root"
+WORKDIR /root
+
 # set up files and scripts
 COPY SETUP.sh SETUP.sh
-COPY SETUP_FILES/ SETUP_FILES/
+COPY SETUP_FILES SETUP_FILES/
 RUN bash SETUP.sh
 RUN rm SETUP.sh
 RUN rm -rf SETUP_FILES/
@@ -41,8 +44,7 @@ EOF
 
 # run docker containers inside this docker container.
 # therefore, each client is isolated from each other
-CMD ["/app/gotty", "-w", "/bin/sh", "--port", "9010", "start-shell.sh"]
+CMD ["/app/gotty", "--port", "9010", "--path", "/webshell-1", "-w", "/bin/sh", "start-shell.sh"]
 
 EXPOSE 9010
-
 
