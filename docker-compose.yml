@@ -23,6 +23,14 @@ services:
     build:
       context: . # build relative to current dir
       dockerfile: ./services/static-web-challenges/Dockerfile
+  webshell-1:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/webshell/webshell-1/Dockerfile
+    ports: 
+      - "9010:9010"
+    volumes:
+      - "./pages:/SETUP_FILES:ro"
   # begin ai-hacking lab ================================
   # note 'include' broke around commit 2db7c1e for unknown reasons
   ai-hacking-lab:
