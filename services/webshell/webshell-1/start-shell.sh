@@ -10,6 +10,8 @@ CONTAINER_TAG="webshell"
 TIMEOUT="300" # 300 seconds = 5 minutes
 
 # Build image from the challenge's Dockerfile and SETUP.sh
+# This takes a moment, but I don't think there's a way to build
+# a docker image during the build step of another image.
 docker build --tag "$CONTAINER_TAG" .
 
 clear # clear output

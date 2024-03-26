@@ -1,9 +1,9 @@
 #!/bin/bash
 
-apt-get update && apt-get upgrade -y && apt-get install tmux htop vim python3-pip -y # install generally helpful packages
+apt-get update && apt-get install python3-pip -y
 cat << EOF > /etc/motd
 Hi! You're currently running Ubuntu Linux version 22.04.
-Run 'help' for help. 
+Run 'help' for help.
 We recommend using the mouse to select, copy, and paste text.
 This terminal will close after 5 minutes to save resources.
 EOF
