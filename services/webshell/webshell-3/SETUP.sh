@@ -1,13 +1,14 @@
 #!/bin/bash
 
-apt-get update && apt-get install python3-pip -y # install generally helpful packages
+apt update && apt install python3-pip vim -y 
+
 cat << EOF > /etc/motd
 Hi! You're currently running Ubuntu Linux version 22.04.
 Run 'help' for help. 
 We recommend using the mouse to select, copy, and paste text.
 This terminal will close after 5 minutes to save resources.
 
-This is the second challenge.
+This is the third challenge.
 EOF
 printf "\ncat /etc/motd\n# hello!\n" >> /root/.bashrc
 
@@ -20,4 +21,12 @@ EOF
 
 pip3 install -r /root/SETUP_FILES/requirements.txt
 python3 /root/SETUP_FILES/generate_challenge.py
+
+# Create a temporary file
+TMPFILE="/tmp/config.sh"
+
+# Add stuff to the temporary file
+echo "source ~/.bashrc" > $TMPFILE
+echo "vim /root/README.txt" >> $TMPFILE
+echo "rm -f $TMPFILE" >> $TMPFILE
 

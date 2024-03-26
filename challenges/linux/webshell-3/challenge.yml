@@ -1,0 +1,50 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+name: "Exit Vim"
+author: "Zack Sargent"
+category: Linux # should match the 'track' in challenges
+description: |
+    Now, let's engage in some meme-driven hacking.
+
+    I've set your terminal to open VIM by default.
+
+    Can you escape?
+
+    Open up a terminal in your browser: <a href="/webshell-3/" target="_blank">`/webshell-3/`</a>
+
+value: 10
+type: standard
+
+# Optional settings
+
+# Flags specify answers that your challenge use. You should generally provide at least one.
+# Can be removed if unused
+# Accepts strings or dictionaries of CTFd API data
+flags:
+    # A static case sensitive flag
+    - cybersword{has_mystical_powers}
+
+hints:
+    - content: |
+        Some of these suggestions are jokes. Some of these are serious. Choose wisely.
+        - <https://github.com/hakluke/how-to-exit-vim>
+      cost: 1
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+requirements:
+    - "Welcome"
+    - "WebShell 1"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+state: visible
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"
+

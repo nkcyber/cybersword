@@ -23,6 +23,7 @@ services:
     build:
       context: . # build relative to current dir
       dockerfile: ./services/static-web-challenges/Dockerfile
+  # TODO: condense all webshells into one yml file and include that instead
   webshell-1:
     build:
       context: . # build relative to current dir
@@ -41,6 +42,15 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
       - "./challenges/linux/webshell-2:/app/SETUP_FILES:ro"
+  webshell-3:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/webshell/webshell-3/Dockerfile
+    ports:
+      - "9030:9030"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
+      - "./challenges/linux/webshell-3:/app/SETUP_FILES:ro"
   # begin ai-hacking lab ================================
   # note 'include'ing this broke around commit 2db7c1e for unknown reasons
   ai-hacking-lab:
