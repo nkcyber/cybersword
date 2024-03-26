@@ -1,14 +1,26 @@
 #!/bin/bash
 
-apt-get update && apt-get install python3-pip -y # install generally helpful packages
+apt-get update && apt-get install python3-pip man-db -y
+
 cat << EOF > /etc/motd
 Hi! You're currently running Ubuntu Linux version 22.04.
-Run 'help' for help. 
 We recommend using the mouse to select, copy, and paste text.
 This terminal will close after 5 minutes to save resources.
 
-This is the second challenge.
+You learned that the command "ls" lists the files in the current directory.
+
+You can use the flag "-a" to list all of the files, including hidden files.
 EOF
+
+echo -e "   \033[38;5;119;48;5;16m # ls -a \033[0m" >> /etc/motd
+
+cat << EOF >> /etc/motd
+This should list several directories, including ".hidden_directory"
+
+Then, use "cd" to change directory into ".hidden_directory.
+Then, use "ls -a" again to see the hidden file containing the flag.
+EOF
+
 printf "\ncat /etc/motd\n# hello!\n" >> /root/.bashrc
 
 cat << "EOF" >> /root/.bashrc
@@ -20,4 +32,5 @@ EOF
 
 pip3 install -r /root/SETUP_FILES/requirements.txt
 python3 /root/SETUP_FILES/generate_challenge.py
+
 

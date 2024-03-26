@@ -20,8 +20,8 @@ def write_seed_data_to_file(filename:  str):
 		f.write(get_seed_data())
 
 def main():
-	os.makedirs("/root/.nothing_here")
-	write_seed_data_to_file("/root/.nothing_here/.hidden_flag.txt")
+	os.makedirs("/root/.hidden_directory")
+	write_seed_data_to_file("/root/.hidden_directory/.hidden_flag.txt")
 
 if __name__ == "__main__":
 	main()
