@@ -2,7 +2,7 @@
 
 set -e # exit early on error
 
-apt-get update && apt-get install python3-pip tmux vim nano -y
+apt-get update && apt-get install python3-pip tmux vim nano golang-go  -y
 
 cat << EOF > /etc/motd
 Hi! You're currently running Ubuntu Linux version 22.04.
@@ -18,6 +18,9 @@ Tools on this machine:
 	- nano
 	- tmux
 
+Run the binary with "./math_challenge"
+Write your script in "script.py"
+
 Good luck!
 EOF
 
@@ -30,4 +33,17 @@ EOF
 
 pip3 install -r /root/SETUP_FILES/requirements.txt
 python3 /root/SETUP_FILES/generate_challenge.py
+
+
+go build math_challenge.go
+
+rm math_challenge.go
+
+cat << EOF > /root/script.py
+from pwn import *
+
+program = process("./math_challenge")
+
+# YOUR CODE GOES HERE
+EOF
 
