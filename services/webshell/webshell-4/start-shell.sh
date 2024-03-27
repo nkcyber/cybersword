@@ -7,7 +7,7 @@ set -e
 
 CONTAINER_NAME="challenge-shell-$RANDOM"
 CONTAINER_TAG="webshell"
-TIMEOUT="1200" # 1200 seconds = 20 minutes
+TIMEOUT="1800" # 1200 seconds = 20 minutes
 
 # Build image from the challenge's Dockerfile and SETUP.sh
 # This takes a moment, but I don't think there's a way to build 
@@ -18,5 +18,5 @@ clear # clear output
 
 (sleep "$TIMEOUT" ; echo "Out of time after $TIMEOUT seconds! Refresh to try again." ; docker stop $CONTAINER_NAME)&
 
-docker run -m 15M --cpu-quota 3000 --name "$CONTAINER_NAME" -it --rm "$CONTAINER_TAG"
+docker run -m 15M --cpu-quota 5000 --name "$CONTAINER_NAME" -it --rm "$CONTAINER_TAG"
 

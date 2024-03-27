@@ -2,12 +2,22 @@
 
 set -e # exit early on error
 
-apt-get update && apt-get install python3-pip -y
+apt-get update && apt-get install python3-pip tmux vim nano -y
 
 cat << EOF > /etc/motd
 Hi! You're currently running Ubuntu Linux version 22.04.
 We recommend using the mouse to select, copy, and paste text.
-This terminal will close after 20 minutes to save resources.
+This terminal will close after 30 minutes to save resources.
+
+When you are done, please type "exit".
+
+Tools on this machine:
+	- python3
+	- ipython
+	- vim
+	- nano
+	- tmux
+
 Good luck!
 EOF
 
@@ -20,3 +30,4 @@ EOF
 
 pip3 install -r /root/SETUP_FILES/requirements.txt
 python3 /root/SETUP_FILES/generate_challenge.py
+

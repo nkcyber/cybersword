@@ -1,3 +1,3 @@
 pyyaml==6.0.1
-pwntools==0.4
+pwntools==4.12.0
 ipython==8.22.2
