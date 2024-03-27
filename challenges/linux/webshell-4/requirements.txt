@@ -1,5 +1,3 @@
 pyyaml==6.0.1
-pip3 install pwntools
-pip3 install ipython
-from pwn import *
-program = process("./math_challenge")
+pwntools==0.4
+ipython==8.22.2
