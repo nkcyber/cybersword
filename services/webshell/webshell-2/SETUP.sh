@@ -19,7 +19,7 @@ echo -e "   \033[38;5;119;48;5;16m # ls -a \033[0m" >> /etc/motd
 cat << EOF >> /etc/motd
 This should list several directories, including ".hidden_directory"
 
-Then, use "cd" to change directory into ".hidden_directory.
+Then, use "cd" to change directory into ".hidden_directory".
 Then, use "ls -a" again to see the hidden file containing the flag.
 EOF
 

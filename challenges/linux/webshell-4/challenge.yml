@@ -11,7 +11,9 @@ description: |
 
     There are **20** math problems to do in 1 second.
 
-value: 60
+    You have 20 minutes before your shell shuts down.
+
+value: 100
 
 flags:
 - "nkcyber{the_tools_have_been_pwned}"

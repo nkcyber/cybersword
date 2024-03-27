@@ -18,8 +18,8 @@ COPY --from=download-gotty /go/bin/gotty /app/gotty
 RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
 
 # copy into image for setup (it will be deleted before the final image)
-COPY ./services/webshell/webshell-3/SETUP.sh SETUP.sh
-COPY ./services/webshell/webshell-3/start-shell.sh start-shell.sh
+COPY ./services/webshell/webshell-4/SETUP.sh SETUP.sh
+COPY ./services/webshell/webshell-4/start-shell.sh start-shell.sh
 
 # create the dockerfile for this challenge
 RUN <<EOF
@@ -39,7 +39,7 @@ RUN rm SETUP.sh
 RUN rm -rf SETUP_FILES/
 
 # Start the new bash shell 
-CMD ["/bin/bash", "--rcfile", "/tmp/config.sh"]
+CMD ["/bin/bash"]
 HEREDOC
 EOF
 
