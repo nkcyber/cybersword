@@ -73,7 +73,7 @@ func startChallenges() chan error {
 }
 
 func printFlag() {
-	fmt.Println("%s")
+	fmt.Println(" """ + flag + """ ")
 }
 
 func main() {
@@ -93,7 +93,7 @@ func main() {
 		return
 	}
 }
-	""" % flag
+	"""
 
 def write_seed_data_to_file(filename:  str):
 	with open(filename, "w") as f:
