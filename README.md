@@ -21,32 +21,12 @@ To get started with this project, install the [CTFd CLI](https://github.com/CTFd
 
 See [`administration.md`](./docs/administration.md) for more information.
 
-## Important Dates
-
-We hope to use this project *at least* at the following events.
-
-### TSA
-**February 9th, 2024**
-
-Technology Student Association (TSA)
-Open to students enrolled in or who have completed technology and education courses, TSA’s membership includes more than 300,000 middle and high school students across the United States.
-
-### TechOlympics
-**February 17-18th, 2024**
-
-https://www.techolympics.org/
-
-Procter and Gamble Global Headquarters ([13 min drive](<https://maps.app.goo.gl/F9oLckWUZ9r1gavx6>))
-
-### STLP24 State Championship
-**March 27th, 2024** ([Link to important dates](<https://docs.google.com/spreadsheets/d/e/2PACX-1vRD4ewagNee3_hIkydpecvRcqDvCveMy5BcG0z_zYb97jKAf49fmfy6pHd5fPiUUkjVrJo3SmacYRka/pubhtml#:~:text=3/27,Championship%20%2D%20Lexington%2C%20KY>))
-
-**Rupp Arena**, Lexington Kentucky ([1 hr drive south](<https://maps.app.goo.gl/rkJ678c678UKmuZ56>))
-
 ## About
 This project uses the [CTFd CLI](https://github.com/CTFd/ctfcli) for challenge management.
 
 ## Resources
+
+Check [the documentation](https://github.com/nkcyber/cybersword/tree/main/docs) for more information about running this event.
 
 ## Service Deployment
 
