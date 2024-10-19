@@ -1,4 +1,10 @@
-### Timing
+# Timing
+
+TL;DR: In practice, this event fits best in a 60 to 90 minute time slot, but we're flexible. It depends a lot on each individual's skill level.
+
+----
+
+### Breakdown
 
 Expected Challenges:
 
