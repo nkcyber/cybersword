@@ -29,5 +29,5 @@ COPY ./services/webshell/ropchain-1/ropchain-lab/ .
 # therefore, each client is isolated from each other
 CMD ["/app/gotty", "--port", "9050", "--path", "/ropchain-1", "-w", "/bin/sh", "start-shell.sh"]
 
-EXPOSE 9020
+EXPOSE 9050
 

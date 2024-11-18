@@ -23,7 +23,7 @@ Here's an overview of the files you're working with:
      - ${LIGHTGREEN}./example-crash${ENDCOLOR}, a normal binary (for analysis)
    - ${FILECOLOR}attack.py${ENDCOLOR}
      - You can edit it with ${GREEN}nano attack.py${ENDCOLOR} or ${GREEN}vim attack.py${ENDCOLOR}.
-     - You can run it with ${GREEN}./attack.py${ENDCOLOR} or ${GREEN}python3 attack.py${ENDCOLOR}
+     - You can run it with ${GREEN}./attack.py${ENDCOLOR} or ${GREEN}python3 attack.py${ENDCOLOR}.
    - ${FILECOLOR}create_table.py${ENDCOLOR} (you can run this with ${LIGHTGREEN}./create_table.py${ENDCOLOR})
    - ${FILECOLOR}flag.txt${ENDCOLOR} (only readable as root)
 
