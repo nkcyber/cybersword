@@ -7,3 +7,6 @@
 [submodule "services/ai-hacking-lab/ai-hacking-lab"]
 	path = services/ai-hacking-lab/ai-hacking-lab
 	url = https://github.com/nkcyber/ai-hacking-lab.git
+[submodule "services/webshell/ropchain-lab/ropchain-lab"]
+	path = services/webshell/ropchain-1/ropchain-lab
+	url = https://github.com/nkcyber/ropchain-lab

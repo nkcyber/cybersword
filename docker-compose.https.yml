@@ -1,4 +1,6 @@
 ## THIS IS OUT OF DATE, AND ONLY KEPT AS REFERENCE
+## I don't have a setup using HTTPS, 
+## so I don't have any way to test this.
 
 # this is the top-level docker-compose.yml that
 # orchestrates the deployment of all services.
