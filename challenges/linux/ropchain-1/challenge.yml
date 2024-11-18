@@ -5,8 +5,6 @@ name: "Ropchain 1"
 author: "Zack Sargent"
 category: Linux # should match the 'track' in challenges
 description: |
-    You might be familiar with Mac and Windows computers, but most servers run Linux.
-
     Open up a terminal in your browser: <a href="/ropchain-1/" target="_blank">`/ropchain-1/`</a>
 
     Can you modify the `attack.py` script to exploit the `./example` binary?
