@@ -1,18 +1,19 @@
 # This file represents the base specification of your challenge. It is used by
 # other tools to install and deploy your challenge.
 
-name: "Ropchain 1"
+name: "Ropchain 2"
 author: "Zack Sargent"
 category: Linux # should match the 'track' in challenges
 description: |
-    Open up a terminal in your browser: <a href="/ropchain-1/" target="_blank">`/ropchain-1/`</a>
+    Open up a terminal in your browser: <a href="/ropchain-2/" target="_blank">`/ropchain-2/`</a>
+
+    This attack requires reading the `example.c` code, and figuring out the logic to get the flag.
 
     Can you modify the `attack.py` script to exploit the `./example` binary?
 
     Tips:
       - To copy, select using your mouse, right click, and click "Copy".
         - Using Ctrl+C will cancel the current process.
-
 
 value: 50
 type: standard
@@ -24,7 +25,7 @@ type: standard
 # Accepts strings or dictionaries of CTFd API data
 flags:
     # A static case sensitive flag
-    - cybersword{binary_exploitation}
+    - cybersword{binary_exploitation_2}
 
 hints:
     - content: |
@@ -51,6 +52,7 @@ hints:
 # Accepts challenge names as strings or challenge IDs as integers
 requirements:
     - "Welcome"
+    - "Ropchain 1"
 
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.

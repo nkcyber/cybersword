@@ -10,3 +10,6 @@
 [submodule "services/webshell/ropchain-lab/ropchain-lab"]
 	path = services/webshell/ropchain-1/ropchain-lab
 	url = https://github.com/nkcyber/ropchain-lab
+[submodule "services/webshell/ropchain-2/ropchain-logic"]
+	path = services/webshell/ropchain-2/ropchain-logic
+	url = https://github.com/nkcyber/ropchain-logic
