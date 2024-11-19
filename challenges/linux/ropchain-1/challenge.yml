@@ -13,6 +13,8 @@ description: |
       - To copy, select using your mouse, right click, and click "Copy".
         - Using Ctrl+C will cancel the current process.
 
+    **LOOK AT THE HINTS IF YOU GET STUCK!!**
+
 
 value: 50
 type: standard
@@ -34,6 +36,10 @@ hints:
           3. edit `./attack.py` using the function name and `eip` offset
           4. run `./attack.py`
       cost: 0
+    - content: |
+        Make sure you're looking at the `cyclic_find` column from `./create_table.py`.
+        This tells you the amount of padding necessary to overwrite each buffer.
+        A value of `-1` means that the buffer was not found in the crash dump, and likely can't be overwritten.
     - content: |
         Consider these resources:
         - https://docs.pwntools.com/en/stable/rop/rop.html
