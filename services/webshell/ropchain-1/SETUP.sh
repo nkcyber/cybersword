@@ -27,6 +27,9 @@ Here's an overview of the files you're working with:
    - ${FILECOLOR}create_table.py${ENDCOLOR} (you can run this with ${LIGHTGREEN}./create_table.py${ENDCOLOR})
    - ${FILECOLOR}flag.txt${ENDCOLOR} (only readable as root)
 
+To copy, select using your mouse, right click, and click "Copy".
+Using Ctrl+C will cancel the current process.
+
 Good luck!
 
 EOF

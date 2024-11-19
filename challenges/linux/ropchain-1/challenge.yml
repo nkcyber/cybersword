@@ -9,6 +9,11 @@ description: |
 
     Can you modify the `attack.py` script to exploit the `./example` binary?
 
+    Tips:
+      - To copy, select using your mouse, right click, and click "Copy".
+        - Using Ctrl+C will cancel the current process.
+
+
 value: 50
 type: standard
 
@@ -23,11 +28,19 @@ flags:
 
 hints:
     - content: |
+        You must:
+          1. read `./example.c` to understand what function you need to call
+          2. run `./create-table.py` to get information about register layout
+          3. edit `./attack.py` using the function name and `eip` offset
+          4. run `./attack.py`
+      cost: 0
+    - content: |
         Consider these resources:
-        - https://tc.gts3.org/cs6265/tut/tut06-01-rop.html
-        - https://github.com/Gallopsled/pwntools-tutorial/blob/master/rop.md
         - https://docs.pwntools.com/en/stable/rop/rop.html
+        - https://github.com/Gallopsled/pwntools-tutorial/blob/master/rop.md
+        - https://textbook.cs161.org/memory-safety/x86.html
         - https://ocw.cs.pub.ro/courses/cns/labs/lab-08
+        - https://tc.gts3.org/cs6265/tut/tut06-01-rop.html
         - https://ir0nstone.gitbook.io/notes/binexp/stack/pie/pie-bypass
         - https://docs.pwntools.com/en/stable/elf/corefile.html
       cost: 1
