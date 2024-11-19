@@ -25,6 +25,7 @@ Here's an overview of the files you're working with:
      - You can edit it with ${GREEN}nano attack.py${ENDCOLOR} or ${GREEN}vim attack.py${ENDCOLOR}.
      - You can run it with ${GREEN}./attack.py${ENDCOLOR} or ${GREEN}python3 attack.py${ENDCOLOR}.
    - ${FILECOLOR}create_table.py${ENDCOLOR} (you can run this with ${LIGHTGREEN}./create_table.py${ENDCOLOR})
+     - Note ${LIGHTGREEN}cyclic_find${ENDCOLOR} indicates the amount of padding required to overwrite each buffer.
    - ${FILECOLOR}flag.txt${ENDCOLOR} (only readable as root)
 
 To copy, select using your mouse, right click, and click "Copy".
