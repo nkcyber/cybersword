@@ -40,6 +40,7 @@ hints:
         Make sure you're looking at the `cyclic_find` column from `./create_table.py`.
         This tells you the amount of padding necessary to overwrite each buffer.
         A value of `-1` means that the buffer was not found in the crash dump, and likely can't be overwritten.
+      cost: 0
     - content: |
         Consider these resources:
         - https://docs.pwntools.com/en/stable/rop/rop.html
