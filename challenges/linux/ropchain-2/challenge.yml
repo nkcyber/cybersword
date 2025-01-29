@@ -15,7 +15,7 @@ description: |
       - To copy, select using your mouse, right click, and click "Copy".
         - Using Ctrl+C will cancel the current process.
 
-value: 50
+value: 100
 type: standard
 
 # Optional settings
