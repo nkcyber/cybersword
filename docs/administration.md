@@ -153,6 +153,20 @@ button[x-show="!share_url"] {
 
 and click "Update".
 
+## Regularly remove garbage docker containers
+
+Despite being run with `--rm`, it looks like the webshell challenges create some cruft that uses up disk space over time.
+
+This can be addressed with a cronjob like:
+
+```cron
+0 0 * * 0 docker system prune -a -f
+```
+
+to automatically clean all unused docker images every Sunday.
+
+Note that we actually want the docker images to sit around for a little bit, just so that they're cached and ready to go for other competitors.
+
 ## Troubleshooting
 
 ### Judge0 cgroups settings
