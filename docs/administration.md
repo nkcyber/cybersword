@@ -199,6 +199,16 @@ sudo grub2-mkconfig -o "$(readlink -e /etc/grub2.conf)"
 sudo reboot
 ```
 
+### Errors in ropchain lab
+
+If you get errors like this in the ropchain lab:
+
+![image](https://github.com/user-attachments/assets/b9951c4e-e3dd-4a0d-965c-21951cf74ef6)
+
+It means you need to run this script from the ropchain labs:
+
+- <https://github.com/nkcyber/ropchain-lab/blob/main/setup-host.sh>
+
 ### Hack to get Ollama working
 
 ![image](https://github.com/nkcyber/cybersword/assets/46602241/50e91aa8-bbdd-4caa-a0ad-8f029d804b41)
