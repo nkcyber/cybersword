@@ -26,6 +26,7 @@ COPY ./services/sql-injection-lab/create_seed_data.py \
     .
 COPY ./challenges/sql/basic_injection/challenge.yml ./basic_injection.yml
 COPY ./challenges/sql/union_injection/challenge.yml ./union_injection.yml
+COPY ./challenges/sql/schema_injection/challenge.yml ./schema_injection.yml
 RUN pip install -r requirements.txt \
     && python3 create_seed_data.py
 
