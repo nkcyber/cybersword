@@ -60,6 +60,15 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
       - "./challenges/linux/webshell-4:/app/SETUP_FILES:ro"
+  webshell-5:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/webshell/webshell-5/Dockerfile
+    ports:
+      - "9055:9055"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
+      - "./challenges/linux/webshell-5:/app/SETUP_FILES:ro"
   ropchain-1:
     build:
       context: . # build relative to current dir
