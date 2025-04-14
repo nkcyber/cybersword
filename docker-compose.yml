@@ -71,31 +71,31 @@ services:
       - "./challenges/linux/ropchain-2:/app/SETUP_FILES:ro"
   # begin ai-hacking lab ================================
   # note 'include'ing this broke around commit 2db7c1e for unknown reasons
-  ai-hacking-lab:
-    build:
-      context: . # build relative to current dir
-      dockerfile: ./services/ai-hacking-lab/Dockerfile
-    depends_on:
-      - "ai-redis"
-      - "ollama"
-    restart: always
-    ports:
-      - "8006:8006"
+  # ai-hacking-lab:
+    # build:
+      # context: . # build relative to current dir
+      # dockerfile: ./services/ai-hacking-lab/Dockerfile
+    # depends_on:
+      # - "ai-redis"
+      # - "ollama"
+    # restart: always
+    # ports:
+      # - "8006:8006"
   ai-redis:
     image: "redis:7.2"
     ports:
       - "6380:6380"
     restart: always
     command: "redis-server --port 6380"
-  ollama:
-    build:
-      context: . # build relative to current dir
-      dockerfile: ./services/ai-hacking-lab/OLLAMA_Dockerfile
-    ports:
-      - "11434:11434"
-    volumes:
-      - ollama_volume:/root/.ollama
-    restart: "unless-stopped"
+  # ollama:
+    # build:
+      # context: . # build relative to current dir
+      # dockerfile: ./services/ai-hacking-lab/OLLAMA_Dockerfile
+    # ports:
+      # - "11434:11434"
+    # volumes:
+      # - ollama_volume:/root/.ollama
+    # restart: "unless-stopped"
 
 volumes:
   ollama_volume:
