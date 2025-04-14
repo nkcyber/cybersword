@@ -41,7 +41,7 @@ requirements:
 # The state of the challenge.
 # If the field is omitted, the challenge is visible by default.
 # If provided, the field can take one of two values: hidden, visible.
-state: visible
+state: hidden
 
 # Specifies what version of the challenge specification was used.
 # Subject to change until ctfcli v1.0.0
