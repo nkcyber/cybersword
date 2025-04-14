@@ -1,0 +1,51 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+name: "Shall Not Pass"
+author: "Zack Sargent"
+category: Linux # should match the 'track' in challenges
+description: |
+    There are many numbered users on the system, with the prefix `challuser`.
+
+    Find the `challuser` with a missing password.
+
+    The flag is in their home directory.
+
+    Open up a terminal in your browser: <a href="/webshell-6/" target="_blank">`/webshell-6/`</a>
+
+value: 20
+type: standard
+
+# Optional settings
+
+# Flags specify answers that your challenge use. You should generally provide at least one.
+# Can be removed if unused
+# Accepts strings or dictionaries of CTFd API data
+flags:
+    # A static case sensitive flag
+    - cybersword{youuuu_shall_not_pass}
+
+# hints:
+    # - content: |
+        # - <https://linux.die.net/man/1/diff>
+      # cost: 1
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+requirements:
+    - "Welcome"
+    - "WebShell 1"
+    - "Exit Vim"
+    - "What's the Diff?"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+state: visible
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"
+
