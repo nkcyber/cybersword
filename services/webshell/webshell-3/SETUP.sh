@@ -24,7 +24,7 @@ EOF
 pip3 install -r /root/SETUP_FILES/requirements.txt
 python3 /root/SETUP_FILES/generate_challenge.py
 
-# Create a temporary file
+# Create a temporary file, run by Dockerfile
 TMPFILE="/tmp/config.sh"
 
 # Add stuff to the temporary file

@@ -39,7 +39,7 @@ RUN rm SETUP.sh
 RUN rm -rf SETUP_FILES/
 
 # Start the new bash shell 
-CMD ["/bin/bash", "--rcfile", "/tmp/config.sh"]
+CMD ["/bin/bash"]
 HEREDOC
 EOF
 
