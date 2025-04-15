@@ -167,6 +167,22 @@ to automatically clean all unused docker images every Sunday.
 
 Note that we actually want the docker images to sit around for a little bit, just so that they're cached and ready to go for other competitors.
 
+## Pre-caching webshell challenges
+
+If you are about to run the webshell challenges, it can be nice to ensure they're all cached for the competitors.
+
+You can run a script like this:
+
+```
+for i in {1..6}; do xdg-open "https://ctf.nkcyber.org/webshell-$i/"; done
+```
+
+To open all of the URLs in your browser.
+
+(Or you could do this manually, or not at all.)
+
+The benefit of doing this is that the first people loading the challenges do not have to wait for the container to build from scratch.
+
 ## Troubleshooting
 
 ### Judge0 cgroups settings
