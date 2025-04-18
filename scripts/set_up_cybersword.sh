@@ -19,7 +19,7 @@ echo
 echo "This script clones the repo recursively."
 echo "It should *NOT* be run in the scripts dir."
 echo "It should copied to the folder in which you want to install Cybersword."
-read -p "Continue? " -n 1 -r
+read -p "Continue? [y/n]" -n 1 -r
 echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then

@@ -25,7 +25,13 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
     sudo snap install core; sudo snap refresh core
     sudo snap install --classic certbot
-    sudo ln -s /snap/bin/certbot /usr/bin/certbot
+    if ! [ -e "/snap/bin/certbot" ]; then
+      echo "/snap/bin/certbot does not exist. Something went wrong. Exiting..."
+      exit 1
+    fi
+    if ! [ -e "/usr/bin/certbot" ]; then
+       sudo ln -s /snap/bin/certbot /usr/bin/certbot
+    fi
     sudo ufw allow http
     sudo ufw allow https
     sudo certbot certonly --standalone -d "$DOMAIN_NAME" --agree-tos  --no-eff-email

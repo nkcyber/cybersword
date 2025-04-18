@@ -1,0 +1,131 @@
+# this is the top-level docker-compose.yml that
+# orchestrates the deployment of all services.
+# This shares configuration across https and http.
+#
+# This is not intended to be run directly, but rather
+# included via `docker-compose.yml` or
+# `docker-compose.https.yml`.
+include:
+  - path: ./services/judge0/docker-compose.yml
+    project_directory: ./services/judge0
+  - path: ./services/judge0-ide/docker-compose.yml
+    project_directory: ./services/judge0-ide
+services:
+  # TODO: move these into an easily include-able file
+  sql-injection-lab:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/sql-injection-lab/Dockerfile
+  judge0-wrapper:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/judge0-wrapper/Dockerfile
+  static-web-challenges:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/static-web-challenges/Dockerfile
+  # TODO: condense all webshells into one yml file and include that instead
+  webshell-1:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/webshell/webshell-1/Dockerfile
+    ports:
+      - "9010:9010"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
+      - "./challenges/linux/webshell-1:/app/SETUP_FILES:ro"
+  webshell-2:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/webshell/webshell-2/Dockerfile
+    ports:
+      - "9020:9020"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
+      - "./challenges/linux/webshell-2:/app/SETUP_FILES:ro"
+  webshell-3:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/webshell/webshell-3/Dockerfile
+    ports:
+      - "9030:9030"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
+      - "./challenges/linux/webshell-3:/app/SETUP_FILES:ro"
+  webshell-4:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/webshell/webshell-4/Dockerfile
+    ports:
+      - "9040:9040"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
+      - "./challenges/linux/webshell-4:/app/SETUP_FILES:ro"
+  webshell-5:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/webshell/webshell-5/Dockerfile
+    ports:
+      - "9055:9055"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
+      - "./challenges/linux/webshell-5:/app/SETUP_FILES:ro"
+  webshell-6:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/webshell/webshell-6/Dockerfile
+    ports:
+      - "9066:9066"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
+      - "./challenges/linux/webshell-6:/app/SETUP_FILES:ro"
+  ropchain-1:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/webshell/ropchain-1/Dockerfile
+    ports:
+      - "9050:9050"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
+      - "./challenges/linux/ropchain-1:/app/SETUP_FILES:ro"
+  ropchain-2:
+    build:
+      context: . # build relative to current dir
+      dockerfile: ./services/webshell/ropchain-2/Dockerfile
+    ports:
+      - "9060:9060"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # allow nesting docker images
+      - "./challenges/linux/ropchain-2:/app/SETUP_FILES:ro"
+  # begin ai-hacking lab ================================
+  # note 'include'ing this broke around commit 2db7c1e for unknown reasons
+  # ai-hacking-lab:
+    # build:
+      # context: . # build relative to current dir
+      # dockerfile: ./services/ai-hacking-lab/Dockerfile
+    # depends_on:
+      # - "ai-redis"
+      # - "ollama"
+    # restart: always
+    # ports:
+      # - "8006:8006"
+  ai-redis:
+    image: "redis:7.2"
+    ports:
+      - "6380:6380"
+    restart: always
+    command: "redis-server --port 6380"
+  # ollama:
+    # build:
+      # context: . # build relative to current dir
+      # dockerfile: ./services/ai-hacking-lab/OLLAMA_Dockerfile
+    # ports:
+      # - "11434:11434"
+    # volumes:
+      # - ollama_volume:/root/.ollama
+    # restart: "unless-stopped"
+
+volumes:
+  ollama_volume:
+
+# end ai-hacking lab ================================
