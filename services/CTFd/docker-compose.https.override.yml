@@ -1,3 +1,6 @@
+# This is used by the docker-compose.https.yml
+# in the root project dir. This depends on
+# setting up https for your domain with certbot.
 services:
   nginx:
     volumes:
