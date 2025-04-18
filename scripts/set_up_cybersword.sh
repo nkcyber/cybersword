@@ -14,6 +14,20 @@ else
     exit 1 # non-zero error code, to indicate error
 fi  
 
+echo "This script is intended to help set up Cybersword on a default digital ocean droplet."
+echo
+echo "This script clones the repo recursively."
+echo "It should *NOT* be run in the scripts dir."
+echo "It should copied to the folder in which you want to install Cybersword."
+read -p "Continue? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+	# handle exits from shell or function but don't exit interactive shell
+    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 
+fi
+
+
 git config --global credential.helper store # not great for security, great for convinence
 echo "If you need to use https authentication with git, create a personal access token:"
 printf "\thttps://github.com/settings/tokens\n"
@@ -50,4 +64,5 @@ sudo systemctl enable containerd.service
 sudo usermod -aG docker $USER
 
 echo "Docker has been installed. We recommend rebooting to ensure user permissions are updated."
+echo "After rebooting, we recommend running ther other setup scripts in ./cybersword/scripts"
 
