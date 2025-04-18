@@ -83,7 +83,7 @@ echo "Specifically, consider:"
 echo "- set_up_https.sh (optional, for Digital Ocean Droplets)"
 echo "- setup_for_ropchain.sh"
 echo "- change_flags/interactive_rename.py"
-echo "- ctf init"
+echo "- ctf init (run from project root)"
 echo "- add_all_challenges.sh"
 echo "- ctf challenge install"
 
