@@ -37,4 +37,5 @@ See [`docs/timing.md`](./docs/timing.md).
 ## Contributors
 
 - [Zack Sargent](https://github.com/zsarge)
+- [Eliezer Nsengi](https://github.com/iAmNsengi)
 - ... and more :eyes:
