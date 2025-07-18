@@ -5,7 +5,7 @@ set -e
 # This script is loaded by gotty, and is in charge of starting a jailed and virtualized console.
 # This script is loaded by "Dockerfile"
 
-CONTAINER_NAME="challenge-shell-$RANDOM"
+CONTAINER_NAME="challenge-shell-$(uuidgen)"
 CONTAINER_TAG="webshell"
 TIMEOUT="300" # 300 seconds = 5 minutes
 
