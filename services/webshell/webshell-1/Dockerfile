@@ -10,6 +10,8 @@ RUN go install github.com/sorenisanerd/gotty@v1.5.0
 
 FROM docker:26-dind AS webshell-host
 
+RUN apk add uuidgen
+
 WORKDIR /app
 
 COPY --from=download-gotty /go/bin/gotty /app/gotty
